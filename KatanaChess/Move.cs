@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KatanaChess
 {
-    public class Move
+    public static class Move
     {
         // Check move for validity
         // All methods under construction [...]
@@ -15,64 +15,129 @@ namespace KatanaChess
             return 1;
         }
 
+        // Will need code for pawn movement in both direction
         // Add start line clause
-        // Will need code for pawn movement in the other direction
-        // Confirm "not blocked" clause (recheck later)
+        // Add "not blocked" clause for double hop
         public static bool isPawnMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
-            int diffX = targetX - initX;
-            int diffY = targetY - initY;
-            if ((theBoard[targetX,targetY] == 0) && (diffX == 1) && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1))
+            bool isValid;
+            int deltaX = targetX - initX;
+            int deltaY = targetY - initY;
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
+                && (theBoard[targetX, targetY] == 0) && (deltaX == 1))
             {
-                return true;
+                isValid = true;
             }
             else
             {
-                return false;
+                isValid = false;
             }
+            return isValid;
         }
 
+        // Ready for testing with GUI
         public static bool isKnightMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
-            int diffX = targetX - initX;
-            int diffY = targetY - initY;
-            if((diffX == 2 && (diffY == 1 || diffY == -1)) || (diffX == 1 && (diffY == -2 || diffY == 2))
-                || (diffX == -1 && (diffY == 2 || diffY == -2)) || (diffX == -2 && (diffY == 1 || diffY == -1))
+            bool isValid;
+            int deltaX = targetX - initX;
+            int deltaY = targetY - initY;
+            if((deltaX == 2 && (deltaY == 1 || deltaY == -1)) || (deltaX == 1 && (deltaY == -2 || deltaY == 2))
+                || (deltaX == -1 && (deltaY == 2 || deltaY == -2)) || (deltaX == -2 && (deltaY == 1 || deltaY == -1))
                 && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1))
             {
-                return true;
+                isValid = true;
             }
             else
             {
-                return false;
+                isValid = false;
             }
+            return isValid;
         }
 
         // Add "not blocked" clause
         public static bool isBishopMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
-            int diffX = targetX - initX;
-            int diffY = targetY - initY;
-            if ((diffX == diffY) && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
-                && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1))
+            bool isValid;
+            int deltaX = targetX - initX;
+            int deltaY = targetY - initY;
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
+                && (deltaX == deltaY) && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1))
             {
-                return true;
+                isValid = true;
             }
             else
             {
-                return false;
+                isValid = false;
             }
+            return isValid;
         }
 
-        // Add "not blocked" clause
+        // Almost ready for testing with GUI
         public static bool isRookMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
-            int diffX = targetX - initX;
-            int diffY = targetY - initY;
-            if (((diffX > 0 && diffY == 0) || (diffY > 0 && diffX == 0)) 
-                && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1))
+            int deltaX = targetX - initX;
+            int deltaY = targetY - initY;
+            if (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
             {
-                return true;
+                if (deltaY == 0)
+                {
+                    if(deltaX == 0)
+                    {
+                        return false;
+                    }
+                    else if (deltaX > 0)
+                    {
+                        for (int i = initX + 1; i < targetX - 1; i++)
+                        {
+                            if(theBoard[initY, i] != 0)
+                            {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    else if (deltaX < 0)
+                    {
+                        for (int i = initX - 1; i > targetX + 1; i--)
+                        {
+                            if (theBoard[initY, i] != 0)
+                            {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                else if (deltaX == 0) 
+                {
+                    if(deltaY == 0)
+                    {
+                        return false;
+                    }
+                    else if(deltaY > 0)
+                    {
+                        for (int i = initY + 1; i < targetY - 1; i++)
+                        {
+                            if (theBoard[i, initX] != 0)
+                            {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    else if (deltaY < 0)
+                    {
+                        for (int i = initY - 1; i > targetY + 1; i--)
+                        {
+                            if (theBoard[i, initX] != 0)
+                            {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                return false;
             }
             else
             {
@@ -80,25 +145,43 @@ namespace KatanaChess
             }
         }
 
-        // Add bishop + rook rules
         // Add "not blocked" clause
-        // Add "not out of bounds" clause
-        public static int isQueenMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static bool isQueenMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
-            int diffX = targetX - initX;
-            int diffY = targetY - initY;
-            return 1;
+            bool isValid;
+            int deltaX = targetX - initX;
+            int deltaY = targetY - initY;
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) 
+                && (((deltaX == deltaY) && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)) 
+                || ((deltaY == 0 && (deltaX > 0 || deltaX < 0)) || (deltaX == 0 && (deltaY > 0 || deltaX < 0)))))
+            {
+                isValid = true;
+            }
+            else
+            {
+                isValid = false;
+            }
+            return isValid;
         }
 
-        // Add movement rules
-        // Add "not blocked" clause
         // Add "doesn't move into check" clause
-        // Add "not out of bounds" clause
-        public static int isKingMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static bool isKingMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
-            int diffX = targetX - initX;
-            int diffY = targetY - initY;
-            return 1;
+            bool isValid;
+            int deltaX = targetX - initX;
+            int deltaY = targetY - initY;
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
+                && (deltaX == 1 && (deltaY == 0 || deltaY == 1 || deltaY == -1)) 
+                || (deltaX == 0 && (deltaY == -1 || deltaY == 1))
+                || (deltaX == -1 && (deltaY == 0 || deltaY == -1 || deltaY == 1)))
+            {
+                isValid = true;
+            }
+            else
+            {
+                isValid = false;
+            }
+            return isValid;
         }
     }
 }

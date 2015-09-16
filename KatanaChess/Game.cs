@@ -28,16 +28,18 @@ using System.Threading.Tasks;
 
 namespace KatanaChess
 {
-    public class Game
+    public static class Game
     {
+        // Add enum for pieceTypes
+
         static int[,] theBoard = new int[,] { {-4, -2, -3, -6, -5, -3, -2, -4},
-                                       {-1, -1, -1, -1, -1, -1, -1, -1},
-                                        {0,  0,  0,  0,  0,  0,  0,  0},
-                                        {0,  0,  0,  0,  0,  0,  0,  0},
-                                        {0,  0,  0,  0,  0,  0,  0,  0},
-                                        {0,  0,  0,  0,  0,  0,  0,  0},
-                                        {1,  1,  1,  1,  1,  1,  1,  1},
-                                        {4,  2,  3,  5,  6,  3,  2,  4}};
+                                              {-1, -1, -1, -1, -1, -1, -1, -1},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {1,  1,  1,  1,  1,  1,  1,  1},
+                                               {4,  2,  3,  5,  6,  3,  2,  4}};
         
         // checks the validity and legality of a move
         // consider untilizing algebraic chess notation for parameter passing
