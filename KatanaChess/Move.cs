@@ -23,7 +23,7 @@ namespace KatanaChess
             bool isValid;
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
-            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) && (deltaX != 0 && deltaY != 0)
                 && (theBoard[targetX, targetY] == 0) && (deltaX == 1))
             {
                 isValid = true;
@@ -41,9 +41,9 @@ namespace KatanaChess
             bool isValid;
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
-            if((deltaX == 2 && (deltaY == 1 || deltaY == -1)) || (deltaX == 1 && (deltaY == -2 || deltaY == 2))
-                || (deltaX == -1 && (deltaY == 2 || deltaY == -2)) || (deltaX == -2 && (deltaY == 1 || deltaY == -1))
-                && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1))
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) && (deltaX != 0 && deltaY != 0)
+                && (deltaX == 2 && (deltaY == 1 || deltaY == -1)) || (deltaX == 1 && (deltaY == -2 || deltaY == 2))
+                || (deltaX == -1 && (deltaY == 2 || deltaY == -2)) || (deltaX == -2 && (deltaY == 1 || deltaY == -1)))
             {
                 isValid = true;
             }
@@ -57,35 +57,65 @@ namespace KatanaChess
         // Add "not blocked" clause
         public static bool isBishopMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
-            bool isValid;
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
-            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
-                && (deltaX == deltaY) && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1))
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) 
+                && (deltaX != 0 && deltaY != 0) && (deltaX == deltaY))
             {
-                isValid = true;
+                if(deltaY > 0)
+                {
+                    if(deltaX > 0)
+                    {
+                        for (int i = initX + 1; i < targetX - 1; i++)
+                        {
+                            if (theBoard[i, i] != 0)
+                            {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    else if(deltaX < 0)
+                    {
+                        // nested for loop where inner iterator is equal to outer
+                    }
+                }
+                else if(deltaY < 0)
+                {
+                    if (deltaX > 0)
+                    {
+                        // nested for loop where inner iterator is equal to outer
+                    }
+                    else if (deltaX < 0)
+                    {
+                        for (int i = initX - 1; i < targetX + 1; i--)
+                        {
+                            if (theBoard[i, i] != 0)
+                            {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                return true;
             }
             else
             {
-                isValid = false;
+                return false;
             }
-            return isValid;
         }
 
-        // Almost ready for testing with GUI
+        // Ready for testing with GUI
         public static bool isRookMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
-            if (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) && (deltaX != 0 && deltaY != 0))
             {
                 if (deltaY == 0)
                 {
-                    if(deltaX == 0)
-                    {
-                        return false;
-                    }
-                    else if (deltaX > 0)
+                    if (deltaX > 0)
                     {
                         for (int i = initX + 1; i < targetX - 1; i++)
                         {
@@ -110,11 +140,7 @@ namespace KatanaChess
                 }
                 else if (deltaX == 0) 
                 {
-                    if(deltaY == 0)
-                    {
-                        return false;
-                    }
-                    else if(deltaY > 0)
+                    if(deltaY > 0)
                     {
                         for (int i = initY + 1; i < targetY - 1; i++)
                         {
@@ -151,7 +177,7 @@ namespace KatanaChess
             bool isValid;
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
-            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) 
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) && (deltaX != 0 && deltaY != 0)
                 && (((deltaX == deltaY) && (targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)) 
                 || ((deltaY == 0 && (deltaX > 0 || deltaX < 0)) || (deltaX == 0 && (deltaY > 0 || deltaX < 0)))))
             {
@@ -170,7 +196,7 @@ namespace KatanaChess
             bool isValid;
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
-            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1)
+            if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) && (deltaX != 0 && deltaY != 0)
                 && (deltaX == 1 && (deltaY == 0 || deltaY == 1 || deltaY == -1)) 
                 || (deltaX == 0 && (deltaY == -1 || deltaY == 1))
                 || (deltaX == -1 && (deltaY == 0 || deltaY == -1 || deltaY == 1)))
