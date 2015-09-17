@@ -54,7 +54,7 @@ namespace KatanaChess
             return isValid;
         }
 
-        // Add "not blocked" clause
+        // Ready for testing with GUI
         public static bool isBishopMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
             int deltaX = targetX - initX;
@@ -77,14 +77,32 @@ namespace KatanaChess
                     }
                     else if(deltaX < 0)
                     {
-                        // nested for loop where inner iterator is equal to outer
+                        int j = initY + 1;
+                        for (int i = initX - 1; i > targetX - 1; i--)
+                        {
+                            if(theBoard[j, i] != 0)
+                            {
+                                return false;
+                            }
+                            j++;
+                        }
+                        return true;
                     }
                 }
                 else if(deltaY < 0)
                 {
                     if (deltaX > 0)
                     {
-                        // nested for loop where inner iterator is equal to outer
+                        int j = initY - 1;
+                        for (int i = initX + 1; i > targetX + 1; i++)
+                        {
+                            if (theBoard[j, i] != 0)
+                            {
+                                return false;
+                            }
+                            j--;
+                        }
+                        return true;
                     }
                     else if (deltaX < 0)
                     {
@@ -171,7 +189,7 @@ namespace KatanaChess
             }
         }
 
-        // Add "not blocked" clause
+        // Add "not blocked" clause by merging rook and bishop block checks
         public static bool isQueenMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
             bool isValid;
