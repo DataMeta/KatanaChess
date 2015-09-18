@@ -41,9 +41,8 @@ namespace KatanaChess
                                                {1,  1,  1,  1,  1,  1,  1,  1},
                                                {4,  2,  3,  5,  6,  3,  2,  4}};
         
-        // checks the validity and legality of a move
-        // consider untilizing algebraic chess notation for parameter passing
-        // method under construction [...] 
+        // Checks the validity and legality of a move
+        // Method under construction [...] 
         static bool validateMove(string pieceType, int initX, int initY, int targetX, int targetY)
         {
             switch (pieceType)
@@ -73,16 +72,16 @@ namespace KatanaChess
             return false;
         }
 
-        // checks for captured pieces within the previous turn and updates the capList
+        // Checks for captured pieces within the previous turn and updates the capList
         static void checkCaptures()
         {
 
         }
 
-        // updates the state of the board in memory
+        // Updates the board display based on board state
         static void updateBoard()
         {
-
+            
         }
     }
 }

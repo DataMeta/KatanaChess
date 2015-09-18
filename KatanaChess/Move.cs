@@ -9,13 +9,13 @@ namespace KatanaChess
     public static class Move
     {
         // Check move for validity
-        // All methods under construction [...]
+        // Is default case needed?
         public static int isMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
         {
             return 1;
         }
 
-        // Will need code for pawn movement in both direction
+        // Will need code for pawn movement in both directions
         // Add start line clause
         // Add "not blocked" clause for double hop
         public static bool isPawnMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
@@ -227,5 +227,11 @@ namespace KatanaChess
             }
             return isValid;
         }
+
+        public static void makeMove()
+        {
+
+        }
+
     }
 }
