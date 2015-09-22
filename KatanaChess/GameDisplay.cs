@@ -21,5 +21,16 @@ namespace KatanaChess
         {
             
         }
+
+        // Tying individual click functions to Game.onClick
+        private void button0_0_Click(object sender, EventArgs e)
+        {
+            Game.onClick(0,0);
+        }
+
+        private void button7_7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

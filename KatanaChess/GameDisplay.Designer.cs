@@ -108,6 +108,7 @@
             this.button0_0.Size = new System.Drawing.Size(58, 58);
             this.button0_0.TabIndex = 1;
             this.button0_0.UseVisualStyleBackColor = false;
+            this.button0_0.Click += new System.EventHandler(this.button0_0_Click);
             // 
             // button0_1
             // 
@@ -738,6 +739,7 @@
             this.button7_7.Size = new System.Drawing.Size(57, 57);
             this.button7_7.TabIndex = 64;
             this.button7_7.UseVisualStyleBackColor = false;
+            this.button7_7.Click += new System.EventHandler(this.button7_7_Click);
             // 
             // button7_6
             // 
@@ -1013,6 +1015,7 @@
             this.Text = "KatanaChess";
             this.Load += new System.EventHandler(this.GameDisplay_Load);
             this.ResumeLayout(false);
+
         }
 
         #endregion

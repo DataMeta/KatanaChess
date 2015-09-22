@@ -32,6 +32,16 @@ namespace KatanaChess
     {
         // Add enum for pieceTypes
 
+        static int clickcount, clickvalue;
+        static int alphaY, alphaX, betaY, betaX; 
+        static bool isValid;
+        static int pieceType;
+
+        public enum pieceID
+        {
+            Pawn, Knight, Bishop, Rook, Queen, King
+        };
+
         static int[,] theBoard = new int[,] { {-4, -2, -3, -6, -5, -3, -2, -4},
                                               {-1, -1, -1, -1, -1, -1, -1, -1},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
@@ -43,45 +53,70 @@ namespace KatanaChess
         
         // Checks the validity and legality of a move
         // Method under construction [...] 
-        static bool validateMove(string pieceType, int initX, int initY, int targetX, int targetY)
+        static public bool validateMove(pieceID switchID, int initY, int initX, int targetY, int targetX)
         {
-            switch (pieceType)
+            switch (switchID)
             {
-                case "pawn":
-                    Move.isPawnMoveValid(initX, initY, targetX, targetY, theBoard);
+                case pieceID.Pawn:
+                    isValid = Move.isPawnMoveValid(initY, initX, targetY, targetX, theBoard);
                     break;
-                case "knight":
-                    Move.isKnightMoveValid(initX, initY, targetX, targetY, theBoard);
+                case pieceID.Knight:
+                    isValid = Move.isKnightMoveValid(initY, initX, targetY, targetX, theBoard);
                     break;
-                case "bishop":
-                    Move.isBishopMoveValid(initX, initY, targetX, targetY, theBoard);
+                case pieceID.Bishop:
+                    isValid = Move.isBishopMoveValid(initY, initX, targetY, targetX, theBoard);
                     break;
-                case "rook":
-                    Move.isRookMoveValid(initX, initY, targetX, targetY, theBoard);
+                case pieceID.Rook:
+                    isValid = Move.isRookMoveValid(initY, initX, targetY, targetX, theBoard);
                     break;
-                case "queen":
-                    Move.isQueenMoveValid(initX, initY, targetX, targetY, theBoard);
+                case pieceID.Queen:
+                    isValid = Move.isQueenMoveValid(initY, initX, targetY, targetX, theBoard);
                     break;
-                case "king":
-                    Move.isKingMoveValid(initX, initY, targetX, targetY, theBoard);
+                case pieceID.King:
+                    isValid = Move.isKingMoveValid(initY, initX, targetY, targetX, theBoard);
                     break;
                 default:
-                    Move.isMoveValid(initX, initY, targetX, targetY, theBoard);
+                    //isValid = Move.isMoveValid(initX, initY, targetX, targetY, theBoard);
                     break;
             }
-            return false;
+            return isValid;
         }
 
         // Checks for captured pieces within the previous turn and updates the capList
-        static void checkCaptures()
+        static public void checkCaptures()
         {
 
         }
 
         // Updates the board display based on board state
-        static void updateBoard()
+        static public void updateBoard()
         {
             
+        }
+
+        static public void onClick(int yVal, int xVal)
+        {
+		    clickcount++;
+		    clickvalue = clickcount % 2;
+		
+		    switch(clickvalue)
+		    {
+			    case 1:
+                    alphaY = yVal;
+                    alphaX = xVal;
+                    pieceType = theBoard[alphaY, alphaX];
+
+                    break;
+                case 2:
+                    betaY = yVal;
+                    betaX = xVal;
+
+                    if(validateMove((pieceID)Math.Abs(pieceType), alphaY, alphaX, betaY, betaX))
+                    {
+                        //Move.makeMove();
+                    }
+                    break;
+            }
         }
     }
 }

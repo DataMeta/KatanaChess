@@ -10,7 +10,7 @@ namespace KatanaChess
     {
         // Check move for validity
         // Is default case needed?
-        public static int isMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static int isMoveValid(int initY, int initX, int targetY, int targetX, int[,] theBoard)
         {
             return 1;
         }
@@ -18,13 +18,13 @@ namespace KatanaChess
         // Will need code for pawn movement in both directions
         // Add start line clause
         // Add "not blocked" clause for double hop
-        public static bool isPawnMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static bool isPawnMoveValid(int initY, int initX, int targetY, int targetX, int[,] theBoard)
         {
             bool isValid;
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
             if ((targetX < 8 && targetX > -1 && targetY < 8 && targetY > -1) && (deltaX != 0 && deltaY != 0)
-                && (theBoard[targetX, targetY] == 0) && (deltaX == 1))
+                && (theBoard[targetY, targetX] == 0) && (deltaX == 1))
             {
                 isValid = true;
             }
@@ -36,7 +36,7 @@ namespace KatanaChess
         }
 
         // Ready for testing with GUI
-        public static bool isKnightMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static bool isKnightMoveValid(int initY, int initX, int targetY, int targetX, int[,] theBoard)
         {
             bool isValid;
             int deltaX = targetX - initX;
@@ -55,7 +55,7 @@ namespace KatanaChess
         }
 
         // Ready for testing with GUI
-        public static bool isBishopMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static bool isBishopMoveValid(int initY, int initX, int targetY, int targetX, int[,] theBoard)
         {
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
@@ -125,7 +125,7 @@ namespace KatanaChess
         }
 
         // Ready for testing with GUI
-        public static bool isRookMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static bool isRookMoveValid(int initY, int initX, int targetY, int targetX, int[,] theBoard)
         {
             int deltaX = targetX - initX;
             int deltaY = targetY - initY;
@@ -190,7 +190,7 @@ namespace KatanaChess
         }
 
         // Add "not blocked" clause by merging rook and bishop block checks
-        public static bool isQueenMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static bool isQueenMoveValid(int initY, int initX, int targetY, int targetX, int[,] theBoard)
         {
             bool isValid;
             int deltaX = targetX - initX;
@@ -209,7 +209,7 @@ namespace KatanaChess
         }
 
         // Add "doesn't move into check" clause
-        public static bool isKingMoveValid(int initX, int initY, int targetX, int targetY, int[,] theBoard)
+        public static bool isKingMoveValid(int initY, int initX, int targetY, int targetX, int[,] theBoard)
         {
             bool isValid;
             int deltaX = targetX - initX;
