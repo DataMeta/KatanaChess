@@ -228,9 +228,10 @@ namespace KatanaChess
             return isValid;
         }
 
-        public static void makeMove()
+        public static void makeMove(int pieceType, int initY, int initX, int targetY, int targetX, int[,] theBoard)
         {
-
+            theBoard[initY, initX] = 0;
+            theBoard[targetY, targetX] = pieceType;
         }
 
     }

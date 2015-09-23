@@ -32,7 +32,7 @@ namespace KatanaChess
     {
         // Add enum for pieceTypes
 
-        static int clickcount, clickvalue;
+        static int clickcount = 0, clickvalue;
         static int alphaY, alphaX, betaY, betaX; 
         static bool isValid;
         static int pieceType;
@@ -82,38 +82,46 @@ namespace KatanaChess
             return isValid;
         }
 
+        // Updates the board display based on board state
+        static public void updateBoard()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    //theBoard[i, j]; [...]
+                }
+            }
+            //this.button0_0.BackgroundImage = global::KatanaChess.Properties.Resources.blackBishop;
+        }
+
         // Checks for captured pieces within the previous turn and updates the capList
         static public void checkCaptures()
         {
 
         }
 
-        // Updates the board display based on board state
-        static public void updateBoard()
-        {
-            
-        }
-
         static public void onClick(int yVal, int xVal)
         {
-		    clickcount++;
 		    clickvalue = clickcount % 2;
+            clickcount++;
 		
 		    switch(clickvalue)
 		    {
-			    case 1:
+			    case 0:
                     alphaY = yVal;
                     alphaX = xVal;
                     pieceType = theBoard[alphaY, alphaX];
-
+                    
                     break;
-                case 2:
+                case 1:
                     betaY = yVal;
                     betaX = xVal;
 
                     if(validateMove((pieceID)Math.Abs(pieceType), alphaY, alphaX, betaY, betaX))
                     {
-                        //Move.makeMove();
+                        Move.makeMove(pieceType, alphaY, alphaX, betaY, betaX, theBoard);
+                        
                     }
                     break;
             }
