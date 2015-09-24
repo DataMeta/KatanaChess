@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatanaChess", "KatanaChess\KatanaChess.csproj", "{F32EDCEE-F875-40F6-970D-8F072E8EE012}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1", "..\Lab1\Lab1\Lab1.csproj", "{80883170-8D65-49D9-BFA2-7CDFAD83629F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,16 @@ Global
 		{F32EDCEE-F875-40F6-970D-8F072E8EE012}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F32EDCEE-F875-40F6-970D-8F072E8EE012}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F32EDCEE-F875-40F6-970D-8F072E8EE012}.Release|Win32.ActiveCfg = Release|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{80883170-8D65-49D9-BFA2-7CDFAD83629F}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

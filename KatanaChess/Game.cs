@@ -30,8 +30,6 @@ namespace KatanaChess
 {
     public static class Game
     {
-        // Add enum for pieceTypes
-
         static int clickcount = 0, clickvalue;
         static int alphaY, alphaX, betaY, betaX; 
         static bool isValid;
@@ -39,17 +37,31 @@ namespace KatanaChess
 
         public enum pieceID
         {
-            Pawn, Knight, Bishop, Rook, Queen, King
+            Pawn = 1, // -1/1
+            Knight = 2, // -2/2
+            Bishop = 3, // -3/3
+            Rook = 4, // -4/4
+            Queen = 5, // -5/5
+            King = 6 // -6/6
         };
 
-        static int[,] theBoard = new int[,] { {-4, -2, -3, -6, -5, -3, -2, -4},
-                                              {-1, -1, -1, -1, -1, -1, -1, -1},
+        //static int[,] theBoard = new int[,] { {-4, -2, -3, -6, -5, -3, -2, -4},
+        //                                      {-1, -1, -1, -1, -1, -1, -1, -1},
+        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
+        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
+        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
+        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
+        //                                       {1,  1,  1,  1,  1,  1,  1,  1},
+        //                                       {4,  2,  3,  5,  6,  3,  2,  4}};
+
+        static int[,] theBoard = new int[,] { {-4, -2, -3, 0, 0, -3, -2, -4},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {1,  1,  1,  1,  1,  1,  1,  1},
-                                               {4,  2,  3,  5,  6,  3,  2,  4}};
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {4,  2,  3,  0,  0,  3,  2,  4}};
         
         // Checks the validity and legality of a move
         // Method under construction [...] 
@@ -83,13 +95,81 @@ namespace KatanaChess
         }
 
         // Updates the board display based on board state
-        static public void updateBoard()
+        // UNDER HEAVY CONSTRUCTION [...]
+        static public void updateBoardView(GameDisplay boardView)
         {
+            pieceID switchID;
             for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
-                    //theBoard[i, j]; [...]
+                    switchID = (pieceID)Math.Abs(theBoard[i, j]);
+                    switch (switchID)
+                    {
+                        case pieceID.Pawn:
+                            if(theBoard[i, j] == 1)
+                            {
+                                boardView.setButtonImage(i, j, 1); 
+                            }
+                            else if (theBoard[i, j] == -1)
+                            {
+                                boardView.setButtonImage(i, j, -1);
+                            }
+                            break;
+                        case pieceID.Knight:
+                            if (theBoard[i, j] == 2)
+                            {
+                                boardView.setButtonImage(i, j, 2);
+                            }
+                            else if (theBoard[i, j] == -2)
+                            {
+                                boardView.setButtonImage(i, j, -2);
+                            }
+                            break;
+                        case pieceID.Bishop:
+                            if (theBoard[i, j] == 3)
+                            {
+                                boardView.setButtonImage(i, j, 3);
+                            }
+                            else if (theBoard[i, j] == -3)
+                            {
+                                boardView.setButtonImage(i, j, -3);
+                            }
+                            break;
+                        case pieceID.Rook:
+                            if (theBoard[i, j] == 4)
+                            {
+                                boardView.setButtonImage(i, j, 4);
+                            }
+                            else if (theBoard[i, j] == -4)
+                            {
+                                boardView.setButtonImage(i, j, -4);
+                            }
+                            break;
+                        case pieceID.Queen:
+                            if (theBoard[i, j] == 5)
+                            {
+                                boardView.setButtonImage(i, j, 5);
+                            }
+                            else if (theBoard[i, j] == -5)
+                            {
+                                boardView.setButtonImage(i, j, -5);
+                            }
+                            break;
+                        case pieceID.King:
+                            if (theBoard[i, j] == 6)
+                            {
+                                boardView.setButtonImage(i, j, 6);
+                            }
+                            else if (theBoard[i, j] == -6)
+                            {
+                                boardView.setButtonImage(i, j, -6);
+                            }
+                            break;
+                        default:
+                            boardView.setButtonImage(i, j, 0);
+                            break;
+                    }
                 }
             }
             //this.button0_0.BackgroundImage = global::KatanaChess.Properties.Resources.blackBishop;
@@ -101,7 +181,7 @@ namespace KatanaChess
 
         }
 
-        static public void onClick(int yVal, int xVal)
+        static public void onClick(int yVal, int xVal, GameDisplay boardView)
         {
 		    clickvalue = clickcount % 2;
             clickcount++;
@@ -121,7 +201,7 @@ namespace KatanaChess
                     if(validateMove((pieceID)Math.Abs(pieceType), alphaY, alphaX, betaY, betaX))
                     {
                         Move.makeMove(pieceType, alphaY, alphaX, betaY, betaX, theBoard);
-                        
+                        updateBoardView(boardView);
                     }
                     break;
             }

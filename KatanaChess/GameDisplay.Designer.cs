@@ -1,6 +1,6 @@
 ﻿namespace KatanaChess
 {
-    partial class GameDisplay
+    public partial class GameDisplay
     {
         /// <summary>
         /// Required designer variable.
@@ -100,6 +100,7 @@
             this.button0_0.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button0_0.BackgroundImage = global::KatanaChess.Properties.Resources.blackRook;
             this.button0_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button0_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button0_0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button0_0.Location = new System.Drawing.Point(12, 12);
@@ -115,6 +116,7 @@
             this.button0_1.BackColor = System.Drawing.Color.DimGray;
             this.button0_1.BackgroundImage = global::KatanaChess.Properties.Resources.blackKnight;
             this.button0_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button0_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button0_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button0_1.Location = new System.Drawing.Point(69, 12);
@@ -129,6 +131,7 @@
             // 
             this.button0_3.BackColor = System.Drawing.Color.DimGray;
             this.button0_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button0_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button0_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button0_3.Location = new System.Drawing.Point(183, 12);
@@ -144,6 +147,7 @@
             this.button0_2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button0_2.BackgroundImage = global::KatanaChess.Properties.Resources.blackBishop;
             this.button0_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button0_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button0_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button0_2.Location = new System.Drawing.Point(126, 12);
@@ -159,6 +163,7 @@
             this.button0_5.BackColor = System.Drawing.Color.DimGray;
             this.button0_5.BackgroundImage = global::KatanaChess.Properties.Resources.blackBishop;
             this.button0_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button0_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button0_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button0_5.Location = new System.Drawing.Point(297, 12);
@@ -173,6 +178,7 @@
             // 
             this.button0_4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button0_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button0_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button0_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button0_4.Location = new System.Drawing.Point(240, 12);
@@ -188,6 +194,7 @@
             this.button0_7.BackColor = System.Drawing.Color.DimGray;
             this.button0_7.BackgroundImage = global::KatanaChess.Properties.Resources.blackRook;
             this.button0_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button0_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button0_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button0_7.Location = new System.Drawing.Point(411, 12);
@@ -203,6 +210,7 @@
             this.button0_6.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button0_6.BackgroundImage = global::KatanaChess.Properties.Resources.blackKnight;
             this.button0_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button0_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button0_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button0_6.Location = new System.Drawing.Point(354, 12);
@@ -217,6 +225,7 @@
             // 
             this.button1_0.BackColor = System.Drawing.Color.DimGray;
             this.button1_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1_0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1_0.Location = new System.Drawing.Point(12, 69);
@@ -231,6 +240,7 @@
             // 
             this.button1_1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button1_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1_1.Location = new System.Drawing.Point(69, 69);
@@ -245,6 +255,7 @@
             // 
             this.button1_3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button1_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1_3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1_3.Location = new System.Drawing.Point(183, 69);
@@ -259,6 +270,7 @@
             // 
             this.button1_2.BackColor = System.Drawing.Color.DimGray;
             this.button1_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1_2.Location = new System.Drawing.Point(126, 69);
@@ -273,6 +285,7 @@
             // 
             this.button1_5.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button1_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1_5.Location = new System.Drawing.Point(297, 69);
@@ -287,6 +300,7 @@
             // 
             this.button1_4.BackColor = System.Drawing.Color.DimGray;
             this.button1_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1_4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1_4.Location = new System.Drawing.Point(240, 69);
@@ -301,6 +315,7 @@
             // 
             this.button1_7.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button1_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1_7.Location = new System.Drawing.Point(411, 69);
@@ -315,6 +330,7 @@
             // 
             this.button1_6.BackColor = System.Drawing.Color.DimGray;
             this.button1_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1_6.Location = new System.Drawing.Point(354, 69);
@@ -329,6 +345,7 @@
             // 
             this.button3_7.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button3_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3_7.Location = new System.Drawing.Point(411, 183);
@@ -343,6 +360,7 @@
             // 
             this.button3_6.BackColor = System.Drawing.Color.DimGray;
             this.button3_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3_6.Location = new System.Drawing.Point(354, 183);
@@ -357,6 +375,7 @@
             // 
             this.button3_5.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button3_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3_5.Location = new System.Drawing.Point(296, 183);
@@ -371,6 +390,7 @@
             // 
             this.button3_4.BackColor = System.Drawing.Color.DimGray;
             this.button3_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3_4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3_4.Location = new System.Drawing.Point(240, 183);
@@ -385,6 +405,7 @@
             // 
             this.button3_3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button3_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3_3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3_3.Location = new System.Drawing.Point(183, 183);
@@ -399,6 +420,7 @@
             // 
             this.button3_2.BackColor = System.Drawing.Color.DimGray;
             this.button3_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3_2.Location = new System.Drawing.Point(126, 183);
@@ -413,6 +435,7 @@
             // 
             this.button3_1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button3_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3_1.Location = new System.Drawing.Point(69, 183);
@@ -427,6 +450,7 @@
             // 
             this.button3_0.BackColor = System.Drawing.Color.DimGray;
             this.button3_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3_0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3_0.Location = new System.Drawing.Point(12, 183);
@@ -441,6 +465,7 @@
             // 
             this.button2_7.BackColor = System.Drawing.Color.DimGray;
             this.button2_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2_7.Location = new System.Drawing.Point(411, 126);
@@ -455,6 +480,7 @@
             // 
             this.button2_6.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button2_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2_6.Location = new System.Drawing.Point(354, 126);
@@ -469,6 +495,7 @@
             // 
             this.button2_5.BackColor = System.Drawing.Color.DimGray;
             this.button2_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2_5.Location = new System.Drawing.Point(297, 126);
@@ -483,6 +510,7 @@
             // 
             this.button2_4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button2_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2_4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2_4.Location = new System.Drawing.Point(240, 126);
@@ -497,6 +525,7 @@
             // 
             this.button2_3.BackColor = System.Drawing.Color.DimGray;
             this.button2_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2_3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2_3.Location = new System.Drawing.Point(183, 126);
@@ -511,6 +540,7 @@
             // 
             this.button2_2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button2_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2_2.Location = new System.Drawing.Point(126, 126);
@@ -525,6 +555,7 @@
             // 
             this.button2_1.BackColor = System.Drawing.Color.DimGray;
             this.button2_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2_1.Location = new System.Drawing.Point(69, 126);
@@ -539,6 +570,7 @@
             // 
             this.button2_0.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button2_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2_0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2_0.Location = new System.Drawing.Point(12, 126);
@@ -553,6 +585,7 @@
             // 
             this.button5_7.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button5_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5_7.Location = new System.Drawing.Point(411, 297);
@@ -567,6 +600,7 @@
             // 
             this.button5_6.BackColor = System.Drawing.Color.DimGray;
             this.button5_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5_6.Location = new System.Drawing.Point(354, 297);
@@ -581,6 +615,7 @@
             // 
             this.button5_5.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button5_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5_5.Location = new System.Drawing.Point(297, 297);
@@ -595,6 +630,7 @@
             // 
             this.button5_4.BackColor = System.Drawing.Color.DimGray;
             this.button5_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5_4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5_4.Location = new System.Drawing.Point(240, 297);
@@ -609,6 +645,7 @@
             // 
             this.button5_3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button5_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5_3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5_3.Location = new System.Drawing.Point(183, 297);
@@ -623,6 +660,7 @@
             // 
             this.button5_2.BackColor = System.Drawing.Color.DimGray;
             this.button5_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5_2.Location = new System.Drawing.Point(126, 297);
@@ -637,6 +675,7 @@
             // 
             this.button5_1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button5_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5_1.Location = new System.Drawing.Point(69, 297);
@@ -651,6 +690,7 @@
             // 
             this.button5_0.BackColor = System.Drawing.Color.DimGray;
             this.button5_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5_0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5_0.Location = new System.Drawing.Point(12, 297);
@@ -665,6 +705,7 @@
             // 
             this.button4_7.BackColor = System.Drawing.Color.DimGray;
             this.button4_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4_7.Location = new System.Drawing.Point(411, 240);
@@ -679,6 +720,7 @@
             // 
             this.button4_6.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button4_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4_6.Location = new System.Drawing.Point(354, 240);
@@ -693,6 +735,7 @@
             // 
             this.button4_5.BackColor = System.Drawing.Color.DimGray;
             this.button4_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4_5.Location = new System.Drawing.Point(297, 240);
@@ -707,6 +750,7 @@
             // 
             this.button4_4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button4_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4_4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4_4.Location = new System.Drawing.Point(240, 240);
@@ -721,6 +765,7 @@
             // 
             this.button4_3.BackColor = System.Drawing.Color.DimGray;
             this.button4_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4_3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4_3.Location = new System.Drawing.Point(183, 240);
@@ -735,6 +780,7 @@
             // 
             this.button4_2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button4_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4_2.Location = new System.Drawing.Point(126, 240);
@@ -749,6 +795,7 @@
             // 
             this.button4_1.BackColor = System.Drawing.Color.DimGray;
             this.button4_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4_1.Location = new System.Drawing.Point(69, 240);
@@ -763,6 +810,7 @@
             // 
             this.button4_0.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button4_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4_0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4_0.Location = new System.Drawing.Point(12, 240);
@@ -778,6 +826,7 @@
             this.button7_7.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button7_7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_7.BackgroundImage")));
             this.button7_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button7_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7_7.Location = new System.Drawing.Point(411, 411);
@@ -793,6 +842,7 @@
             this.button7_6.BackColor = System.Drawing.Color.DimGray;
             this.button7_6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_6.BackgroundImage")));
             this.button7_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button7_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7_6.Location = new System.Drawing.Point(354, 411);
@@ -808,6 +858,7 @@
             this.button7_5.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button7_5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_5.BackgroundImage")));
             this.button7_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button7_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7_5.Location = new System.Drawing.Point(297, 411);
@@ -822,6 +873,7 @@
             // 
             this.button7_4.BackColor = System.Drawing.Color.DimGray;
             this.button7_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button7_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7_4.Location = new System.Drawing.Point(240, 411);
@@ -836,6 +888,7 @@
             // 
             this.button7_3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button7_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button7_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7_3.Location = new System.Drawing.Point(183, 411);
@@ -851,6 +904,7 @@
             this.button7_2.BackColor = System.Drawing.Color.DimGray;
             this.button7_2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_2.BackgroundImage")));
             this.button7_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button7_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7_2.Location = new System.Drawing.Point(126, 411);
@@ -866,6 +920,7 @@
             this.button7_1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button7_1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_1.BackgroundImage")));
             this.button7_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button7_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7_1.Location = new System.Drawing.Point(69, 411);
@@ -881,6 +936,7 @@
             this.button7_0.BackColor = System.Drawing.Color.DimGray;
             this.button7_0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_0.BackgroundImage")));
             this.button7_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button7_0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7_0.Location = new System.Drawing.Point(12, 411);
@@ -895,6 +951,7 @@
             // 
             this.button6_7.BackColor = System.Drawing.Color.DimGray;
             this.button6_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6_7.Location = new System.Drawing.Point(411, 354);
@@ -909,6 +966,7 @@
             // 
             this.button6_6.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button6_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6_6.Location = new System.Drawing.Point(354, 354);
@@ -923,6 +981,7 @@
             // 
             this.button6_5.BackColor = System.Drawing.Color.DimGray;
             this.button6_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6_5.Location = new System.Drawing.Point(297, 354);
@@ -937,6 +996,7 @@
             // 
             this.button6_4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button6_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6_4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6_4.Location = new System.Drawing.Point(240, 354);
@@ -951,6 +1011,7 @@
             // 
             this.button6_3.BackColor = System.Drawing.Color.DimGray;
             this.button6_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6_3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6_3.Location = new System.Drawing.Point(183, 354);
@@ -965,6 +1026,7 @@
             // 
             this.button6_2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button6_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6_2.Location = new System.Drawing.Point(126, 354);
@@ -979,6 +1041,7 @@
             // 
             this.button6_1.BackColor = System.Drawing.Color.DimGray;
             this.button6_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6_1.Location = new System.Drawing.Point(69, 354);
@@ -993,6 +1056,7 @@
             // 
             this.button6_0.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button6_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6_0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6_0.Location = new System.Drawing.Point(12, 354);
@@ -1007,7 +1071,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.button3_5;
             this.ClientSize = new System.Drawing.Size(718, 478);
             this.Controls.Add(this.button7_7);
             this.Controls.Add(this.button7_6);

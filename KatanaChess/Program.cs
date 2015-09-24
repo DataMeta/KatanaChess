@@ -14,6 +14,7 @@ namespace KatanaChess
         [STAThread]
         static void Main()
         {
+            //GameDisplay BoardView = new GameDisplay();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GameDisplay());
