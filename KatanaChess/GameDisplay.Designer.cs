@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameDisplay));
             this.button0_0 = new System.Windows.Forms.Button();
             this.button0_1 = new System.Windows.Forms.Button();
             this.button0_3 = new System.Windows.Forms.Button();
@@ -93,12 +92,12 @@
             this.button6_2 = new System.Windows.Forms.Button();
             this.button6_1 = new System.Windows.Forms.Button();
             this.button6_0 = new System.Windows.Forms.Button();
+            this.boardUpdateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button0_0
             // 
             this.button0_0.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button0_0.BackgroundImage = global::KatanaChess.Properties.Resources.blackRook;
             this.button0_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button0_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -114,7 +113,6 @@
             // button0_1
             // 
             this.button0_1.BackColor = System.Drawing.Color.DimGray;
-            this.button0_1.BackgroundImage = global::KatanaChess.Properties.Resources.blackKnight;
             this.button0_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button0_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -145,7 +143,6 @@
             // button0_2
             // 
             this.button0_2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button0_2.BackgroundImage = global::KatanaChess.Properties.Resources.blackBishop;
             this.button0_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button0_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -161,7 +158,6 @@
             // button0_5
             // 
             this.button0_5.BackColor = System.Drawing.Color.DimGray;
-            this.button0_5.BackgroundImage = global::KatanaChess.Properties.Resources.blackBishop;
             this.button0_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button0_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -192,7 +188,6 @@
             // button0_7
             // 
             this.button0_7.BackColor = System.Drawing.Color.DimGray;
-            this.button0_7.BackgroundImage = global::KatanaChess.Properties.Resources.blackRook;
             this.button0_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button0_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -208,7 +203,6 @@
             // button0_6
             // 
             this.button0_6.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button0_6.BackgroundImage = global::KatanaChess.Properties.Resources.blackKnight;
             this.button0_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button0_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button0_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -824,7 +818,6 @@
             // button7_7
             // 
             this.button7_7.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button7_7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_7.BackgroundImage")));
             this.button7_7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -840,7 +833,6 @@
             // button7_6
             // 
             this.button7_6.BackColor = System.Drawing.Color.DimGray;
-            this.button7_6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_6.BackgroundImage")));
             this.button7_6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -856,7 +848,6 @@
             // button7_5
             // 
             this.button7_5.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button7_5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_5.BackgroundImage")));
             this.button7_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -902,7 +893,6 @@
             // button7_2
             // 
             this.button7_2.BackColor = System.Drawing.Color.DimGray;
-            this.button7_2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_2.BackgroundImage")));
             this.button7_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -918,7 +908,6 @@
             // button7_1
             // 
             this.button7_1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button7_1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_1.BackgroundImage")));
             this.button7_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -934,7 +923,6 @@
             // button7_0
             // 
             this.button7_0.BackColor = System.Drawing.Color.DimGray;
-            this.button7_0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7_0.BackgroundImage")));
             this.button7_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7_0.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -1067,11 +1055,22 @@
             this.button6_0.UseVisualStyleBackColor = false;
             this.button6_0.Click += new System.EventHandler(this.button6_0_Click);
             // 
+            // boardUpdateButton
+            // 
+            this.boardUpdateButton.Location = new System.Drawing.Point(472, 12);
+            this.boardUpdateButton.Name = "boardUpdateButton";
+            this.boardUpdateButton.Size = new System.Drawing.Size(234, 57);
+            this.boardUpdateButton.TabIndex = 65;
+            this.boardUpdateButton.Text = "Update Board View";
+            this.boardUpdateButton.UseVisualStyleBackColor = true;
+            this.boardUpdateButton.Click += new System.EventHandler(this.boardUpdateButton_Click);
+            // 
             // GameDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 478);
+            this.Controls.Add(this.boardUpdateButton);
             this.Controls.Add(this.button7_7);
             this.Controls.Add(this.button7_6);
             this.Controls.Add(this.button7_5);
@@ -1209,6 +1208,7 @@
         private System.Windows.Forms.Button button6_2;
         private System.Windows.Forms.Button button6_1;
         private System.Windows.Forms.Button button6_0;
+        private System.Windows.Forms.Button boardUpdateButton;
     }
 }
 

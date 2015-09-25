@@ -21,19 +21,21 @@ namespace KatanaChess
         {
             
         }
-        //System.Windows.Forms.Button[,] buttonRefContainer = new System.Windows.Forms.Button[,]
-        //        {{this.button0_0, this.button0_1, this.button0_2, this.button0_3, this.button0_4, this.button0_5, this.button0_6, this.button0_7},
-        //         {this.button1_0, this.button1_1, this.button1_2, this.button1_3, this.button1_4, this.button1_5, this.button1_6, this.button1_7},
-        //         {this.button2_0, this.button2_1, this.button2_2, this.button2_3, this.button2_4, this.button2_5, this.button2_6, this.button2_7},
-        //         {this.button3_0, this.button3_1, this.button3_2, this.button3_3, this.button3_4, this.button3_5, this.button3_6, this.button3_7},
-        //         {this.button4_0, this.button4_1, this.button4_2, this.button4_3, this.button4_4, this.button4_5, this.button4_6, this.button4_7},
-        //         {this.button5_0, this.button5_1, this.button5_2, this.button5_3, this.button5_4, this.button5_5, this.button5_6, this.button5_7},
-        //         {this.button6_0, this.button6_1, this.button6_2, this.button6_3, this.button6_4, this.button6_5, this.button6_6, this.button6_7},
-        //         {this.button7_0, this.button7_1, this.button7_2, this.button7_3, this.button7_4, this.button7_5, this.button7_6, this.button7_7}};
-
-        // UNDER HEAVY CONSTRUCTION [...]
+        
+        // Undergoing testing [...]
         public void setButtonImage(int yVal, int xVal, int pieceType)
         {
+            // Use this array to clean up this frankenstein of a function
+            //System.Windows.Forms.Button[,] buttonRefContainer = new System.Windows.Forms.Button[,]
+            //    {{button0_0, button0_1, button0_2, button0_3, button0_4, button0_5, button0_6, button0_7},
+            //     {button1_0, button1_1, button1_2, button1_3, button1_4, button1_5, button1_6, button1_7},
+            //     {button2_0, button2_1, button2_2, button2_3, button2_4, button2_5, button2_6, button2_7},
+            //     {button3_0, button3_1, button3_2, button3_3, button3_4, button3_5, button3_6, button3_7},
+            //     {button4_0, button4_1, button4_2, button4_3, button4_4, button4_5, button4_6, button4_7},
+            //     {button5_0, button5_1, button5_2, button5_3, button5_4, button5_5, button5_6, button5_7},
+            //     {button6_0, button6_1, button6_2, button6_3, button6_4, button6_5, button6_6, button6_7},
+            //     {button7_0, button7_1, button7_2, button7_3, button7_4, button7_5, button7_6, button7_7}};
+
             switch (yVal)
             {
                 case 0:
@@ -3880,6 +3882,11 @@ namespace KatanaChess
         private void button7_7_Click(object sender, EventArgs e)
         {
             Game.onClick(7, 7, this);
+        }
+
+        private void boardUpdateButton_Click(object sender, EventArgs e)
+        {
+            Game.updateBoardView(this);
         }
     }
 }

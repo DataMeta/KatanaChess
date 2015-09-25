@@ -54,54 +54,54 @@ namespace KatanaChess
         //                                       {1,  1,  1,  1,  1,  1,  1,  1},
         //                                       {4,  2,  3,  5,  6,  3,  2,  4}};
 
-        static int[,] theBoard = new int[,] { {-4, -2, -3, 0, 0, -3, -2, -4},
+        static int[,] theBoard = new int[,] { {-4, 0,  -3,  0,  -5,  -3, 0,  -4},
+                                               {0,  0,  0,  -1,  -1,  0,  0,  0},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
                                                {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {4,  2,  3,  0,  0,  3,  2,  4}};
+                                               {0,  0,  0,  1,  1,  0,  0,  0},
+                                               {4,  0,  3,  5,  0,  3,  0,  4}};
         
         // Checks the validity and legality of a move
         // Method under construction [...] 
-        static public bool validateMove(pieceID switchID, int initY, int initX, int targetY, int targetX)
+        static public bool validateMove(pieceID switchID, int initY, int initX, int targY, int targX)
         {
             switch (switchID)
             {
                 case pieceID.Pawn:
-                    isValid = Move.isPawnMoveValid(initY, initX, targetY, targetX, theBoard);
+                    isValid = Move.isPawnMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.Knight:
-                    isValid = Move.isKnightMoveValid(initY, initX, targetY, targetX, theBoard);
+                    isValid = Move.isKnightMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.Bishop:
-                    isValid = Move.isBishopMoveValid(initY, initX, targetY, targetX, theBoard);
+                    isValid = Move.isBishopMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.Rook:
-                    isValid = Move.isRookMoveValid(initY, initX, targetY, targetX, theBoard);
+                    isValid = Move.isRookMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.Queen:
-                    isValid = Move.isQueenMoveValid(initY, initX, targetY, targetX, theBoard);
+                    isValid = Move.isQueenMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.King:
-                    isValid = Move.isKingMoveValid(initY, initX, targetY, targetX, theBoard);
+                    isValid = Move.isKingMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 default:
-                    //isValid = Move.isMoveValid(initX, initY, targetX, targetY, theBoard);
+                    //isValid = Move.isMoveValid(initX, initY, targX, targY, theBoard);
                     break;
             }
             return isValid;
         }
 
         // Updates the board display based on board state
-        // UNDER HEAVY CONSTRUCTION [...]
+        // Undergoing testing [...]
         static public void updateBoardView(GameDisplay boardView)
         {
             pieceID switchID;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i <= 7; i++)
             {
-                for (int j = 0; j < 7; j++)
+                for (int j = 0; j <= 7; j++)
                 {
                     switchID = (pieceID)Math.Abs(theBoard[i, j]);
                     switch (switchID)
@@ -172,7 +172,6 @@ namespace KatanaChess
                     }
                 }
             }
-            //this.button0_0.BackgroundImage = global::KatanaChess.Properties.Resources.blackBishop;
         }
 
         // Checks for captured pieces within the previous turn and updates the capList
@@ -181,6 +180,7 @@ namespace KatanaChess
 
         }
 
+        // Accepts input from buttons
         static public void onClick(int yVal, int xVal, GameDisplay boardView)
         {
 		    clickvalue = clickcount % 2;
