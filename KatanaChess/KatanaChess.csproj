@@ -51,7 +51,9 @@
     <Compile Include="GameDisplay.Designer.cs">
       <DependentUpon>GameDisplay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Katana.cs" />
     <Compile Include="Move.cs" />
+    <Compile Include="Piece.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GameDisplay.resx">

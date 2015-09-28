@@ -45,32 +45,33 @@ namespace KatanaChess
             King = 6 // -6/6
         };
 
-        //static int[,] theBoard = new int[,] { {-4, -2, -3, -6, -5, -3, -2, -4},
-        //                                      {-1, -1, -1, -1, -1, -1, -1, -1},
-        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
-        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
-        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
-        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
-        //                                       {1,  1,  1,  1,  1,  1,  1,  1},
-        //                                       {4,  2,  3,  5,  6,  3,  2,  4}};
+        static int[,] theBoard = new int[,] { {-4, -2, -3, -5, -6, -3, -2, -4},
+                                              {-1, -1, -1, -1, -1, -1, -1, -1},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {0,  0,  0,  0,  0,  0,  0,  0},
+                                               {1,  1,  1,  1,  1,  1,  1,  1},
+                                               {4,  2,  3,  5,  6,  3,  2,  4}};
 
-        static int[,] theBoard = new int[,] { {-4, 0,  -3,  0,  -5,  -3, 0,  -4},
-                                               {0,  0,  0,  -1,  -1,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  1,  1,  0,  0,  0},
-                                               {4,  0,  3,  5,  0,  3,  0,  4}};
+        //static int[,] theBoard = new int[,] { {-4, -2,  -3,  -5,  -6,  -3, -2,  -4},
+        //                                       {-1,  -1,  -1,  -1,  -1,  -1,  -1,  -1},
+        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
+        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
+        //                                       {0,  0,  0,  0,  0,  6,  0,  0},
+        //                                       {0,  0,  0,  0,  1,  0,  0,  0},
+        //                                       {1,  1,  1,  1,  0,  1,  1,  1},
+        //                                       {4,  2,  3,  5,  0,  3,  2,  4}};
         
         // Checks the validity and legality of a move
-        // Method under construction [...] 
-        static public bool validateMove(pieceID switchID, int initY, int initX, int targY, int targX)
+        // Method under construction [.] 
+        static public bool validateMove(int pieceType, int initY, int initX, int targY, int targX)
         {
+            pieceID switchID = (pieceID)Math.Abs(pieceType);
             switch (switchID)
             {
                 case pieceID.Pawn:
-                    isValid = Move.isPawnMoveValid(initY, initX, targY, targX, theBoard);
+                    isValid = Move.isPawnMoveValid(initY, initX, targY, targX, theBoard, pieceType);
                     break;
                 case pieceID.Knight:
                     isValid = Move.isKnightMoveValid(initY, initX, targY, targX, theBoard);
@@ -95,7 +96,6 @@ namespace KatanaChess
         }
 
         // Updates the board display based on board state
-        // Undergoing testing [...]
         static public void updateBoardView(GameDisplay boardView)
         {
             pieceID switchID;
@@ -104,64 +104,65 @@ namespace KatanaChess
                 for (int j = 0; j <= 7; j++)
                 {
                     switchID = (pieceID)Math.Abs(theBoard[i, j]);
+                    pieceType = theBoard[i, j];
                     switch (switchID)
                     {
                         case pieceID.Pawn:
-                            if(theBoard[i, j] == 1)
+                            if (pieceType == 1)
                             {
                                 boardView.setButtonImage(i, j, 1); 
                             }
-                            else if (theBoard[i, j] == -1)
+                            else if (pieceType == -1)
                             {
                                 boardView.setButtonImage(i, j, -1);
                             }
                             break;
                         case pieceID.Knight:
-                            if (theBoard[i, j] == 2)
+                            if (pieceType == 2)
                             {
                                 boardView.setButtonImage(i, j, 2);
                             }
-                            else if (theBoard[i, j] == -2)
+                            else if (pieceType == -2)
                             {
                                 boardView.setButtonImage(i, j, -2);
                             }
                             break;
                         case pieceID.Bishop:
-                            if (theBoard[i, j] == 3)
+                            if (pieceType == 3)
                             {
                                 boardView.setButtonImage(i, j, 3);
                             }
-                            else if (theBoard[i, j] == -3)
+                            else if (pieceType == -3)
                             {
                                 boardView.setButtonImage(i, j, -3);
                             }
                             break;
                         case pieceID.Rook:
-                            if (theBoard[i, j] == 4)
+                            if (pieceType == 4)
                             {
                                 boardView.setButtonImage(i, j, 4);
                             }
-                            else if (theBoard[i, j] == -4)
+                            else if (pieceType == -4)
                             {
                                 boardView.setButtonImage(i, j, -4);
                             }
                             break;
                         case pieceID.Queen:
-                            if (theBoard[i, j] == 5)
+                            if (pieceType == 5)
                             {
                                 boardView.setButtonImage(i, j, 5);
                             }
-                            else if (theBoard[i, j] == -5)
+                            else if (pieceType == -5)
                             {
                                 boardView.setButtonImage(i, j, -5);
                             }
                             break;
                         case pieceID.King:
-                            if (theBoard[i, j] == 6)
+                            if (pieceType == 6)
                             {
                                 boardView.setButtonImage(i, j, 6);
                             }
-                            else if (theBoard[i, j] == -6)
+                            else if (pieceType == -6)
                             {
                                 boardView.setButtonImage(i, j, -6);
                             }
@@ -198,7 +199,7 @@ namespace KatanaChess
                     betaY = yVal;
                     betaX = xVal;
 
-                    if(validateMove((pieceID)Math.Abs(pieceType), alphaY, alphaX, betaY, betaX))
+                    if(validateMove(pieceType, alphaY, alphaX, betaY, betaX))
                     {
                         Move.makeMove(pieceType, alphaY, alphaX, betaY, betaX, theBoard);
                         updateBoardView(boardView);
