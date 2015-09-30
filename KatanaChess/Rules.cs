@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KatanaChess
 {
-    public static class Move
+    public static class Rules
     {
         private static int deltaY;
         private static int deltaX;
@@ -38,7 +38,7 @@ namespace KatanaChess
                         }
                         else if(deltaY == -2 && initY == 6)
                         {
-                            if ((theBoard[targY - 2, targX] != 0) && (theBoard[targY - 1, targX] != 0))
+                            if ((theBoard[targY + 1, targX] != 0) || (theBoard[targY, targX] != 0))
                             {
                                 return false;
                             }
@@ -47,7 +47,7 @@ namespace KatanaChess
                     }
                     else if((deltaX == 1 || deltaX == -1) && deltaY == -1)
                     {
-                        if (theBoard[targY, targX] >= 0)
+                        if (theBoard[targY, targX] >= 0 || theBoard[targY, targX] == -6)
                         {
                             return false;
                         }
@@ -68,7 +68,7 @@ namespace KatanaChess
                         }
                         else if (deltaY == 2 && initY == 1)
                         {
-                            if ((theBoard[targY + 2, targX] != 0) && (theBoard[targY + 1, targX] != 0))
+                            if ((theBoard[targY, targX] != 0) || (theBoard[targY - 1, targX] != 0))
                             {
                                 return false;
                             }
@@ -77,7 +77,7 @@ namespace KatanaChess
                     }
                     else if ((deltaX == 1 || deltaX == -1) && deltaY == 1)
                     {
-                        if (theBoard[targY, targX] <= 0)
+                        if (theBoard[targY, targX] <= 0 || theBoard[targY, targX] == 6)
                         {
                             return false;
                         }
@@ -101,11 +101,11 @@ namespace KatanaChess
                 && (deltaX == 2 && (deltaY == 1 || deltaY == -1)) || (deltaX == 1 && (deltaY == -2 || deltaY == 2))
                 || (deltaX == -1 && (deltaY == 2 || deltaY == -2)) || (deltaX == -2 && (deltaY == 1 || deltaY == -1)))
             {
-                if((theBoard[initY, initX] == 2) && (theBoard[targY, targX] > 0))
+                if ((theBoard[initY, initX] == 2) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
                 {
                     return false;
                 }
-                else if ((theBoard[initY, initX] == -2) && (theBoard[targY, targX] < 0))
+                else if ((theBoard[initY, initX] == -2) && ((theBoard[targY, targX] < 0) || theBoard[targY, targX] == 6))
                 {
                     return false;
                 }
@@ -125,11 +125,11 @@ namespace KatanaChess
             if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) && 
                 (deltaX != 0 && deltaY != 0) && (Math.Abs(deltaX) == Math.Abs(deltaY)))
             {
-                if ((theBoard[initY, initX] == 3) && (theBoard[targY, targX] > 0))
+                if ((theBoard[initY, initX] == 3) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
                 {
                     return false;
                 }
-                else if ((theBoard[initY, initX] == -3) && (theBoard[targY, targX] < 0))
+                else if ((theBoard[initY, initX] == -3) && ((theBoard[targY, targX] < 0) || theBoard[targY, targX] == 6))
                 {
                     return false;
                 }
@@ -207,11 +207,11 @@ namespace KatanaChess
             if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) && 
                 ((deltaX == 0 && deltaY != 0) || (deltaY == 0 && deltaX !=0)))
             {
-                if ((theBoard[initY, initX] == 4) && (theBoard[targY, targX] > 0))
+                if ((theBoard[initY, initX] == 4) && ((theBoard[targY, targX] > 0)  || theBoard[targY, targX] == -6))
                 {
                     return false;
                 }
-                else if ((theBoard[initY, initX] == -4) && (theBoard[targY, targX] < 0))
+                else if ((theBoard[initY, initX] == -4) && ((theBoard[targY, targX] < 0) || theBoard[targY, targX] == 6))
                 {
                     return false;
                 }
@@ -282,11 +282,11 @@ namespace KatanaChess
                 ((Math.Abs(deltaX) == Math.Abs(deltaY)) || 
                 (((deltaX == 0 && deltaY != 0) || (deltaY == 0 && deltaX != 0)))))
             {
-                if ((theBoard[initY, initX] == 5) && (theBoard[targY, targX] > 0))
+                if ((theBoard[initY, initX] == 5) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
                 {
                     return false;
                 }
-                else if ((theBoard[initY, initX] == -5) && (theBoard[targY, targX] < 0))
+                else if ((theBoard[initY, initX] == -5) && ((theBoard[targY, targX] < 0) || theBoard[targY, targX] == 6))
                 {
                     return false;
                 }
@@ -408,7 +408,8 @@ namespace KatanaChess
         }
 
         // Validates properly!
-        // Add "doesn't move into check" clause, or create such a method
+        // Add castling
+        // Add "doesn't move into check" clause, or create a separate method
         public static bool isKingMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
@@ -418,16 +419,20 @@ namespace KatanaChess
                 || (deltaY == 0 && (deltaX == -1 || deltaX == 1))
                 || (deltaY == -1 && (deltaX == 0 || deltaX == -1 || deltaX == 1))))
             {
-                if ((theBoard[initY, initX] == 6) && (theBoard[targY, targX] > 0))
+                if ((theBoard[initY, initX] == 6) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
                 {
                     return false;
                 }
-                else if ((theBoard[initY, initX] == -6) && (theBoard[targY, targX] < 0))
+                else if ((theBoard[initY, initX] == -6) && ((theBoard[targY, targX] < 0) || theBoard[targY, targX] == 6))
                 {
                     return false;
                 }
                 return true;
             }
+            //else if()
+            //{
+                // Add castling logic
+            //}
             else
             {
                 return false;

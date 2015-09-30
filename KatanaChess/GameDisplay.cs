@@ -22,7 +22,7 @@ namespace KatanaChess
             
         }
         
-        // Undergoing testing [...]p;
+        // Undergoing testing [...];
         public void setButtonImage(int yVal, int xVal, int pieceType)
         {
             // Use this array to clean up this frankenstein of a function

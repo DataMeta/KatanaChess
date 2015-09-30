@@ -5,7 +5,7 @@ NAME
         Board.cs
 
 SYNOPSIS
-        int[,] pieceArray --> A 2-dimensional array that keeps track of which pieces are where
+        int[,] theBoard --> A 2-dimensional array that keeps track of which pieces are where
 
 DESCRIPTION
         This class holds the data structures responsible for keeping track of the state of the board.
@@ -53,40 +53,30 @@ namespace KatanaChess
                                                {0,  0,  0,  0,  0,  0,  0,  0},
                                                {1,  1,  1,  1,  1,  1,  1,  1},
                                                {4,  2,  3,  5,  6,  3,  2,  4}};
-
-        //static int[,] theBoard = new int[,] { {-4, -2,  -3,  -5,  -6,  -3, -2,  -4},
-        //                                       {-1,  -1,  -1,  -1,  -1,  -1,  -1,  -1},
-        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
-        //                                       {0,  0,  0,  0,  0,  0,  0,  0},
-        //                                       {0,  0,  0,  0,  0,  6,  0,  0},
-        //                                       {0,  0,  0,  0,  1,  0,  0,  0},
-        //                                       {1,  1,  1,  1,  0,  1,  1,  1},
-        //                                       {4,  2,  3,  5,  0,  3,  2,  4}};
         
-        // Checks the validity and legality of a move
-        // Method under construction [.] 
+        // Checks the validity and legality of a move 
         static public bool validateMove(int pieceType, int initY, int initX, int targY, int targX)
         {
             pieceID switchID = (pieceID)Math.Abs(pieceType);
             switch (switchID)
             {
                 case pieceID.Pawn:
-                    isValid = Move.isPawnMoveValid(initY, initX, targY, targX, theBoard, pieceType);
+                    isValid = Rules.isPawnMoveValid(initY, initX, targY, targX, theBoard, pieceType);
                     break;
                 case pieceID.Knight:
-                    isValid = Move.isKnightMoveValid(initY, initX, targY, targX, theBoard);
+                    isValid = Rules.isKnightMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.Bishop:
-                    isValid = Move.isBishopMoveValid(initY, initX, targY, targX, theBoard);
+                    isValid = Rules.isBishopMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.Rook:
-                    isValid = Move.isRookMoveValid(initY, initX, targY, targX, theBoard);
+                    isValid = Rules.isRookMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.Queen:
-                    isValid = Move.isQueenMoveValid(initY, initX, targY, targX, theBoard);
+                    isValid = Rules.isQueenMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 case pieceID.King:
-                    isValid = Move.isKingMoveValid(initY, initX, targY, targX, theBoard);
+                    isValid = Rules.isKingMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 default:
                     //isValid = Move.isMoveValid(initX, initY, targX, targY, theBoard);
@@ -99,9 +89,9 @@ namespace KatanaChess
         static public void updateBoardView(GameDisplay boardView)
         {
             pieceID switchID;
-            for (int i = 0; i <= 7; i++)
+            for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j <= 7; j++)
+                for (int j = 0; j < 8; j++)
                 {
                     switchID = (pieceID)Math.Abs(theBoard[i, j]);
                     pieceType = theBoard[i, j];
@@ -201,7 +191,9 @@ namespace KatanaChess
 
                     if(validateMove(pieceType, alphaY, alphaX, betaY, betaX))
                     {
-                        Move.makeMove(pieceType, alphaY, alphaX, betaY, betaX, theBoard);
+                        Rules.makeMove(pieceType, alphaY, alphaX, betaY, betaX, theBoard);
+                        updateBoardView(boardView);
+                        Katana.swingKatana(theBoard);
                         updateBoardView(boardView);
                     }
                     break;
