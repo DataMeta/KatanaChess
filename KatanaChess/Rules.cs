@@ -11,6 +11,12 @@ namespace KatanaChess
         private static int deltaY;
         private static int deltaX;
 
+        public static void makeMove(int pieceType, int initY, int initX, int targY, int targX, int[,] theBoard)
+        {
+            theBoard[initY, initX] = 0;
+            theBoard[targY, targX] = pieceType;
+        }
+
         // Is default case needed? Probably not
         public static int isMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -408,41 +414,65 @@ namespace KatanaChess
         }
 
         // Validates properly!
-        // Add castling
         // Add "doesn't move into check" clause, or create a separate method
         public static bool isKingMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
-            if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) //&& (deltaX != 0 && deltaY != 0)
-                && ((deltaY == 1 && (deltaX == 0 || deltaX == 1 || deltaX == -1)) 
-                || (deltaY == 0 && (deltaX == -1 || deltaX == 1))
-                || (deltaY == -1 && (deltaX == 0 || deltaX == -1 || deltaX == 1))))
+            if (targX < 8 && targX > -1 && targY < 8 && targY > -1)
             {
-                if ((theBoard[initY, initX] == 6) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
+                if(((deltaY == 1 && (deltaX == 0 || deltaX == 1 || deltaX == -1)) || 
+                    (deltaY == 0 && (deltaX == -1 || deltaX == 1)) || 
+                    (deltaY == -1 && (deltaX == 0 || deltaX == -1 || deltaX == 1))))
                 {
+                    if ((theBoard[initY, initX] == 6) && ((theBoard[targY, targX] > 0) || (theBoard[targY, targX] == -6)))
+                    {
+                        return false;
+                    }
+                    else if ((theBoard[initY, initX] == -6) && ((theBoard[targY, targX] < 0) || (theBoard[targY, targX] == 6)))
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+                else if(initY == 0 && initX == 4) // Black king castling
+                {
+                    if(deltaX == 2 && theBoard[0,7] == -4 && 
+                        (theBoard[0, 5] == 0 && theBoard[0, 6] == 0)) // Kingside
+                    {
+                        makeMove(-4, 0, 7, 0, 5, theBoard); // Rook moves
+                        return true;
+                    }
+                    else if (deltaX == -2 && theBoard[0, 0] == -4 &&
+                        (theBoard[0, 3] == 0 && theBoard[0, 2] == 0 && theBoard[0, 1] == 0)) // Queenside
+                    {
+                        makeMove(-4, 0, 0, 0, 3, theBoard); // Rook moves
+                        return true;
+                    }
                     return false;
                 }
-                else if ((theBoard[initY, initX] == -6) && ((theBoard[targY, targX] < 0) || theBoard[targY, targX] == 6))
+                else if (initY == 7 && initX == 4) // White king castling
                 {
+                    if (deltaX == 2 && theBoard[7, 7] == 4 &&
+                        (theBoard[7, 5] == 0 && theBoard[7, 6] == 0)) // Kingside
+                    {
+                        makeMove(4, 7, 7, 7, 5, theBoard); // Rook moves
+                        return true;
+                    }
+                    else if (deltaX == -2 && theBoard[7, 0] == 4 &&
+                        (theBoard[7, 3] == 0 && theBoard[7, 2] == 0 && theBoard[7, 1] == 0)) // Queenside
+                    {
+                        makeMove(4, 7, 0, 7, 3, theBoard); // Rook moves
+                        return true;
+                    }
                     return false;
                 }
-                return true;
+                return false;
             }
-            //else if()
-            //{
-                // Add castling logic
-            //}
             else
             {
                 return false;
             }
-        }
-
-        public static void makeMove(int pieceType, int initY, int initX, int targY, int targX, int[,] theBoard)
-        {
-            theBoard[initY, initX] = 0;
-            theBoard[targY, targX] = pieceType;
         }
     }
 }
