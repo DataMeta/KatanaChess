@@ -47,12 +47,30 @@ namespace KatanaChess
 
         static int[,] theBoard = new int[,] { {-4, -2, -3, -5, -6, -3, -2, -4},
                                               {-1, -1, -1, -1, -1, -1, -1, -1},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {0,  0,  0,  0,  0,  0,  0,  0},
-                                               {1,  1,  1,  1,  1,  1,  1,  1},
-                                               {4,  2,  3,  5,  6,  3,  2,  4}};
+                                              { 0,  0,  0,  0,  0,  0,  0,  0},
+                                              { 0,  0,  0,  0,  0,  0,  0,  0},
+                                              { 0,  0,  0,  0,  0,  0,  0,  0},
+                                              { 0,  0,  0,  0,  0,  0,  0,  0},
+                                              { 1,  1,  1,  1,  1,  1,  1,  1},
+                                              { 4,  2,  3,  5,  6,  3,  2,  4}};
+
+        //static int[,] theBoard = new int[,] { { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  5,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0, -6,  0,  0,  1,  0},
+        //                                      { 0,  2,  0,  0,  4,  0,  0,  0},
+        //                                      { 0,  0,  0,  3,  0,  0,  0,  0},
+        //                                      {-1,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0}};
+
+        //static int[,] theBoard = new int[,] { { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  0,  0,  0}};
         
         // Checks the validity and legality of a move 
         static public bool validateMove(int pieceType, int initY, int initX, int targY, int targX)
@@ -79,7 +97,7 @@ namespace KatanaChess
                     isValid = Rules.isKingMoveValid(initY, initX, targY, targX, theBoard);
                     break;
                 default:
-                    //isValid = Move.isMoveValid(initX, initY, targX, targY, theBoard);
+                    isValid = false;
                     break;
             }
             return isValid;

@@ -138,9 +138,13 @@ namespace KatanaChess
         // Determines a move to make for a ply
         static public void chooseMove(int[,] theBoard, List<Move> validMoveList)
         {
-            //Move theMove = new Move();
-            //Random r = new Random();
-            //int rand = r.Next(0, validMoveList.Count);
+            Random r = new Random();
+            
+            if (validMoveList.Count == 0)
+            {
+                MessageBox.Show("Checkmate!");
+                return;
+            }
 
             for (int i = 0; i < validMoveList.Count; i++)
             {
@@ -151,13 +155,29 @@ namespace KatanaChess
                     indexOfStronkMove = i;
                 }
             }
+            
+            if(stronkMove == 0)
+            {
+                int rand = r.Next(validMoveList.Count);
+                initPiece = validMoveList.ElementAt(rand).initPiece;
+                initY = validMoveList.ElementAt(rand).initY;
+                initX = validMoveList.ElementAt(rand).initX;
+                targPiece = validMoveList.ElementAt(rand).targPiece;
+                targY = validMoveList.ElementAt(rand).targY;
+                targX = validMoveList.ElementAt(rand).targX;
+            }
+            else
+            {
+                initPiece = validMoveList.ElementAt(indexOfStronkMove).initPiece;
+                initY = validMoveList.ElementAt(indexOfStronkMove).initY;
+                initX = validMoveList.ElementAt(indexOfStronkMove).initX;
+                targPiece = validMoveList.ElementAt(indexOfStronkMove).targPiece;
+                targY = validMoveList.ElementAt(indexOfStronkMove).targY;
+                targX = validMoveList.ElementAt(indexOfStronkMove).targX;
+            }
 
-            initPiece = validMoveList.ElementAt(indexOfStronkMove).initPiece;
-            initY = validMoveList.ElementAt(indexOfStronkMove).initY;
-            initX = validMoveList.ElementAt(indexOfStronkMove).initX;
-            targPiece = validMoveList.ElementAt(indexOfStronkMove).targPiece;
-            targY = validMoveList.ElementAt(indexOfStronkMove).targY;
-            targX = validMoveList.ElementAt(indexOfStronkMove).targX;
+            stronkMove = 0;
+            indexOfStronkMove = 0;
 
             Rules.makeMove(initPiece, initY, initX, targY, targX, theBoard);
         }
