@@ -32,11 +32,11 @@ namespace KatanaChess
         private static int indexOfStronkMove = 0;
 
         private static int pawnVal = 10;
-        private static int knightVal = 30;
-        private static int bishopVal = 30;
-        private static int rookVal = 50;
-        private static int queenVal = 90;
-        private static int kingVal = 40;
+        private static int knightVal = 32;
+        private static int bishopVal = 33;
+        private static int rookVal = 55;
+        private static int queenVal = 100;
+        private static int kingVal = 10000;
         private static int check = 500;
         private static int checkmate = 10000;
         private static int phalanx; // minimum 2 friendly units next to each other with overlapping arcs of attack
@@ -81,8 +81,8 @@ namespace KatanaChess
                             {
                                 Move move = new Move();
                                 move.initPiece = theBoard[initY, initX];
-                                move.initX = initX;
                                 move.initY = initY;
+                                move.initX = initX;
                                 move.targPiece = theBoard[targY, targX];
                                 move.targY = targY;
                                 move.targX = targX;
@@ -138,6 +138,15 @@ namespace KatanaChess
         // Determines a move to make for a ply
         static public void chooseMove(int[,] theBoard, List<Move> validMoveList)
         {
+            // Code for outputting validMoveList
+            //string testOutput = "";
+            //foreach (Move move in validMoveList)
+            //{
+            //    testOutput += move.initPiece.ToString() + "  " + move.initX.ToString() + "_" + move.initY.ToString() + " :: " +
+            //                  move.targPiece.ToString() + "  " + move.targY.ToString() + "_" + move.targX.ToString() + "\n";
+            //}
+            //MessageBox.Show(testOutput);
+
             Random r = new Random();
             
             if (validMoveList.Count == 0)

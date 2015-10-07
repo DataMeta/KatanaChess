@@ -45,7 +45,7 @@ namespace KatanaChess
                 {
                     for (int i = kingY + 1; i < 8; i++) // Vertical down
                     {
-                        if (theBoard[i, kingX] == -4 || theBoard[i, kingX] == -5 && theBoard[i - 1, kingX] == 0)
+                        if (theBoard[i, kingX] == -4 || theBoard[i, kingX] == -5)
                         {
                             for (int n = i - 1; n > kingY; n--) // Scan back for blocking pieces
                             { 
@@ -69,7 +69,7 @@ namespace KatanaChess
                 {
                     for (int i = kingY - 1; i > -1; i--) // Vertical up
                     {
-                        if (theBoard[i, kingX] == -4 || theBoard[i, kingX] == -5 && theBoard[i + 1, kingX] == 0)
+                        if (theBoard[i, kingX] == -4 || theBoard[i, kingX] == -5)
                         {
                             for (int n = i + 1; n < kingY; n++) // Scan back for blocking pieces
                             {
@@ -93,7 +93,7 @@ namespace KatanaChess
                 {
                     for (int i = kingX + 1; i < 8; i++) // Horizontal right
                     {
-                        if (theBoard[kingY, i] == -4 || theBoard[kingY, i] == -5 && theBoard[kingY, i - 1] == 0)
+                        if (theBoard[kingY, i] == -4 || theBoard[kingY, i] == -5)
                         {
                             for (int n = i - 1; n > kingX; n--) // Scan back for blocking pieces
                             {
@@ -117,7 +117,7 @@ namespace KatanaChess
                 {
                     for (int i = kingX - 1; i > -1; i--) // Horizontal left
                     {
-                        if (theBoard[kingY, i] == -4 || theBoard[kingY, i] == -5 && theBoard[kingY, i + 1] == 0)
+                        if (theBoard[kingY, i] == -4 || theBoard[kingY, i] == -5)
                         {
                             for (int n = i + 1; n < kingX; n++) // Scan back for blocking pieces
                             {
@@ -146,7 +146,7 @@ namespace KatanaChess
                     k = kingY + 1;
                     for (int i = kingX + 1; i < 8; i++) // Diagonal down-right
                     {
-                        if (theBoard[k, i] == -3 || theBoard[k, i] == -5 && theBoard[k - 1, i - 1] == 0)
+                        if (theBoard[k, i] == -3 || theBoard[k, i] == -5)
                         {
                             int m = k - 1;
                             for (int n = i - 1; n > kingX; n--) // Scan back for blocking pieces
@@ -180,7 +180,7 @@ namespace KatanaChess
                     k = kingY + 1;
                     for (int i = kingX - 1; i > -1; i--) // Diagonal down-left
                     {
-                        if (theBoard[k, i] == -3 || theBoard[k, i] == -5 && theBoard[k - 1, i + 1] == 0)
+                        if (theBoard[k, i] == -3 || theBoard[k, i] == -5)
                         {
                             int m = k - 1;
                             for (int n = i + 1; n < kingX; n++) // Scan back for blocking pieces
@@ -217,7 +217,7 @@ namespace KatanaChess
                     k = kingY - 1;
                     for (int i = kingX + 1; i < 8; i++) // Diagonal up-right
                     {
-                        if (theBoard[k, i] == -3 || theBoard[k, i] == -5 && theBoard[k + 1, i - 1] == 0)
+                        if (theBoard[k, i] == -3 || theBoard[k, i] == -5)
                         {
                             int m = k + 1;
                             for (int n = i - 1; n > kingX; n--) // Scan back for blocking pieces
@@ -251,7 +251,7 @@ namespace KatanaChess
                     k = kingY - 1;
                     for (int i = kingX - 1; i > -1; i--) // Diagonal up-left
                     {
-                        if (theBoard[k, i] == -3 || theBoard[k, i] == -5 && theBoard[k + 1, i + 1] == 0)
+                        if (theBoard[k, i] == -3 || theBoard[k, i] == -5)
                         {
                             int m = k + 1;
                             for (int n = i + 1; n < kingX; n++) // Scan back for blocking pieces
@@ -358,9 +358,9 @@ namespace KatanaChess
                 {
                     for (int i = kingY + 1; i < 8; i++) // Vertical down
                     {
-                        if (theBoard[i, kingX] == 4 || theBoard[i, kingX] == 5 && theBoard[i - 1, kingX] == 0) 
+                        if ((theBoard[i, kingX] == 4 || theBoard[i, kingX] == 5)) 
                         {
-                            for(int n = i - 1; n > kingX; n--)
+                            for(int n = i - 1; n > kingY; n--)
                             {
                                 if (theBoard[n, kingX] != 0)
                                 {
@@ -382,9 +382,9 @@ namespace KatanaChess
                 {
                     for (int i = kingY - 1; i > -1; i--) // Vertical up
                     {
-                        if (theBoard[i, kingX] == 4 || theBoard[i, kingX] == 5 && theBoard[i + 1, kingX] == 0)
+                        if (theBoard[i, kingX] == 4 || theBoard[i, kingX] == 5)
                         {
-                            for (int n = i + 1; n < kingX; n++) // Scan back for blocking pieces
+                            for (int n = i + 1; n < kingY; n++) // Scan back for blocking pieces
                             {
                                 if (theBoard[n, kingX] != 0)
                                 {
@@ -406,9 +406,9 @@ namespace KatanaChess
                 {
                     for (int i = kingX + 1; i < 8; i++) // Horizontal right
                     {
-                        if (theBoard[kingY, i] == 4 || theBoard[kingY, i] == 5 && theBoard[kingY, i - 1] == 0)
+                        if ((theBoard[kingY, i] == 4 || theBoard[kingY, i] == 5))
                         {
-                            for (int n = i - 1; n > kingY; n--) // Scan back for blocking pieces
+                            for (int n = i - 1; n > kingX; n--) // Scan back for blocking pieces
                             {
                                 if (theBoard[kingY, n] != 0)
                                 {
@@ -430,9 +430,9 @@ namespace KatanaChess
                 {
                     for (int i = kingX - 1; i > -1; i--) // Horizontal left 
                     {
-                        if (theBoard[kingY, i] == 4 || theBoard[kingY, i] == 5 && theBoard[kingY, i + 1] == 0)
+                        if (theBoard[kingY, i] == 4 || theBoard[kingY, i] == 5)
                         {
-                            for (int n = i + 1; n < kingY; n++) // Scan back for blocking pieces
+                            for (int n = i + 1; n < kingX; n++) // Scan back for blocking pieces
                             {
                                 if (theBoard[kingY, n] != 0)
                                 {
@@ -459,7 +459,7 @@ namespace KatanaChess
                     k = kingY + 1;
                     for (int i = kingX + 1; i < 8; i++) // Diagonal down-right
                     {
-                        if (theBoard[k, i] == 3 || theBoard[k, i] == 5 && theBoard[k - 1, i - 1] == 0)
+                        if (theBoard[k, i] == 3 || theBoard[k, i] == 5)
                         {
                             int m = k - 1;
                             for (int n = i - 1; n > kingX; n--) // Scan back for blocking pieces
@@ -493,7 +493,7 @@ namespace KatanaChess
                     k = kingY + 1;
                     for (int i = kingX - 1; i > -1; i--) // Diagonal down-left
                     {
-                        if (theBoard[k, i] == 3 || theBoard[k, i] == 5 && theBoard[k - 1, i + 1] == 0)
+                        if (theBoard[k, i] == 3 || theBoard[k, i] == 5)
                         {
                             int m = k - 1;
                             for (int n = i + 1; n < kingX; n++) // Scan back for blocking pieces
@@ -530,7 +530,7 @@ namespace KatanaChess
                     k = kingY - 1;
                     for (int i = kingX + 1; i < 8; i++) // Diagonal up-right
                     {
-                        if (theBoard[k, i] == 3 || theBoard[k, i] == 5 && theBoard[k + 1, i + 1] == 0)
+                        if (theBoard[k, i] == 3 || theBoard[k, i] == 5)
                         {
                             int m = k + 1;
                             for (int n = i - 1; n > kingX; n--) // Scan back for blocking pieces
@@ -564,7 +564,7 @@ namespace KatanaChess
                     k = kingY - 1;
                     for (int i = kingX - 1; i > -1; i--) // Diagonal up-left
                     {
-                        if (theBoard[k, i] == 3 || theBoard[k, i] == 5 && theBoard[k + 1, i - 1] == 0)
+                        if (theBoard[k, i] == 3 || theBoard[k, i] == 5)
                         {
                             int m = k + 1;
                             for (int n = i + 1; n < kingX; n++) // Scan back for blocking pieces
@@ -653,7 +653,7 @@ namespace KatanaChess
             return false;
         }
 
-        public static bool doesMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        public static bool willMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             blockFlag = false;
             // White case
@@ -665,7 +665,7 @@ namespace KatanaChess
                 {
                     for (int i = targY + 1; i < 8; i++) // Vertical down
                     {
-                        if (theBoard[i, targX] == -4 || theBoard[i, targX] == -5 && theBoard[i - 1, targX] == 0)
+                        if (theBoard[i, targX] == -4 || theBoard[i, targX] == -5)
                         {
                             for (int n = i - 1; n > targY; n--) // Scan back for blocking pieces
                             {
@@ -689,7 +689,7 @@ namespace KatanaChess
                 {
                     for (int i = targY - 1; i > -1; i--) // Vertical up
                     {
-                        if (theBoard[i, targX] == -4 || theBoard[i, targX] == -5 && theBoard[i + 1, targX] == 0)
+                        if (theBoard[i, targX] == -4 || theBoard[i, targX] == -5)
                         {
                             for (int n = i + 1; n < targY; n++) // Scan back for blocking pieces
                             {
@@ -713,7 +713,7 @@ namespace KatanaChess
                 {
                     for (int i = targX + 1; i < 8; i++) // Horizontal right
                     {
-                        if (theBoard[targY, i] == -4 || theBoard[targY, i] == -5 && theBoard[targY, i - 1] == 0)
+                        if (theBoard[targY, i] == -4 || theBoard[targY, i] == -5)
                         {
                             for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
                             {
@@ -737,7 +737,7 @@ namespace KatanaChess
                 {
                     for (int i = targX - 1; i > -1; i--) // Horizontal left
                     {
-                        if (theBoard[targY, i] == -4 || theBoard[targY, i] == -5 && theBoard[targY, i + 1] == 0)
+                        if (theBoard[targY, i] == -4 || theBoard[targY, i] == -5)
                         {
                             for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
                             {
@@ -766,7 +766,7 @@ namespace KatanaChess
                     j = targY + 1;
                     for (int i = targX + 1; i < 8; i++) // Diagonal down-right
                     {
-                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5 && theBoard[j - 1, i - 1] == 0)
+                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
                         {
                             int m = j - 1;
                             for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
@@ -800,7 +800,7 @@ namespace KatanaChess
                     j = targY + 1;
                     for (int i = targX - 1; i > -1; i--) // Diagonal down-left
                     {
-                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5 && theBoard[j - 1, i + 1] == 0)
+                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
                         {
                             int m = j - 1;
                             for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
@@ -837,7 +837,7 @@ namespace KatanaChess
                     j = targY - 1;
                     for (int i = targX + 1; i < 8; i++) // Diagonal up-right
                     {
-                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5 && theBoard[j + 1, i - 1] == 0)
+                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
                         {
                             int m = j + 1;
                             for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
@@ -871,7 +871,7 @@ namespace KatanaChess
                     j = targY - 1;
                     for (int i = targX - 1; i > -1; i--) // Diagonal up-left
                     {
-                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5 && theBoard[j + 1, i + 1] == 0)
+                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
                         {
                             int m = j + 1;
                             for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
@@ -1027,7 +1027,7 @@ namespace KatanaChess
                 {
                     for (int i = targY + 1; i < 8; i++) // Vertical down
                     {
-                        if (theBoard[i, targX] == 4 || theBoard[i, targX] == 5 && theBoard[i - 1, targX] == 0)
+                        if (theBoard[i, targX] == 4 || theBoard[i, targX] == 5)
                         {
                             for (int n = i - 1; n > targY; n--) // Scan back for blocking pieces
                             {
@@ -1052,7 +1052,7 @@ namespace KatanaChess
                 {
                     for (int i = targY - 1; i > -1; i--) // Vertical up
                     {
-                        if (theBoard[i, targX] == 4 || theBoard[i, targX] == 5 && theBoard[i + 1, targX] == 0)
+                        if (theBoard[i, targX] == 4 || theBoard[i, targX] == 5)
                         {
                             for (int n = i + 1; n < targY; n++) // Scan back for blocking pieces
                             {
@@ -1077,7 +1077,7 @@ namespace KatanaChess
                 {
                     for (int i = targX + 1; i < 8; i++) // Horizontal right
                     {
-                        if (theBoard[targY, i] == 4 || theBoard[targY, i] == 5 && theBoard[targY, i - 1] == 0)
+                        if (theBoard[targY, i] == 4 || theBoard[targY, i] == 5)
                         {
                             for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
                             {
@@ -1102,7 +1102,7 @@ namespace KatanaChess
                 {
                     for (int i = targX - 1; i > -1; i--) // Horizontal left
                     {
-                        if (theBoard[targY, i] == 4 || theBoard[targY, i] == 5 && theBoard[targY, i + 1] == 0)
+                        if (theBoard[targY, i] == 4 || theBoard[targY, i] == 5)
                         {
                             for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
                             {
@@ -1133,7 +1133,7 @@ namespace KatanaChess
                     j = targY + 1;
                     for (int i = targX + 1; i < 8; i++) // Diagonal down-right
                     {
-                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5 && theBoard[j - 1, i - 1] == 0)
+                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
                         {
                             int m = j - 1;
                             for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
@@ -1167,7 +1167,7 @@ namespace KatanaChess
                     j = targY + 1;
                     for (int i = targX - 1; i > -1; i--) // Diagonal down-left
                     {
-                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5 && theBoard[j - 1, i + 1] == 0)
+                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
                         {
                             int m = j - 1;
                             for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
@@ -1204,7 +1204,7 @@ namespace KatanaChess
                     j = targY - 1;
                     for (int i = targX + 1; i < 8; i++) // Diagonal up-right
                     {
-                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5 && theBoard[j + 1, i - 1] == 0)
+                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
                         {
                             int m = j + 1;
                             for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
@@ -1238,7 +1238,7 @@ namespace KatanaChess
                     j = targY - 1;
                     for (int i = targX - 1; i > -1; i--) // Diagonal up-left
                     {
-                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5 && theBoard[j + 1, i + 1] == 0)
+                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
                         {
                             int m = j + 1;
                             for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
@@ -1465,11 +1465,11 @@ namespace KatanaChess
 
         public static bool isKnightMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
-            int deltaX = targX - initX;
-            int deltaY = targY - initY;
+            deltaX = targX - initX;
+            deltaY = targY - initY;
             if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) && (deltaX != 0 && deltaY != 0)
-                && (deltaX == 2 && (deltaY == 1 || deltaY == -1)) || (deltaX == 1 && (deltaY == -2 || deltaY == 2))
-                || (deltaX == -1 && (deltaY == 2 || deltaY == -2)) || (deltaX == -2 && (deltaY == 1 || deltaY == -1))
+                && ((deltaX == 2 && (deltaY == 1 || deltaY == -1)) || (deltaX == 1 && (deltaY == -2 || deltaY == 2))
+                || (deltaX == -1 && (deltaY == 2 || deltaY == -2)) || (deltaX == -2 && (deltaY == 1 || deltaY == -1)))
                 && !isKingInCheck(initY, initX, targY, targX, theBoard))
             {
                 if ((theBoard[initY, initX] == 2) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
@@ -1789,7 +1789,7 @@ namespace KatanaChess
                     || (deltaY == 0 && (deltaX == -1 || deltaX == 1)) 
                     || (deltaY == -1 && (deltaX == 0 || deltaX == -1 || deltaX == 1)))
                     //&& !isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && !doesMovePutKingInCheck(initY, initX, targY, targX, theBoard))
+                    && !willMovePutKingInCheck(initY, initX, targY, targX, theBoard))
                 {
                     if ((theBoard[initY, initX] == 6) && ((theBoard[targY, targX] > 0) || (theBoard[targY, targX] == -6)))
                     {
@@ -1801,7 +1801,9 @@ namespace KatanaChess
                     }
                     return true;
                 }
-                else if(initY == 0 && initX == 4 && targY == 0) // Black king castling
+                else if (initY == 0 && initX == 4 && targY == 0 
+                    && !isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && !willMovePutKingInCheck(initY, initX, targY, targX, theBoard)) // Black king castling
                 {
                     if(deltaX == 2 && theBoard[0,7] == -4 && 
                         (theBoard[0, 5] == 0 && theBoard[0, 6] == 0)) // Kingside
@@ -1817,7 +1819,9 @@ namespace KatanaChess
                     }
                     return false;
                 }
-                else if (initY == 7 && initX == 4 && targY == 7) // White king castling
+                else if (initY == 7 && initX == 4 && targY == 7
+                    && !isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && !willMovePutKingInCheck(initY, initX, targY, targX, theBoard)) // White king castling
                 {
                     if (deltaX == 2 && theBoard[7, 7] == 4 &&
                         (theBoard[7, 5] == 0 && theBoard[7, 6] == 0)) // Kingside
