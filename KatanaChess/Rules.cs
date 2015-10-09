@@ -14,13 +14,1450 @@ namespace KatanaChess
         private static int kingX;
         private static bool blockFlag = false;
 
+        // Makes a move
         public static void makeMove(int pieceType, int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             theBoard[initY, initX] = 0;
             theBoard[targY, targX] = pieceType;
         }
 
-        public static bool isKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        // Scans whether a pawn threatens target coordinates
+        public static bool pawnScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        {
+            int pawnID = 1;
+            if (kingY + 1 < 8 && kingY + 1 > -1 && kingX + 1 < 8 && kingX + 1 > -1
+                && theBoard[kingY + 1, kingX + 1] == pawnID) // Diagonal down right
+            {
+                return true;
+            }
+            if (kingY + 1 < 8 && kingY + 1 > -1 && kingX - 1 < 8 && kingX - 1 > -1
+                && theBoard[kingY + 1, kingX - 1] == pawnID) // Diagonal down left
+            {
+                return true;
+            }
+            return false; 
+        }
+
+        // Scans whether a knight threatens target coordinates
+        public static bool knightScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        {
+            int knightID = 2;
+
+            if (targY + 1 < 8 && targY + 1 > -1 && targX + 2 < 8 && targX + 2 > -1
+                && theBoard[targY + 1, targX + 2] == knightID) // 1 Down 2 Right
+            {
+                return true;
+            }
+            if (targY + 2 < 8 && targY + 2 > -1 && targX + 1 < 8 && targX + 1 > -1
+                && theBoard[targY + 2, targX + 1] == knightID) // 2 Down 1 Right
+            {
+                return true;
+            }
+            if (targY + 2 < 8 && targY + 2 > -1 && targX - 1 < 8 && targX - 1 > -1
+                && theBoard[targY + 2, targX - 1] == knightID) // 2 Down 1 Left
+            {
+                return true;
+            }
+            if (targY + 1 < 8 && targY + 1 > -1 && targX - 2 < 8 && targX - 2 > -1
+                && theBoard[targY + 1, targX - 2] == knightID) // 1 Down 2 Left
+            {
+                return true;
+            }
+            if (targY - 1 < 8 && targY - 1 > -1 && targX - 2 < 8 && targX - 2 > -1
+                && theBoard[targY - 1, targX - 2] == knightID) // 1 Up 2 Left
+            {
+                return true;
+            }
+            if (targY - 2 < 8 && targY - 2 > -1 && targX - 1 < 8 && targX - 1 > -1
+                && theBoard[targY - 2, targX - 1] == knightID) // 2 Up 1 Left
+            {
+                return true;
+            }
+            if (targY - 2 < 8 && targY - 2 > -1 && targX + 1 < 8 && targX + 1 > -1
+                && theBoard[targY - 2, targX + 1] == knightID) // 2 Up 1 Right
+            {
+                return true;
+            }
+            if (targY - 1 < 8 && targY - 1 > -1 && targX + 2 < 8 && targX + 2 > -1
+                && theBoard[targY - 1, targX + 2] == knightID) // 1 Up 2 Right
+            {
+                return true;
+            }
+            return false;
+        }
+
+        // Scans whether a bishop threatens target coordinates
+        public static bool bishopScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        {
+            int bishopID = 3;
+            blockFlag = false;
+            int j;
+            if (targY + 1 < 8) // Out of bounds check
+            {
+                blockFlag = false;
+                j = targY + 1;
+                for (int i = targX + 1; i < 8; i++) // Diagonal down-right
+                {
+                    if (theBoard[j, i] == bishopID)
+                    {
+                        int m = j - 1;
+                        for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                        {
+                            if (theBoard[m, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                            m--;
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false; // Reset flag
+                        }
+                    }
+                    if (j + 1 < 8)
+                    {
+                        j++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                blockFlag = false;
+                j = targY + 1;
+                for (int i = targX - 1; i > -1; i--) // Diagonal down-left
+                {
+                    if (theBoard[j, i] == bishopID)
+                    {
+                        int m = j - 1;
+                        for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                        {
+                            if (theBoard[m, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                            m--;
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false; // Reset flag
+                        }
+                    }
+                    if (j + 1 < 8)
+                    {
+                        j++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (targY - 1 > -1) // Out of bounds check
+            {
+                blockFlag = false;
+                j = targY - 1;
+                for (int i = targX + 1; i < 8; i++) // Diagonal up-right
+                {
+                    if (theBoard[j, i] == bishopID)
+                    {
+                        int m = j + 1;
+                        for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                        {
+                            if (theBoard[m, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                            m++;
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false; // Reset flag
+                        }
+                    }
+                    if (j - 1 > -1)
+                    {
+                        j--;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                blockFlag = false;
+                j = targY - 1;
+                for (int i = targX - 1; i > -1; i--) // Diagonal up-left
+                {
+                    if (theBoard[j, i] == bishopID)
+                    {
+                        int m = j + 1;
+                        for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                        {
+                            if (theBoard[m, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                            m++;
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false; // Reset flag
+                        }
+                    }
+                    if (j - 1 > -1)
+                    {
+                        j--;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            return false;
+        }
+
+        // Scans whether a rook threatens target coordinates
+        public static bool rookScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        {
+            int rookID = 4;
+            blockFlag = false;
+
+            if (targY + 1 < 8) // Out of bounds check
+            {
+                for (int i = targY + 1; i < 8; i++) // Vertical down
+                {
+                    if (theBoard[i, targX] == rookID)
+                    {
+                        for (int n = i - 1; n > targY; n--) // Scan back for blocking pieces
+                        {
+                            if (theBoard[n, targX] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false;
+                        }
+                    }
+                }
+            }
+
+            if (targY - 1 > -1) // Out of bounds check
+            {
+                for (int i = targY - 1; i > -1; i--) // Vertical up
+                {
+                    if (theBoard[i, targX] == rookID)
+                    {
+                        for (int n = i + 1; n < targY; n++) // Scan back for blocking pieces
+                        {
+                            if (theBoard[n, targX] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false;
+                        }
+                    }
+                }
+            }
+
+            if (targX + 1 < 8) // Out of bounds check
+            {
+                for (int i = targX + 1; i < 8; i++) // Horizontal right
+                {
+                    if (theBoard[targY, i] == rookID)
+                    {
+                        for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                        {
+                            if (theBoard[targY, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false;
+                        }
+                    }
+                }
+            }
+
+            if (targX - 1 > -1) // Out of bounds check
+            {
+                for (int i = targX - 1; i > -1; i--) // Horizontal left
+                {
+                    if (theBoard[targY, i] == rookID)
+                    {
+                        for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                        {
+                            if (theBoard[targY, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        // Scans whether a queen threatens target coordinates
+        public static bool queenScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        {
+            blockFlag = false;
+            int queenID = 5;
+            int j;
+            if (targY + 1 < 8) // Out of bounds check
+            {
+                blockFlag = false;
+                j = targY + 1;
+                for (int i = targX + 1; i < 8; i++) // Diagonal down-right
+                {
+                    if (theBoard[j, i] == queenID)
+                    {
+                        int m = j - 1;
+                        for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                        {
+                            if (theBoard[m, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                            m--;
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false; // Reset flag
+                        }
+                    }
+                    if (j + 1 < 8)
+                    {
+                        j++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                blockFlag = false;
+                j = targY + 1;
+                for (int i = targX - 1; i > -1; i--) // Diagonal down-left
+                {
+                    if (theBoard[j, i] == queenID)
+                    {
+                        int m = j - 1;
+                        for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                        {
+                            if (theBoard[m, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                            m--;
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false; // Reset flag
+                        }
+                    }
+                    if (j + 1 < 8)
+                    {
+                        j++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (targY - 1 > -1) // Out of bounds check
+            {
+                blockFlag = false;
+                j = targY - 1;
+                for (int i = targX + 1; i < 8; i++) // Diagonal up-right
+                {
+                    if (theBoard[j, i] == queenID)
+                    {
+                        int m = j + 1;
+                        for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                        {
+                            if (theBoard[m, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                            m++;
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false; // Reset flag
+                        }
+                    }
+                    if (j - 1 > -1)
+                    {
+                        j--;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                blockFlag = false;
+                j = targY - 1;
+                for (int i = targX - 1; i > -1; i--) // Diagonal up-left
+                {
+                    if (theBoard[j, i] == queenID)
+                    {
+                        int m = j + 1;
+                        for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                        {
+                            if (theBoard[m, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                            m++;
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false; // Reset flag
+                        }
+                    }
+                    if (j - 1 > -1)
+                    {
+                        j--;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            blockFlag = false;
+
+            if (targY + 1 < 8) // Out of bounds check
+            {
+                for (int i = targY + 1; i < 8; i++) // Vertical down
+                {
+                    if (theBoard[i, targX] == queenID)
+                    {
+                        for (int n = i - 1; n > targY; n--) // Scan back for blocking pieces
+                        {
+                            if (theBoard[n, targX] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false;
+                        }
+                    }
+                }
+            }
+
+            if (targY - 1 > -1) // Out of bounds check
+            {
+                for (int i = targY - 1; i > -1; i--) // Vertical up
+                {
+                    if (theBoard[i, targX] == queenID)
+                    {
+                        for (int n = i + 1; n < targY; n++) // Scan back for blocking pieces
+                        {
+                            if (theBoard[n, targX] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false;
+                        }
+                    }
+                }
+            }
+
+            if (targX + 1 < 8) // Out of bounds check
+            {
+                for (int i = targX + 1; i < 8; i++) // Horizontal right
+                {
+                    if (theBoard[targY, i] == queenID)
+                    {
+                        for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                        {
+                            if (theBoard[targY, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false;
+                        }
+                    }
+                }
+            }
+
+            if (targX - 1 > -1) // Out of bounds check
+            {
+                for (int i = targX - 1; i > -1; i--) // Horizontal left
+                {
+                    if (theBoard[targY, i] == queenID)
+                    {
+                        for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                        {
+                            if (theBoard[targY, n] != 0)
+                            {
+                                blockFlag = true;
+                            }
+                        }
+                        if (blockFlag == false)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            blockFlag = false;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        // Scans whether a king threatens target coordinates
+        public static bool kingScan()
+        {
+            return false;
+        }
+
+
+        // Determines whether the pending capture move will remove the friendly king from check
+        /* private static bool doesCapRelieveCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        {
+            int kingID;
+            if (theBoard[initY, initX] > 0)
+            {
+                kingID = 6;
+
+                // Add pawn clause
+
+                if (theBoard[targY, targX] == -2)
+                {
+                    if (knightScan(kingID, initY, initX, targY, targX, theBoard))
+                    {
+                        return true;
+                    }
+                    else 
+                    {
+                        return false;
+                    }
+                }
+
+                else if (theBoard[targY, targX] == -3)
+                {
+                    if (bishopScan(kingID, initY, initX, targY, targX, theBoard))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                else if (theBoard[targY, targX] == -4)
+                {
+                    if (rookScan(kingID, initY, initX, targY, targX, theBoard))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                else if (theBoard[targY, targX] == -5)
+                {
+                    if (queenScan(kingID, initY, initX, targY, targX, theBoard))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            else if(theBoard[initY, initX] < 0)
+            {
+                kingID = -6;
+
+                // Add pawn clause
+
+                if (theBoard[targY, targX] == 2)
+                {
+                    if (knightScan(kingID, initY, initX, targY, targX, theBoard))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                else if (theBoard[targY, targX] == 3)
+                {
+                    if (bishopScan(kingID, initY, initX, targY, targX, theBoard))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                else if (theBoard[targY, targX] == 4)
+                {
+                    if (rookScan(kingID, initY, initX, targY, targX, theBoard))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                else if (theBoard[targY, targX] == 5)
+                {
+                    if (queenScan(kingID, initY, initX, targY, targX, theBoard))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return false;
+        } */
+
+        // Determines whether the pending King move will directly put it into check
+        private static bool willMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        {
+            blockFlag = false;
+            // White case
+            if (theBoard[initY, initX] > 0)
+            {
+                // Black Rook/Queen scan
+
+                if (targY + 1 < 8) // Out of bounds check
+                {
+                    for (int i = targY + 1; i < 8; i++) // Vertical down
+                    {
+                        if (theBoard[i, targX] == -4 || theBoard[i, targX] == -5)
+                        {
+                            for (int n = i - 1; n > targY; n--) // Scan back for blocking pieces
+                            {
+                                if (theBoard[n, targX] != 0 && theBoard[n, targX] != 6)
+                                {
+                                    blockFlag = true;
+                                }
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false;
+                            }
+                        }
+                    }
+                }
+                if (targY - 1 > -1) // Out of bounds check
+                {
+                    for (int i = targY - 1; i > -1; i--) // Vertical up
+                    {
+                        if (theBoard[i, targX] == -4 || theBoard[i, targX] == -5)
+                        {
+                            for (int n = i + 1; n < targY; n++) // Scan back for blocking pieces
+                            {
+                                if (theBoard[n, targX] != 0 && theBoard[n, targX] != 6)
+                                {
+                                    blockFlag = true;
+                                }
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false;
+                            }
+                        }
+                    }
+                }
+                if (targX + 1 < 8) // Out of bounds check
+                {
+                    for (int i = targX + 1; i < 8; i++) // Horizontal right
+                    {
+                        if (theBoard[targY, i] == -4 || theBoard[targY, i] == -5)
+                        {
+                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                            {
+                                if (theBoard[targY, n] != 0 && theBoard[targY, n] != 6)
+                                {
+                                    blockFlag = true;
+                                }
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false;
+                            }
+                        }
+                    }
+                }
+                if (targX - 1 > -1) // Out of bounds check
+                {
+                    for (int i = targX - 1; i > -1; i--) // Horizontal left
+                    {
+                        if (theBoard[targY, i] == -4 || theBoard[targY, i] == -5)
+                        {
+                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                            {
+                                if (theBoard[targY, n] != 0 && theBoard[targY, n] != 6)
+                                {
+                                    blockFlag = true;
+                                }
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false;
+                            }
+                        }
+                    }
+                }
+
+                // Black Bishop/Queen scan
+                int j;
+                if (targY + 1 < 8) // Out of bounds check
+                {
+                    blockFlag = false;
+                    j = targY + 1;
+                    for (int i = targX + 1; i < 8; i++) // Diagonal down-right
+                    {
+                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
+                        {
+                            int m = j - 1;
+                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                            {
+                                if (theBoard[m, n] != 0 && theBoard[m, n] != 6)
+                                {
+                                    blockFlag = true;
+                                }
+                                m--;
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false; // Reset flag
+                            }
+                        }
+                        if (j + 1 < 8)
+                        {
+                            j++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    blockFlag = false;
+                    j = targY + 1;
+                    for (int i = targX - 1; i > -1; i--) // Diagonal down-left
+                    {
+                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
+                        {
+                            int m = j - 1;
+                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                            {
+                                if (theBoard[m, n] != 0 && theBoard[m, n] != 6)
+                                {
+                                    blockFlag = true;
+                                }
+                                m--;
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false; // Reset flag
+                            }
+                        }
+                        if (j + 1 < 8)
+                        {
+                            j++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                if (targY - 1 > -1) // Out of bounds check
+                {
+                    blockFlag = false;
+                    j = targY - 1;
+                    for (int i = targX + 1; i < 8; i++) // Diagonal up-right
+                    {
+                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
+                        {
+                            int m = j + 1;
+                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                            {
+                                if (theBoard[m, n] != 0 && theBoard[m, n] != 6)
+                                {
+                                    blockFlag = true;
+                                }
+                                m++;
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false; // Reset flag
+                            }
+                        }
+                        if (j - 1 > -1)
+                        {
+                            j--;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    blockFlag = false;
+                    j = targY - 1;
+                    for (int i = targX - 1; i > -1; i--) // Diagonal up-left
+                    {
+                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
+                        {
+                            int m = j + 1;
+                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                            {
+                                if (theBoard[m, n] != 0 && theBoard[m, n] != 6)
+                                {
+                                    blockFlag = true;
+                                }
+                                m++;
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false; // Reset flag
+                            }
+                        }
+                        if (j - 1 > -1)
+                        {
+                            j--;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                // Black Knight scan
+                if (targY + 1 < 8 && targY + 1 > -1 && targX + 2 < 8 && targX + 2 > -1
+                    && theBoard[targY + 1, targX + 2] == -2) // 1 Down 2 Right
+                {
+                    return true;
+                }
+                if (targY + 2 < 8 && targY + 2 > -1 && targX + 1 < 8 && targX + 1 > -1
+                    && theBoard[targY + 2, targX + 1] == -2) // 2 Down 1 Right
+                {
+                    return true;
+                }
+                if (targY + 2 < 8 && targY + 2 > -1 && targX - 1 < 8 && targX - 1 > -1
+                    && theBoard[targY + 2, targX - 1] == -2) // 2 Down 1 Left
+                {
+                    return true;
+                }
+                if (targY + 1 < 8 && targY + 1 > -1 && targX - 2 < 8 && targX - 2 > -1
+                    && theBoard[targY + 1, targX - 2] == -2) // 1 Down 2 Left
+                {
+                    return true;
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX - 2 < 8 && targX - 2 > -1
+                    && theBoard[targY - 1, targX - 2] == -2) // 1 Up 2 Left
+                {
+                    return true;
+                }
+                if (targY - 2 < 8 && targY - 2 > -1 && targX - 1 < 8 && targX - 1 > -1
+                    && theBoard[targY - 2, targX - 1] == -2) // 2 Up 1 Left
+                {
+                    return true;
+                }
+                if (targY - 2 < 8 && targY - 2 > -1 && targX + 1 < 8 && targX + 1 > -1
+                    && theBoard[targY - 2, targX + 1] == -2) // 2 Up 1 Right
+                {
+                    return true;
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX + 2 < 8 && targX + 2 > -1
+                    && theBoard[targY - 1, targX + 2] == -2) // 1 Up 2 Right
+                {
+                    return true;
+                }
+
+                // Black Pawn scan
+                if (targY - 1 < 8 && targY - 1 > -1 && targX + 1 < 8 && targX + 1 > -1
+                    && theBoard[targY - 1, targX + 1] == -1) // Diagonal up right
+                {
+                    return true;
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX - 1 < 8 && targX - 1 > -1
+                    && theBoard[targY - 1, targX - 1] == -1) // Diagonal up left
+                {
+                    return true;
+                }
+
+                // Black King scan
+
+                if (targY + 1 < 8 && targY + 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // SE
+                {
+                    if (theBoard[targY + 1, targX + 1] == -6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // NE
+                {
+                    if (theBoard[targY - 1, targX + 1] == -6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // NW
+                {
+                    if (theBoard[targY - 1, targX - 1] == -6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY + 1 < 8 && targY + 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // SW
+                {
+                    if (theBoard[targY + 1, targX - 1] == -6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY + 1 < 8 && targY + 1 > -1) // S
+                {
+                    if (theBoard[targY + 1, targX] == -6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY - 1 < 8 && targY - 1 > -1) // N
+                {
+                    if (theBoard[targY - 1, targX] == -6)
+                    {
+                        return true;
+                    }
+                }
+                if (targX + 1 < 8 && targX + 1 > -1) // E
+                {
+                    if (theBoard[targY, targX + 1] == -6)
+                    {
+                        return true;
+                    }
+                }
+                if (targX - 1 < 8 && targX - 1 > -1) // W
+                {
+                    if (theBoard[targY, targX - 1] == -6)
+                    {
+                        return true;
+                    }
+                }
+                blockFlag = false;
+                return false;
+            }
+
+            // Black case
+            else if (theBoard[initY, initX] < 0)
+            {
+                // White Rook/Queen scan
+
+                if (targY + 1 < 8) // Out of bounds checking
+                {
+                    for (int i = targY + 1; i < 8; i++) // Vertical down
+                    {
+                        if (theBoard[i, targX] == 4 || theBoard[i, targX] == 5)
+                        {
+                            for (int n = i - 1; n > targY; n--) // Scan back for blocking pieces
+                            {
+                                if (theBoard[n, targX] != 0 && theBoard[n, targX] != -6)
+                                {
+                                    blockFlag = true;
+                                }
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false;
+                            }
+                        }
+                    }
+                }
+
+                if (targY - 1 > -1) // Out of bounds check
+                {
+                    for (int i = targY - 1; i > -1; i--) // Vertical up
+                    {
+                        if (theBoard[i, targX] == 4 || theBoard[i, targX] == 5)
+                        {
+                            for (int n = i + 1; n < targY; n++) // Scan back for blocking pieces
+                            {
+                                if (theBoard[n, targX] != 0 && theBoard[n, targX] != -6)
+                                {
+                                    blockFlag = true;
+                                }
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false;
+                            }
+                        }
+                    }
+                }
+
+                if (targX + 1 < 8) // Out of bounds check
+                {
+                    for (int i = targX + 1; i < 8; i++) // Horizontal right
+                    {
+                        if (theBoard[targY, i] == 4 || theBoard[targY, i] == 5)
+                        {
+                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                            {
+                                if (theBoard[targY, n] != 0 && theBoard[targY, n] != -6)
+                                {
+                                    blockFlag = true;
+                                }
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false;
+                            }
+                        }
+                    }
+                }
+
+                if (targX - 1 > -1) // Out of bounds check
+                {
+                    for (int i = targX - 1; i > -1; i--) // Horizontal left
+                    {
+                        if (theBoard[targY, i] == 4 || theBoard[targY, i] == 5)
+                        {
+                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                            {
+                                if (theBoard[targY, n] != 0 && theBoard[targY, n] != -6)
+                                {
+                                    blockFlag = true;
+                                }
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false;
+                            }
+                        }
+                    }
+                }
+
+
+                // White Bishop/Queen scan
+                int j;
+
+                if (targY + 1 < 8) // Out of bounds check
+                {
+                    blockFlag = false;
+                    j = targY + 1;
+                    for (int i = targX + 1; i < 8; i++) // Diagonal down-right
+                    {
+                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
+                        {
+                            int m = j - 1;
+                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                            {
+                                if (theBoard[m, n] != 0 && theBoard[m, n] != -6)
+                                {
+                                    blockFlag = true;
+                                }
+                                m--;
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false; // Reset flag
+                            }
+                        }
+                        if (j + 1 < 8)
+                        {
+                            j++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    blockFlag = false;
+                    j = targY + 1;
+                    for (int i = targX - 1; i > -1; i--) // Diagonal down-left
+                    {
+                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
+                        {
+                            int m = j - 1;
+                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                            {
+                                if (theBoard[m, n] != 0 && theBoard[m, n] != -6)
+                                {
+                                    blockFlag = true;
+                                }
+                                m--;
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false; // Reset flag
+                            }
+                        }
+                        if (j + 1 < 8)
+                        {
+                            j++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                if (targY - 1 > -1) // Out of bounds check
+                {
+                    blockFlag = false;
+                    j = targY - 1;
+                    for (int i = targX + 1; i < 8; i++) // Diagonal up-right
+                    {
+                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
+                        {
+                            int m = j + 1;
+                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
+                            {
+                                if (theBoard[m, n] != 0 && theBoard[m, n] != -6)
+                                {
+                                    blockFlag = true;
+                                }
+                                m++;
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false; // Reset flag
+                            }
+                        }
+                        if (j - 1 > -1)
+                        {
+                            j--;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    blockFlag = false;
+                    j = targY - 1;
+                    for (int i = targX - 1; i > -1; i--) // Diagonal up-left
+                    {
+                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
+                        {
+                            int m = j + 1;
+                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
+                            {
+                                if (theBoard[m, n] != 0 && theBoard[m, n] != -6)
+                                {
+                                    blockFlag = true;
+                                }
+                                m++;
+                            }
+                            if (blockFlag == false)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                blockFlag = false; // Reset flag
+                            }
+                        }
+                        if (j - 1 > -1)
+                        {
+                            j--;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                // White Knight scan
+                if (targY + 1 < 8 && targY + 1 > -1 && targX + 2 < 8 && targX + 2 > -1
+                    && theBoard[targY + 1, targX + 2] == 2) // 1 Down 2 Right
+                {
+                    return true;
+                }
+                if (targY + 2 < 8 && targY + 2 > -1 && targX + 1 < 8 && targX + 1 > -1
+                    && theBoard[targY + 2, targX + 1] == 2) // 2 Down 1 Right
+                {
+                    return true;
+                }
+                if (targY + 2 < 8 && targY + 2 > -1 && targX - 1 < 8 && targX - 1 > -1
+                    && theBoard[targY + 2, targX - 1] == 2) // 2 Down 1 Left
+                {
+                    return true;
+                }
+                if (targY + 1 < 8 && targY + 1 > -1 && targX - 2 < 8 && targX - 2 > -1
+                    && theBoard[targY + 1, targX - 2] == 2) // 1 Down 2 Left
+                {
+                    return true;
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX - 2 < 8 && targX - 2 > -1
+                    && theBoard[targY - 1, targX - 2] == 2) // 1 Up 2 Left
+                {
+                    return true;
+                }
+                if (targY - 2 < 8 && targY - 2 > -1 && targX - 1 < 8 && targX - 1 > -1
+                    && theBoard[targY - 2, targX - 1] == 2) // 2 Up 1 Left
+                {
+                    return true;
+                }
+                if (targY - 2 < 8 && targY - 2 > -1 && targX + 1 < 8 && targX + 1 > -1
+                    && theBoard[targY - 2, targX + 1] == 2) // 2 Up 1 Right
+                {
+                    return true;
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX + 2 < 8 && targX + 2 > -1
+                    && theBoard[targY - 1, targX + 2] == 2) // 1 Up 2 Right
+                {
+                    return true;
+                }
+
+                // White Pawn scan
+                if (targY + 1 < 8 && targY + 1 > -1 && targX + 1 < 8 && targX + 1 > -1
+                    && theBoard[targY + 1, targX + 1] == 1) // Diagonal down right
+                {
+                    return true;
+                }
+                if (targY + 1 < 8 && targY + 1 > -1 && targX - 1 < 8 && targX - 1 > -1
+                    && theBoard[targY + 1, targX - 1] == 1) // Diagonal down left
+                {
+                    return true;
+                }
+
+                // White King scan
+
+                if (targY + 1 < 8 && targY + 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // SE
+                {
+                    if (theBoard[targY + 1, targX + 1] == 6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // NE
+                {
+                    if (theBoard[targY - 1, targX + 1] == 6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY - 1 < 8 && targY - 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // NW
+                {
+                    if (theBoard[targY - 1, targX - 1] == 6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY + 1 < 8 && targY + 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // SW
+                {
+                    if (theBoard[targY + 1, targX - 1] == 6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY + 1 < 8 && targY + 1 > -1) // S
+                {
+                    if (theBoard[targY + 1, targX] == 6)
+                    {
+                        return true;
+                    }
+                }
+                if (targY - 1 < 8 && targY - 1 > -1) // N
+                {
+                    if (theBoard[targY - 1, targX] == 6)
+                    {
+                        return true;
+                    }
+                }
+                if (targX + 1 < 8 && targX + 1 > -1) // E
+                {
+                    if (theBoard[targY, targX + 1] == 6)
+                    {
+                        return true;
+                    }
+                }
+                if (targX - 1 < 8 && targX - 1 > -1) // W
+                {
+                    if (theBoard[targY, targX - 1] == 6)
+                    {
+                        return true;
+                    }
+                }
+                blockFlag = false;
+                return false;
+            }
+            blockFlag = false;
+            return false;
+        }
+
+        // Determines whether friendly king is in check
+        private static bool isKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             blockFlag = false;
             // White player case
@@ -653,761 +2090,62 @@ namespace KatanaChess
             return false;
         }
 
-        public static bool willMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        // Simulates a move and determines whether it will result in a check for friendly King
+        private static bool simulateMoveForCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
-            blockFlag = false;
-            // White case
-            if (theBoard[initY, initX] > 0)
+            int pieceType = theBoard[initY, initX];
+            int targType = theBoard[targY, targX];
+
+            theBoard[initY, initX] = 0;
+            theBoard[targY, targX] = pieceType;
+
+            if (isKingInCheck(targY, targX, 0, 0, theBoard)) // If king in check after move simulation, return true
             {
-                // Black Rook/Queen scan
-
-                if (targY + 1 < 8) // Out of bounds check
-                {
-                    for (int i = targY + 1; i < 8; i++) // Vertical down
-                    {
-                        if (theBoard[i, targX] == -4 || theBoard[i, targX] == -5)
-                        {
-                            for (int n = i - 1; n > targY; n--) // Scan back for blocking pieces
-                            {
-                                if (theBoard[n, targX] != 0 && theBoard[n, targX] != 6)
-                                {
-                                    blockFlag = true;
-                                }
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false;
-                            }
-                        }
-                    }
-                }
-                if (targY - 1 > -1) // Out of bounds check
-                {
-                    for (int i = targY - 1; i > -1; i--) // Vertical up
-                    {
-                        if (theBoard[i, targX] == -4 || theBoard[i, targX] == -5)
-                        {
-                            for (int n = i + 1; n < targY; n++) // Scan back for blocking pieces
-                            {
-                                if (theBoard[n, targX] != 0 && theBoard[n, targX] != 6)
-                                {
-                                    blockFlag = true;
-                                }
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false;
-                            }
-                        }
-                    }
-                }
-                if (targX + 1 < 8) // Out of bounds check
-                {
-                    for (int i = targX + 1; i < 8; i++) // Horizontal right
-                    {
-                        if (theBoard[targY, i] == -4 || theBoard[targY, i] == -5)
-                        {
-                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
-                            {
-                                if (theBoard[targY, n] != 0 && theBoard[targY, n] != 6)
-                                {
-                                    blockFlag = true;
-                                }
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false;
-                            }
-                        }
-                    }
-                }
-                if (targX - 1 > -1) // Out of bounds check
-                {
-                    for (int i = targX - 1; i > -1; i--) // Horizontal left
-                    {
-                        if (theBoard[targY, i] == -4 || theBoard[targY, i] == -5)
-                        {
-                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
-                            {
-                                if (theBoard[targY, n] != 0 && theBoard[targY, n] != 6)
-                                {
-                                    blockFlag = true;
-                                }
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false;
-                            }
-                        }
-                    }
-                }
-                
-                // Black Bishop/Queen scan
-                int j;
-                if (targY + 1 < 8) // Out of bounds check
-                {
-                    blockFlag = false;
-                    j = targY + 1;
-                    for (int i = targX + 1; i < 8; i++) // Diagonal down-right
-                    {
-                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
-                        {
-                            int m = j - 1;
-                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
-                            {
-                                if (theBoard[m, n] != 0 && theBoard[m, n ] != 6)
-                                {
-                                    blockFlag = true;
-                                }
-                                m--;
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false; // Reset flag
-                            }
-                        }
-                        if (j + 1 < 8)
-                        {
-                            j++;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-
-                    blockFlag = false;
-                    j = targY + 1;
-                    for (int i = targX - 1; i > -1; i--) // Diagonal down-left
-                    {
-                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
-                        {
-                            int m = j - 1;
-                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
-                            {
-                                if (theBoard[m, n] != 0 && theBoard[m, n] != 6)
-                                {
-                                    blockFlag = true;
-                                }
-                                m--;
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false; // Reset flag
-                            }
-                        }
-                        if (j + 1 < 8)
-                        {
-                            j++;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-
-                if (targY - 1 > -1) // Out of bounds check
-                {
-                    blockFlag = false;
-                    j = targY - 1;
-                    for (int i = targX + 1; i < 8; i++) // Diagonal up-right
-                    {
-                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
-                        {
-                            int m = j + 1;
-                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
-                            {
-                                if (theBoard[m, n] != 0 && theBoard[m, n] != 6)
-                                {
-                                    blockFlag = true;
-                                }
-                                m++;
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false; // Reset flag
-                            }
-                        }
-                        if (j - 1 > -1)
-                        {
-                            j--;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-
-                    blockFlag = false;
-                    j = targY - 1;
-                    for (int i = targX - 1; i > -1; i--) // Diagonal up-left
-                    {
-                        if (theBoard[j, i] == -3 || theBoard[j, i] == -5)
-                        {
-                            int m = j + 1;
-                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
-                            {
-                                if (theBoard[m, n] != 0 && theBoard[m, n] != 6)
-                                {
-                                    blockFlag = true;
-                                }
-                                m++;
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false; // Reset flag
-                            }
-                        }
-                        if (j - 1 > -1)
-                        {
-                            j--;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-
-                // Black Knight scan
-                if (targY + 1 < 8 && targY + 1 > -1 && targX + 2 < 8 && targX + 2 > -1
-                    && theBoard[targY + 1, targX + 2] == -2) // 1 Down 2 Right
-                {
-                    return true;
-                }
-                if (targY + 2 < 8 && targY + 2 > -1 && targX + 1 < 8 && targX + 1 > -1
-                    && theBoard[targY + 2, targX + 1] == -2) // 2 Down 1 Right
-                {
-                    return true;
-                }
-                if (targY + 2 < 8 && targY + 2 > -1 && targX - 1 < 8 && targX - 1 > -1
-                    && theBoard[targY + 2, targX - 1] == -2) // 2 Down 1 Left
-                {
-                    return true;
-                }
-                if (targY + 1 < 8 && targY + 1 > -1 && targX - 2 < 8 && targX - 2 > -1
-                    && theBoard[targY + 1, targX - 2] == -2) // 1 Down 2 Left
-                {
-                    return true;
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX - 2 < 8 && targX - 2 > -1
-                    && theBoard[targY - 1, targX - 2] == -2) // 1 Up 2 Left
-                {
-                    return true;
-                }
-                if (targY - 2 < 8 && targY - 2 > -1 && targX - 1 < 8 && targX - 1 > -1
-                    && theBoard[targY - 2, targX - 1] == -2) // 2 Up 1 Left
-                {
-                    return true;
-                }
-                if (targY - 2 < 8 && targY - 2 > -1 && targX + 1 < 8 && targX + 1 > -1
-                    && theBoard[targY - 2, targX + 1] == -2) // 2 Up 1 Right
-                {
-                    return true;
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX + 2 < 8 && targX + 2 > -1
-                    && theBoard[targY - 1, targX + 2] == -2) // 1 Up 2 Right
-                {
-                    return true;
-                }
-
-                // Black Pawn scan
-                if (targY - 1 < 8 && targY - 1 > -1 && targX + 1 < 8 && targX + 1 > -1
-                    && theBoard[targY - 1, targX + 1] == -1) // Diagonal up right
-                {
-                    return true;
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX - 1 < 8 && targX - 1 > -1
-                    && theBoard[targY - 1, targX - 1] == -1) // Diagonal up left
-                {
-                    return true;
-                }
-
-                // Black King scan
-
-                if (targY + 1 < 8 && targY + 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // SE
-                {
-                    if (theBoard[targY + 1, targX + 1] == -6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // NE
-                {
-                    if (theBoard[targY - 1, targX + 1] == -6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // NW
-                {
-                    if (theBoard[targY - 1, targX - 1] == -6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY + 1 < 8 && targY + 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // SW
-                {
-                    if (theBoard[targY + 1, targX - 1] == -6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY + 1 < 8 && targY + 1 > -1) // S
-                {
-                    if (theBoard[targY + 1, targX] == -6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY - 1 < 8 && targY - 1 > -1) // N
-                {
-                    if (theBoard[targY - 1, targX] == -6)
-                    {
-                        return true;
-                    }
-                }
-                if (targX + 1 < 8 && targX + 1 > -1) // E
-                {
-                    if (theBoard[targY, targX + 1] == -6)
-                    {
-                        return true;
-                    }
-                }
-                if (targX - 1 < 8 && targX - 1 > -1) // W
-                {
-                    if (theBoard[targY, targX - 1] == -6)
-                    {
-                        return true;
-                    }
-                }
-                blockFlag = false;
+                theBoard[initY, initX] = pieceType;
+                theBoard[targY, targX] = targType;
+                return true;
+            }
+            else
+            {
+                theBoard[initY, initX] = pieceType;
+                theBoard[targY, targX] = targType;
                 return false;
             }
-
-            // Black case
-            else if (theBoard[initY, initX] < 0)
-            {
-                // White Rook/Queen scan
-
-                if (targY + 1 < 8) // Out of bounds checking
-                {
-                    for (int i = targY + 1; i < 8; i++) // Vertical down
-                    {
-                        if (theBoard[i, targX] == 4 || theBoard[i, targX] == 5)
-                        {
-                            for (int n = i - 1; n > targY; n--) // Scan back for blocking pieces
-                            {
-                                if (theBoard[n, targX] != 0 && theBoard[n, targX] != -6)
-                                {
-                                    blockFlag = true;
-                                }
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false;
-                            }
-                        }
-                    }
-                }
-
-                if (targY - 1 > -1) // Out of bounds check
-                {
-                    for (int i = targY - 1; i > -1; i--) // Vertical up
-                    {
-                        if (theBoard[i, targX] == 4 || theBoard[i, targX] == 5)
-                        {
-                            for (int n = i + 1; n < targY; n++) // Scan back for blocking pieces
-                            {
-                                if (theBoard[n, targX] != 0 && theBoard[n, targX] != -6)
-                                {
-                                    blockFlag = true;
-                                }
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false;
-                            }
-                        }
-                    }
-                }
-
-                if (targX + 1 < 8) // Out of bounds check
-                {
-                    for (int i = targX + 1; i < 8; i++) // Horizontal right
-                    {
-                        if (theBoard[targY, i] == 4 || theBoard[targY, i] == 5)
-                        {
-                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
-                            {
-                                if (theBoard[targY, n] != 0 && theBoard[targY, n] != -6)
-                                {
-                                    blockFlag = true;
-                                }
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false;
-                            }
-                        }
-                    }
-                }
-
-                if (targX - 1 > -1) // Out of bounds check
-                {
-                    for (int i = targX - 1; i > -1; i--) // Horizontal left
-                    {
-                        if (theBoard[targY, i] == 4 || theBoard[targY, i] == 5)
-                        {
-                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
-                            {
-                                if (theBoard[targY, n] != 0 && theBoard[targY, n] != -6)
-                                {
-                                    blockFlag = true;
-                                }
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false;
-                            }
-                        }
-                    }
-                }
-                
-
-                // White Bishop/Queen scan
-                int j;
-
-                if (targY + 1 < 8) // Out of bounds check
-                {
-                    blockFlag = false;
-                    j = targY + 1;
-                    for (int i = targX + 1; i < 8; i++) // Diagonal down-right
-                    {
-                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
-                        {
-                            int m = j - 1;
-                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
-                            {
-                                if (theBoard[m, n] != 0 && theBoard[m, n] != -6)
-                                {
-                                    blockFlag = true;
-                                }
-                                m--;
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false; // Reset flag
-                            }
-                        }
-                        if(j + 1 < 8)
-                        {
-                            j++;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-
-                    blockFlag = false;
-                    j = targY + 1;
-                    for (int i = targX - 1; i > -1; i--) // Diagonal down-left
-                    {
-                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
-                        {
-                            int m = j - 1;
-                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
-                            {
-                                if (theBoard[m, n] != 0 && theBoard[m, n] != -6)
-                                {
-                                    blockFlag = true;
-                                }
-                                m--;
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false; // Reset flag
-                            }
-                        }
-                        if (j + 1 < 8)
-                        {
-                            j++;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-                
-                if(targY - 1 > -1) // Out of bounds check
-                {
-                    blockFlag = false;
-                    j = targY - 1;
-                    for (int i = targX + 1; i < 8; i++) // Diagonal up-right
-                    {
-                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
-                        {
-                            int m = j + 1;
-                            for (int n = i - 1; n > targX; n--) // Scan back for blocking pieces
-                            {
-                                if (theBoard[m, n] != 0 && theBoard[m, n] != -6)
-                                {
-                                    blockFlag = true;
-                                }
-                                m++;
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false; // Reset flag
-                            }
-                        }
-                        if (j - 1 > -1)
-                        {
-                            j--;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-
-                    blockFlag = false;
-                    j = targY - 1;
-                    for (int i = targX - 1; i > -1; i--) // Diagonal up-left
-                    {
-                        if (theBoard[j, i] == 3 || theBoard[j, i] == 5)
-                        {
-                            int m = j + 1;
-                            for (int n = i + 1; n < targX; n++) // Scan back for blocking pieces
-                            {
-                                if (theBoard[m, n] != 0 && theBoard[m, n] != -6)
-                                {
-                                    blockFlag = true;
-                                }
-                                m++;
-                            }
-                            if (blockFlag == false)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                blockFlag = false; // Reset flag
-                            }
-                        }
-                        if (j - 1 > -1)
-                        {
-                            j--;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-
-                // White Knight scan
-                if (targY + 1 < 8 && targY + 1 > -1 && targX + 2 < 8 && targX + 2 > -1
-                    && theBoard[targY + 1, targX + 2] == 2) // 1 Down 2 Right
-                {
-                    return true;
-                }
-                if (targY + 2 < 8 && targY + 2 > -1 && targX + 1 < 8 && targX + 1 > -1
-                    && theBoard[targY + 2, targX + 1] == 2) // 2 Down 1 Right
-                {
-                    return true;
-                }
-                if (targY + 2 < 8 && targY + 2 > -1 && targX - 1 < 8 && targX - 1 > -1
-                    && theBoard[targY + 2, targX - 1] == 2) // 2 Down 1 Left
-                {
-                    return true;
-                }
-                if (targY + 1 < 8 && targY + 1 > -1 && targX - 2 < 8 && targX - 2 > -1
-                    && theBoard[targY + 1, targX - 2] == 2) // 1 Down 2 Left
-                {
-                    return true;
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX - 2 < 8 && targX - 2 > -1
-                    && theBoard[targY - 1, targX - 2] == 2) // 1 Up 2 Left
-                {
-                    return true;
-                }
-                if (targY - 2 < 8 && targY - 2 > -1 && targX - 1 < 8 && targX - 1 > -1
-                    && theBoard[targY - 2, targX - 1] == 2) // 2 Up 1 Left
-                {
-                    return true;
-                }
-                if (targY - 2 < 8 && targY - 2 > -1 && targX + 1 < 8 && targX + 1 > -1
-                    && theBoard[targY - 2, targX + 1] == 2) // 2 Up 1 Right
-                {
-                    return true;
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX + 2 < 8 && targX + 2 > -1
-                    && theBoard[targY - 1, targX + 2] == 2) // 1 Up 2 Right
-                {
-                    return true;
-                }
-
-                // White Pawn scan
-                if (targY + 1 < 8 && targY + 1 > -1 && targX + 1 < 8 && targX + 1 > -1
-                    && theBoard[targY + 1, targX + 1] == 1) // Diagonal down right
-                {
-                    return true;
-                }
-                if (targY + 1 < 8 && targY + 1 > -1 && targX - 1 < 8 && targX - 1 > -1
-                    && theBoard[targY + 1, targX - 1] == 1) // Diagonal down left
-                {
-                    return true;
-                }
-
-                // White King scan
-
-                if (targY + 1 < 8 && targY + 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // SE
-                {
-                    if (theBoard[targY + 1, targX + 1] == 6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // NE
-                {
-                    if (theBoard[targY - 1, targX + 1] == 6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY - 1 < 8 && targY - 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // NW
-                {
-                    if (theBoard[targY - 1, targX - 1] == 6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY + 1 < 8 && targY + 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // SW
-                {
-                    if (theBoard[targY + 1, targX - 1] == 6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY + 1 < 8 && targY + 1 > -1) // S
-                {
-                    if (theBoard[targY + 1, targX] == 6)
-                    {
-                        return true;
-                    }
-                }
-                if (targY - 1 < 8 && targY - 1 > -1) // N
-                {
-                    if (theBoard[targY - 1, targX] == 6)
-                    {
-                        return true;
-                    }
-                }
-                if (targX + 1 < 8 && targX + 1 > -1) // E
-                {
-                    if (theBoard[targY, targX + 1] == 6)
-                    {
-                        return true;
-                    }
-                }
-                if (targX - 1 < 8 && targX - 1 > -1) // W
-                {
-                    if (theBoard[targY, targX - 1] == 6)
-                    {
-                        return true;
-                    }
-                }
-                blockFlag = false;
-                return false;
-            }
-            blockFlag = false;
-            return false;
         }
 
+
+        // Validates pawn movement
         public static bool isPawnMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard, int pieceType)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
-            if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) 
-                && !isKingInCheck(initY, initX, targY, targX, theBoard))
+            if ((targX < 8 && targX > -1 && targY < 8 && targY > -1))
             {
-                if(pieceType == 1) // White pawn case
+                if (!isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
-                    if(deltaX == 0)
+                    return false;
+                }
+
+                if (isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
+                if (pieceType == 1) // White pawn case
+                {
+                    if (deltaX == 0)
                     {
-                        if(deltaY == -1)
+                        if (deltaY == -1)
                         {
-                            if(theBoard[targY, targX] != 0)
+                            if (theBoard[targY, targX] != 0)
                             {
                                 return false;
                             }
                             return true;
                         }
-                        else if(deltaY == -2 && initY == 6)
+                        else if (deltaY == -2 && initY == 6)
                         {
                             if ((theBoard[targY + 1, targX] != 0) || (theBoard[targY, targX] != 0))
                             {
@@ -1463,14 +2201,14 @@ namespace KatanaChess
             }
         }
 
+        // Validates knight movement
         public static bool isKnightMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
             if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) && (deltaX != 0 && deltaY != 0)
                 && ((deltaX == 2 && (deltaY == 1 || deltaY == -1)) || (deltaX == 1 && (deltaY == -2 || deltaY == 2))
-                || (deltaX == -1 && (deltaY == 2 || deltaY == -2)) || (deltaX == -2 && (deltaY == 1 || deltaY == -1)))
-                && !isKingInCheck(initY, initX, targY, targX, theBoard))
+                || (deltaX == -1 && (deltaY == 2 || deltaY == -2)) || (deltaX == -2 && (deltaY == 1 || deltaY == -1))))
             {
                 if ((theBoard[initY, initX] == 2) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
                 {
@@ -1480,6 +2218,19 @@ namespace KatanaChess
                 {
                     return false;
                 }
+
+                if (!isKingInCheck(initY, initX, targY, targX, theBoard) 
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
+                if (isKingInCheck(initY, initX, targY, targX, theBoard) 
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
                 return true;
             }
             else
@@ -1488,13 +2239,13 @@ namespace KatanaChess
             }
         }
 
+        // Validates bishop movement
         public static bool isBishopMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
             if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) && 
-                (deltaX != 0 && deltaY != 0) && (Math.Abs(deltaX) == Math.Abs(deltaY))
-                && !isKingInCheck(initY, initX, targY, targX, theBoard))
+                (deltaX != 0 && deltaY != 0) && (Math.Abs(deltaX) == Math.Abs(deltaY)))
             {
                 if ((theBoard[initY, initX] == 3) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
                 {
@@ -1504,6 +2255,19 @@ namespace KatanaChess
                 {
                     return false;
                 }
+
+                if (!isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
+                if (isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
                 if(deltaY > 0)
                 {
                     if (deltaX > 0) 
@@ -1570,13 +2334,13 @@ namespace KatanaChess
             }
         }
 
+        // Validates rook movement
         public static bool isRookMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
             if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) && 
-                ((deltaX == 0 && deltaY != 0) || (deltaY == 0 && deltaX !=0))
-                && !isKingInCheck(initY, initX, targY, targX, theBoard))
+                ((deltaX == 0 && deltaY != 0) || (deltaY == 0 && deltaX !=0)))
             {
                 if ((theBoard[initY, initX] == 4) && ((theBoard[targY, targX] > 0)  || theBoard[targY, targX] == -6))
                 {
@@ -1586,6 +2350,18 @@ namespace KatanaChess
                 {
                     return false;
                 }
+                if (!isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
+                if (isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
                 if (deltaY == 0)
                 {
                     if (deltaX > 0)
@@ -1644,14 +2420,14 @@ namespace KatanaChess
             }
         }
 
+        // Validates queen movement
         public static bool isQueenMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
             if ((targX < 8 && targX > -1 && targY < 8 && targY > -1) &&
                 ((Math.Abs(deltaX) == Math.Abs(deltaY)) || 
-                (((deltaX == 0 && deltaY != 0) || (deltaY == 0 && deltaX != 0))))
-                && !isKingInCheck(initY, initX, targY, targX, theBoard))
+                (((deltaX == 0 && deltaY != 0) || (deltaY == 0 && deltaX != 0)))))
             {
                 if ((theBoard[initY, initX] == 5) && ((theBoard[targY, targX] > 0) || theBoard[targY, targX] == -6))
                 {
@@ -1661,6 +2437,19 @@ namespace KatanaChess
                 {
                     return false;
                 }
+
+                if (!isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
+                if (isKingInCheck(initY, initX, targY, targX, theBoard)
+                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                {
+                    return false;
+                }
+
                 if (deltaY == 0)
                 {
                     if (deltaX > 0)
@@ -1778,7 +2567,7 @@ namespace KatanaChess
             }
         }
 
-        // Does not check whether King is currently in check, only whether the move will result in that
+        // Validates king movement
         public static bool isKingMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
@@ -1845,9 +2634,45 @@ namespace KatanaChess
             }
         }
 
-        public static int isMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        // Determines if a pawn has reached the enemy's back rank
+        // Converts the AI's pawn
+        // Opens a dialog for the user to chose which piece to convert it to
+        public static void checkPawnConvert(int[,] theBoard)
         {
-            return 1;
+            Random r = new Random();
+            int blackPawnX = -1;
+            int whitePawnX = -1;
+            int rand;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (theBoard[7, i] == -1)
+                {
+                    blackPawnX = i;
+                }
+                if (theBoard[0, i] == 1)
+                {
+                    whitePawnX = i;
+                }
+            }
+
+            
+            if (blackPawnX != -1)
+            {
+                rand = r.Next(-5, -2);
+                theBoard[7, blackPawnX] = rand;
+            }
+            else if (whitePawnX != -1)
+            {
+                rand = r.Next(2, 5);
+                theBoard[0, whitePawnX] = rand;
+            }
+            
         }
+
+        //public static int isMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        //{
+        //    return 1;
+        //}
     }
 }

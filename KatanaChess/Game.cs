@@ -54,31 +54,13 @@ namespace KatanaChess
                                               { 1,  1,  1,  1,  1,  1,  1,  1},
                                               { 4,  2,  3,  5,  6,  3,  2,  4}};
 
-        //static int[,] theBoard = new int[,] { {-4, -2, -3, -5, -6, -3, -2, -4},
-        //                                      {-1, -1, -1, -1,  0, -1, -1, -1},
+        //static int[,] theBoard = new int[,] { { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0,  0,  0,  0,  1,  6,  0},
         //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
         //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
         //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
         //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  4,  0,  0,  0}};
-
-        //static int[,] theBoard = new int[,] { { 0,  0,  0,  0, -4,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 1,  1,  1,  1,  0,  1,  1,  1},
-        //                                      { 4,  2,  3,  5,  6,  3,  2,  4}};
-
-        //static int[,] theBoard = new int[,] { {-6,  5,  0,  0,  0,  0,  0,  0},
-        //                                      { 5,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0, -1,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  1,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
+        //                                      { 0,  0, -1, -6,  0,  0,  0,  0},
         //                                      { 0,  0,  0,  0,  0,  0,  0,  0}};
 
         //static int[,] theBoard = new int[,] { { 0,  0,  0,  0,  0,  0,  0,  0},
@@ -91,7 +73,7 @@ namespace KatanaChess
         //                                      { 0,  0,  0,  0,  0,  0,  0,  0}};
         
         // Checks the validity and legality of a move 
-        static public bool validateMove(int pieceType, int initY, int initX, int targY, int targX)
+        public static bool validateMove(int pieceType, int initY, int initX, int targY, int targX)
         {
             pieceID switchID = (pieceID)Math.Abs(pieceType);
             switch (switchID)
@@ -122,7 +104,7 @@ namespace KatanaChess
         }
 
         // Updates the board display based on board state
-        static public void updateBoardView(GameDisplay boardView)
+        public static void updateBoardView(GameDisplay boardView)
         {
             pieceID switchID;
             for (int i = 0; i < 8; i++)
@@ -202,13 +184,13 @@ namespace KatanaChess
         }
 
         // Checks for captured pieces within the previous turn and updates the capList
-        static public void checkCaptures()
+        public static void checkCaptures()
         {
 
         }
 
         // Accepts input from buttons
-        static public void onClick(int yVal, int xVal, GameDisplay boardView)
+        public static void onClick(int yVal, int xVal, GameDisplay boardView)
         {
 		    clickvalue = clickcount % 2;
             clickcount++;
@@ -228,8 +210,10 @@ namespace KatanaChess
                     if(validateMove(pieceType, alphaY, alphaX, betaY, betaX))
                     {
                         Rules.makeMove(pieceType, alphaY, alphaX, betaY, betaX, theBoard);
+                        Rules.checkPawnConvert(theBoard);
                         updateBoardView(boardView);
                         Katana.swingKatana(theBoard);
+                        Rules.checkPawnConvert(theBoard);
                         updateBoardView(boardView);
                     }
                     break;
