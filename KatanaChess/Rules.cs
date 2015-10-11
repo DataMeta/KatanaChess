@@ -8,6 +8,7 @@ namespace KatanaChess
 {
     public static class Rules
     {
+
         private static int deltaY;
         private static int deltaX;
         private static int kingY;
@@ -15,14 +16,39 @@ namespace KatanaChess
         private static bool blockFlag = false;
 
         // Makes a move
-        public static void makeMove(int pieceType, int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="pieceType"></param>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        public static void MakeMove(int pieceType, int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             theBoard[initY, initX] = 0;
             theBoard[targY, targX] = pieceType;
         }
 
         // Scans whether a pawn threatens target coordinates
-        public static bool pawnScan(int targY, int targX, int[,] theBoard, bool ally)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <param name="ally"></param>
+        /// <returns></returns>
+        public static bool PawnScan(int targY, int targX, int[,] theBoard, bool ally)
         {
             int pawnID;
             if (ally)
@@ -48,7 +74,19 @@ namespace KatanaChess
         }
 
         // Scans whether a knight threatens target coordinates
-        public static bool knightScan(int targY, int targX, int[,] theBoard, bool ally)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <param name="ally"></param>
+        /// <returns></returns>
+        public static bool KnightScan(int targY, int targX, int[,] theBoard, bool ally)
         {
             int knightID;
             if (ally)
@@ -104,7 +142,19 @@ namespace KatanaChess
         }
 
         // Scans whether a bishop threatens target coordinates
-        public static bool bishopScan(int targY, int targX, int[,] theBoard, bool ally)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <param name="ally"></param>
+        /// <returns></returns>
+        public static bool BishopScan(int targY, int targX, int[,] theBoard, bool ally)
         {
             int bishopID;
             if (ally)
@@ -262,7 +312,19 @@ namespace KatanaChess
         }
 
         // Scans whether a rook threatens target coordinates
-        public static bool rookScan(int targY, int targX, int[,] theBoard, bool ally)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <param name="ally"></param>
+        /// <returns></returns>
+        public static bool RookScan(int targY, int targX, int[,] theBoard, bool ally)
         {
             int rookID;
             if (ally)
@@ -378,7 +440,19 @@ namespace KatanaChess
         }
 
         // Scans whether a queen threatens target coordinates
-        public static bool queenScan(int targY, int targX, int[,] theBoard, bool ally)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <param name="ally"></param>
+        /// <returns></returns>
+        public static bool QueenScan(int targY, int targX, int[,] theBoard, bool ally)
         {
             blockFlag = false;
             int queenID;
@@ -638,7 +712,19 @@ namespace KatanaChess
         }
 
         // Scans whether a king threatens target coordinates
-        public static bool kingScan(int targY, int targX, int[,] theBoard, bool ally)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <param name="ally"></param>
+        /// <returns></returns>
+        public static bool KingScan(int targY, int targX, int[,] theBoard, bool ally)
         {
             int kingID;
             if (ally)
@@ -828,7 +914,20 @@ namespace KatanaChess
         } */
 
         // Determines whether the pending King move will directly put it into check
-        private static bool willMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <returns></returns>
+        private static bool WillMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             blockFlag = false;
             // White case
@@ -1564,7 +1663,20 @@ namespace KatanaChess
         }
 
         // Determines whether friendly king is in check
-        private static bool isKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <returns></returns>
+        private static bool IsKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             blockFlag = false;
             // White player case
@@ -2198,7 +2310,20 @@ namespace KatanaChess
         }
 
         // Simulates a move and determines whether it will result in a check for friendly King
-        private static bool simulateMoveForCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <returns></returns>
+        private static bool SimulateMoveForCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             int pieceType = theBoard[initY, initX];
             int targType = theBoard[targY, targX];
@@ -2206,7 +2331,7 @@ namespace KatanaChess
             theBoard[initY, initX] = 0;
             theBoard[targY, targX] = pieceType;
 
-            if (isKingInCheck(targY, targX, 0, 0, theBoard)) // If king in check after move simulation, return true
+            if (IsKingInCheck(targY, targX, 0, 0, theBoard)) // If king in check after move simulation, return true
             {
                 theBoard[initY, initX] = pieceType;
                 theBoard[targY, targX] = targType;
@@ -2222,20 +2347,34 @@ namespace KatanaChess
 
 
         // Validates pawn movement
-        public static bool isPawnMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard, int pieceType)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <param name="pieceType"></param>
+        /// <returns></returns>
+        public static bool IsPawnMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard, int pieceType)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
             if ((targX < 8 && targX > -1 && targY < 8 && targY > -1))
             {
-                if (!isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (!IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
 
-                if (isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
@@ -2309,7 +2448,20 @@ namespace KatanaChess
         }
 
         // Validates knight movement
-        public static bool isKnightMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <returns></returns>
+        public static bool IsKnightMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
@@ -2326,14 +2478,14 @@ namespace KatanaChess
                     return false;
                 }
 
-                if (!isKingInCheck(initY, initX, targY, targX, theBoard) 
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (!IsKingInCheck(initY, initX, targY, targX, theBoard) 
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
 
-                if (isKingInCheck(initY, initX, targY, targX, theBoard) 
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (IsKingInCheck(initY, initX, targY, targX, theBoard) 
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
@@ -2347,7 +2499,20 @@ namespace KatanaChess
         }
 
         // Validates bishop movement
-        public static bool isBishopMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <returns></returns>
+        public static bool IsBishopMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
@@ -2363,14 +2528,14 @@ namespace KatanaChess
                     return false;
                 }
 
-                if (!isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (!IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
 
-                if (isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
@@ -2442,7 +2607,20 @@ namespace KatanaChess
         }
 
         // Validates rook movement
-        public static bool isRookMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <returns></returns>
+        public static bool IsRookMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
@@ -2457,14 +2635,14 @@ namespace KatanaChess
                 {
                     return false;
                 }
-                if (!isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (!IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
 
-                if (isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
@@ -2528,7 +2706,20 @@ namespace KatanaChess
         }
 
         // Validates queen movement
-        public static bool isQueenMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <returns></returns>
+        public static bool IsQueenMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
@@ -2545,14 +2736,14 @@ namespace KatanaChess
                     return false;
                 }
 
-                if (!isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (!IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
 
-                if (isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && simulateMoveForCheck(initY, initX, targY, targX, theBoard))
+                if (IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && SimulateMoveForCheck(initY, initX, targY, targX, theBoard))
                 {
                     return false;
                 }
@@ -2675,7 +2866,20 @@ namespace KatanaChess
         }
 
         // Validates king movement
-        public static bool isKingMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <param name="theBoard"></param>
+        /// <returns></returns>
+        public static bool IsKingMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             deltaX = targX - initX;
             deltaY = targY - initY;
@@ -2685,7 +2889,7 @@ namespace KatanaChess
                     || (deltaY == 0 && (deltaX == -1 || deltaX == 1)) 
                     || (deltaY == -1 && (deltaX == 0 || deltaX == -1 || deltaX == 1)))
                     //&& !isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && !willMovePutKingInCheck(initY, initX, targY, targX, theBoard))
+                    && !WillMovePutKingInCheck(initY, initX, targY, targX, theBoard))
                 {
                     if ((theBoard[initY, initX] == 6) && ((theBoard[targY, targX] > 0) || (theBoard[targY, targX] == -6)))
                     {
@@ -2698,37 +2902,37 @@ namespace KatanaChess
                     return true;
                 }
                 else if (initY == 0 && initX == 4 && targY == 0 
-                    && !isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && !willMovePutKingInCheck(initY, initX, targY, targX, theBoard)) // Black king castling
+                    && !IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && !WillMovePutKingInCheck(initY, initX, targY, targX, theBoard)) // Black king castling
                 {
                     if(deltaX == 2 && theBoard[0,7] == -4 && 
                         (theBoard[0, 5] == 0 && theBoard[0, 6] == 0)) // Kingside
                     {
-                        makeMove(-4, 0, 7, 0, 5, theBoard); // Rook moves
+                        MakeMove(-4, 0, 7, 0, 5, theBoard); // Rook moves
                         return true;
                     }
                     else if (deltaX == -2 && theBoard[0, 0] == -4 &&
                         (theBoard[0, 3] == 0 && theBoard[0, 2] == 0 && theBoard[0, 1] == 0)) // Queenside
                     {
-                        makeMove(-4, 0, 0, 0, 3, theBoard); // Rook moves
+                        MakeMove(-4, 0, 0, 0, 3, theBoard); // Rook moves
                         return true;
                     }
                     return false;
                 }
                 else if (initY == 7 && initX == 4 && targY == 7
-                    && !isKingInCheck(initY, initX, targY, targX, theBoard)
-                    && !willMovePutKingInCheck(initY, initX, targY, targX, theBoard)) // White king castling
+                    && !IsKingInCheck(initY, initX, targY, targX, theBoard)
+                    && !WillMovePutKingInCheck(initY, initX, targY, targX, theBoard)) // White king castling
                 {
                     if (deltaX == 2 && theBoard[7, 7] == 4 &&
                         (theBoard[7, 5] == 0 && theBoard[7, 6] == 0)) // Kingside
                     {
-                        makeMove(4, 7, 7, 7, 5, theBoard); // Rook moves
+                        MakeMove(4, 7, 7, 7, 5, theBoard); // Rook moves
                         return true;
                     }
                     else if (deltaX == -2 && theBoard[7, 0] == 4 &&
                         (theBoard[7, 3] == 0 && theBoard[7, 2] == 0 && theBoard[7, 1] == 0)) // Queenside
                     {
-                        makeMove(4, 7, 0, 7, 3, theBoard); // Rook moves
+                        MakeMove(4, 7, 0, 7, 3, theBoard); // Rook moves
                         return true;
                     }
                     return false;
@@ -2743,8 +2947,15 @@ namespace KatanaChess
 
         // Determines if a pawn has reached the enemy's back rank
         // Converts the AI's pawn
-        // Opens a dialog for the user to chose which piece to convert it to
-        public static void checkPawnConvert(int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="theBoard"></param>
+        public static void CheckPawnConvert(int[,] theBoard)
         {
             Random r = new Random();
             int blackPawnX = -1;
@@ -2777,9 +2988,5 @@ namespace KatanaChess
             
         }
 
-        //public static int isMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
-        //{
-        //    return 1;
-        //}
     }
 }

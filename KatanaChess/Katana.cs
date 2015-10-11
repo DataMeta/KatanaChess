@@ -8,8 +8,17 @@ using System.Linq;
 
 namespace KatanaChess
 {
+    /// <summary>
+    /// * NAME: 
+    /// * DESCRIPTION:
+    /// * AUTHOR:
+    /// * DATE:
+    /// </summary>
     public static class Katana
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public struct Move
         {
             public int initPiece;
@@ -62,15 +71,31 @@ namespace KatanaChess
          * (Ex. When blocked, has avenue of attack, is open to attack/check, is pinned [esp. to king]) */
 
         // Commences AI thought process
-        public static void swingKatana(int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="theBoard"></param>
+        public static void SwingKatana(int[,] theBoard)
         {
-            getMoves(theBoard);
+            GetMoves(theBoard);
         }
 
         /* Loops through all legal moves without going out of bounds, 
          * calling validateMove for each one, storing them as Move structs in a list<Move> */
         // Calls evalMoves() to give each move a value
-        public static void getMoves(int[,] theBoard)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="theBoard"></param>
+        private static void GetMoves(int[,] theBoard)
         {
             List<Move> validMoveList = new List<Move>();
             for (int initY = 0; initY < 8; initY++)
@@ -82,7 +107,7 @@ namespace KatanaChess
                         for (int targX = 0; targX < 8; targX++)
                         {
                             if (theBoard[initY, initX] < 0 && 
-                                Game.validateMove(theBoard[initY, initX], initY, initX, targY, targX))
+                                Game.ValidateMove(theBoard[initY, initX], initY, initX, targY, targX))
                             {
                                 Move move = new Move();
                                 move.initPiece = theBoard[initY, initX];
@@ -118,12 +143,12 @@ namespace KatanaChess
 
 
                                 // Scan for threat at target square
-                                if (Rules.pawnScan(targY, targX, theBoard, false)
-                                    || Rules.knightScan(targY, targX, theBoard, false)
-                                    || Rules.bishopScan(targY, targX, theBoard, false)
-                                    || Rules.rookScan(targY, targX, theBoard, false)
-                                    || Rules.queenScan(targY, targX, theBoard, false)
-                                    || Rules.kingScan(targY, targX, theBoard, false))
+                                if (Rules.PawnScan(targY, targX, theBoard, false)
+                                    || Rules.KnightScan(targY, targX, theBoard, false)
+                                    || Rules.BishopScan(targY, targX, theBoard, false)
+                                    || Rules.RookScan(targY, targX, theBoard, false)
+                                    || Rules.QueenScan(targY, targX, theBoard, false)
+                                    || Rules.KingScan(targY, targX, theBoard, false))
                                 {
                                     switch (Math.Abs(move.initPiece))
                                     {
@@ -151,12 +176,12 @@ namespace KatanaChess
                                 }
 
                                 // Scan for imminent threat at initial square
-                                if (Rules.pawnScan(initY, initX, theBoard, false)
-                                    || Rules.knightScan(initY, initX, theBoard, false)
-                                    || Rules.bishopScan(initY, initX, theBoard, false)
-                                    || Rules.rookScan(initY, initX, theBoard, false)
-                                    || Rules.queenScan(initY, initX, theBoard, false)
-                                    || Rules.kingScan(initY, initX, theBoard, false))
+                                if (Rules.PawnScan(initY, initX, theBoard, false)
+                                    || Rules.KnightScan(initY, initX, theBoard, false)
+                                    || Rules.BishopScan(initY, initX, theBoard, false)
+                                    || Rules.RookScan(initY, initX, theBoard, false)
+                                    || Rules.QueenScan(initY, initX, theBoard, false)
+                                    || Rules.KingScan(initY, initX, theBoard, false))
                                 {
                                     switch (Math.Abs(move.initPiece))
                                     {
@@ -182,98 +207,26 @@ namespace KatanaChess
                                             break;
                                     }
                                 }
-
-                                //if (Rules.pawnScan(initY, initX, theBoard, true)
-                                //    || Rules.knightScan(initY, initX, theBoard, true)
-                                //    || Rules.bishopScan(initY, initX, theBoard, true)
-                                //    || Rules.rookScan(initY, initX, theBoard, true)
-                                //    || Rules.queenScan(initY, initX, theBoard, true)
-                                //    || Rules.kingScan(initY, initX, theBoard, true))
-                                //{
-                                //    switch (Math.Abs(move.initPiece))
-                                //    {
-                                //        case 0:
-                                //            move.value = 0;
-                                //            break;
-                                //        case 1:
-                                //            move.value += pawnVal;
-                                //            break;
-                                //        case 2:
-                                //            move.value += knightVal;
-                                //            break;
-                                //        case 3:
-                                //            move.value += bishopVal;
-                                //            break;
-                                //        case 4:
-                                //            move.value += rookVal;
-                                //            break;
-                                //        case 5:
-                                //            move.value += queenVal;
-                                //            break;
-                                //        case 6:
-                                //            move.value += kingVal;
-                                //            break;
-                                //        default:
-                                //            break;
-                                //    }
-                                //}
-
-                                // Ally support scan section
-                                //if (Rules.pawnScan(targY, targX, theBoard, true))
-                                //{
-                                //    move.value += pawnVal;
-                                //}
-                                //if (Rules.knightScan(targY, targX, theBoard, true))
-                                //{
-                                //    move.value += knightVal;
-                                //}
-                                //if (Rules.bishopScan(targY, targX, theBoard, true))
-                                //{
-                                //    move.value += bishopVal;
-                                //}
-                                //if (Rules.rookScan(targY, targX, theBoard, true))
-                                //{
-                                //    move.value += rookVal;
-                                //}
-                                //if (Rules.queenScan(targY, targX, theBoard, true))
-                                //{
-                                //    move.value += queenVal;
-                                //}
-                                //if (Rules.kingScan(targY, targX, theBoard, true))
-                                //{
-                                //    move.value += kingVal;
-                                //}
-
-                                // Strategic heuristics to break up the attack move monopoly
-                                // Katana must move like wind of bricks
-                                // [...]
-
                                 validMoveList.Add(move);
                             }
                         }
                     }
                 }
             }
-            chooseMove(theBoard, validMoveList);
-        }
-
-        // Assigns all stored moves a value based on heuristics [may not use]
-        static public void evalMoves(int[,] theBoard, List<Move> validMoveList)
-        {
-            // Code for outputting validMoveList
-            //string testOutput = "";
-            //foreach(Move move in validMoveList)
-            //{
-            //    testOutput += move.initPiece.ToString() + "  " + move.initX.ToString() + "_" + move.initY.ToString() + " :: " +
-            //                  move.targPiece.ToString() + "  " + move.targY.ToString() + "_" + move.targX.ToString() + "\n"; 
-            //}
-            //MessageBox.Show(testOutput);
-
-            //chooseMove(theBoard, validMoveList);
+            SelectMove(theBoard, validMoveList);
         }
 
         // Determines a move to make for a ply
-        static public void chooseMove(int[,] theBoard, List<Move> validMoveList)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="theBoard"></param>
+        /// <param name="validMoveList"></param>
+        private static void SelectMove(int[,] theBoard, List<Move> validMoveList)
         {
             // Code for outputting validMoveList
             //string testOutput = "";
@@ -399,14 +352,72 @@ namespace KatanaChess
             stronkMove3 = 0;
             indexOfStronkMove3 = 0;
 
-            Rules.makeMove(initPiece, initY, initX, targY, targX, theBoard);
+            Rules.MakeMove(initPiece, initY, initX, targY, targX, theBoard);
         }
     }
 }
 
-//theMove.initPiece = validMoveList.ElementAt(rand).initPiece;
-//theMove.initY = validMoveList.ElementAt(rand).initY;
-//theMove.initX = validMoveList.ElementAt(rand).initX;
-//theMove.targPiece = validMoveList.ElementAt(rand).targPiece;
-//theMove.targY = validMoveList.ElementAt(rand).targY;
-//theMove.targX = validMoveList.ElementAt(rand).targX;
+//if (Rules.pawnScan(initY, initX, theBoard, true)
+//    || Rules.knightScan(initY, initX, theBoard, true)
+//    || Rules.bishopScan(initY, initX, theBoard, true)
+//    || Rules.rookScan(initY, initX, theBoard, true)
+//    || Rules.queenScan(initY, initX, theBoard, true)
+//    || Rules.kingScan(initY, initX, theBoard, true))
+//{
+//    switch (Math.Abs(move.initPiece))
+//    {
+//        case 0:
+//            move.value = 0;
+//            break;
+//        case 1:
+//            move.value += pawnVal;
+//            break;
+//        case 2:
+//            move.value += knightVal;
+//            break;
+//        case 3:
+//            move.value += bishopVal;
+//            break;
+//        case 4:
+//            move.value += rookVal;
+//            break;
+//        case 5:
+//            move.value += queenVal;
+//            break;
+//        case 6:
+//            move.value += kingVal;
+//            break;
+//        default:
+//            break;
+//    }
+//}
+
+// Ally support scan section
+//if (Rules.pawnScan(targY, targX, theBoard, true))
+//{
+//    move.value += pawnVal;
+//}
+//if (Rules.knightScan(targY, targX, theBoard, true))
+//{
+//    move.value += knightVal;
+//}
+//if (Rules.bishopScan(targY, targX, theBoard, true))
+//{
+//    move.value += bishopVal;
+//}
+//if (Rules.rookScan(targY, targX, theBoard, true))
+//{
+//    move.value += rookVal;
+//}
+//if (Rules.queenScan(targY, targX, theBoard, true))
+//{
+//    move.value += queenVal;
+//}
+//if (Rules.kingScan(targY, targX, theBoard, true))
+//{
+//    move.value += kingVal;
+//}
+
+// Strategic heuristics to break up the attack move monopoly
+// Katana must move like wind of bricks
+// [...]

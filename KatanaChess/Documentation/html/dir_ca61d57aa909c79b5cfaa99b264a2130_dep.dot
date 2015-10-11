@@ -1,0 +1,14 @@
+digraph "C:/Users/Daniel/Documents/Visual Studio 2013/Projects/KatanaChess/KatanaChess/obj" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_163f265b17ba635718f60e03fd2f288c {
+    graph [ bgcolor="#ddddee", pencolor="black", label="KatanaChess" fontname="Helvetica", fontsize="10", URL="dir_163f265b17ba635718f60e03fd2f288c.html"]
+  subgraph clusterdir_ca61d57aa909c79b5cfaa99b264a2130 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_ca61d57aa909c79b5cfaa99b264a2130.html"];
+    dir_ca61d57aa909c79b5cfaa99b264a2130 [shape=plaintext label="obj"];
+    dir_07f493f4f030c58ae66267720c334c1a [shape=box label="Debug" color="black" fillcolor="white" style="filled" URL="dir_07f493f4f030c58ae66267720c334c1a.html"];
+    dir_7f223685d98c6990cf980acf7871b0c2 [shape=box label="Release" color="black" fillcolor="white" style="filled" URL="dir_7f223685d98c6990cf980acf7871b0c2.html"];
+  }
+  }
+}

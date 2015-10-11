@@ -1,0 +1,40 @@
+digraph "KatanaChess.Rules.IsKingInCheck"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="KatanaChess.Rules.IsKing\lInCheck",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="KatanaChess.Rules.Simulate\lMoveForCheck",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="KatanaChess.Rules.IsPawn\lMoveValid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_rules.html#aaaaf3b80388d9215c70851859402d7f8"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="KatanaChess.Game.ValidateMove",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="KatanaChess.Game.OnClick",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830"];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="KatanaChess.Katana.GetMoves",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_katana.html#afe90b27349c5692d0ede318412b86e53"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="KatanaChess.Katana.Swing\lKatana",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40"];
+  Node7 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="KatanaChess.Rules.IsKnight\lMoveValid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_rules.html#ad10c45d66335b0e78dd7f3d818cb0416"];
+  Node8 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="KatanaChess.Rules.IsBishop\lMoveValid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_rules.html#a7d955eb6c21100fc020f6f3375dc8285"];
+  Node9 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="KatanaChess.Rules.IsRook\lMoveValid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_rules.html#a569d1a0ef53473f013a49f745abfe2b6"];
+  Node10 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="KatanaChess.Rules.IsQueen\lMoveValid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_rules.html#a10d4db56c6074f6e5f19eab80b4c6d13"];
+  Node11 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="KatanaChess.Rules.IsKing\lMoveValid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9"];
+  Node12 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

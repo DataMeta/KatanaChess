@@ -10,15 +10,15 @@ namespace KatanaChess
     {
         /// <summary>
         /// The main entry point for the application.
+        /// This application is purely event based and as such,
+        /// there is no code in main.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            //GameDisplay BoardView = new GameDisplay();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GameDisplay());
-
         }
     }
 }

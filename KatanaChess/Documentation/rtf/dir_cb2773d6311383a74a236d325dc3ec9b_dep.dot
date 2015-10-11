@@ -1,0 +1,9 @@
+digraph "C:/Users/Daniel/Documents/Visual Studio 2013/Projects/KatanaChess/KatanaChess/Properties" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_163f265b17ba635718f60e03fd2f288c {
+    graph [ bgcolor="#ddddee", pencolor="black", label="KatanaChess" fontname="Helvetica", fontsize="10", URL="dir_163f265b17ba635718f60e03fd2f288c.html"]
+  dir_cb2773d6311383a74a236d325dc3ec9b [shape=box, label="Properties", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_cb2773d6311383a74a236d325dc3ec9b.html"];
+  }
+}

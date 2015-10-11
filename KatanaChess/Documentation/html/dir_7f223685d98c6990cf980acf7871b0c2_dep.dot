@@ -1,0 +1,9 @@
+digraph "C:/Users/Daniel/Documents/Visual Studio 2013/Projects/KatanaChess/KatanaChess/obj/Release" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_ca61d57aa909c79b5cfaa99b264a2130 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="obj" fontname="Helvetica", fontsize="10", URL="dir_ca61d57aa909c79b5cfaa99b264a2130.html"]
+  dir_7f223685d98c6990cf980acf7871b0c2 [shape=box, label="Release", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_7f223685d98c6990cf980acf7871b0c2.html"];
+  }
+}

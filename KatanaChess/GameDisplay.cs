@@ -22,7 +22,17 @@ namespace KatanaChess
             
         }
 
-        public void setButtonImage(int yVal, int xVal, int pieceType)
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION:
+        /// * AUTHOR:
+        /// * DATE:
+        /// </summary>
+        /// <param name="yVal"></param>
+        /// <param name="xVal"></param>
+        /// <param name="pieceType"></param>
+        public void SetButtonImage(int yVal, int xVal, int pieceType)
         {
             System.Windows.Forms.Button[,] buttonRefContainer = new System.Windows.Forms.Button[,]
                 {{button0_0, button0_1, button0_2, button0_3, button0_4, button0_5, button0_6, button0_7},
@@ -82,327 +92,327 @@ namespace KatanaChess
 
         private void button0_0_Click(object sender, EventArgs e)
         {
-            Game.onClick(0, 0, this);
+            Game.OnClick(0, 0, this);
         }
 
         private void button0_1_Click(object sender, EventArgs e)
         {
-            Game.onClick(0, 1, this);
+            Game.OnClick(0, 1, this);
         }
 
         private void button0_2_Click(object sender, EventArgs e)
         {
-            Game.onClick(0, 2, this);
+            Game.OnClick(0, 2, this);
         }
 
         private void button0_3_Click(object sender, EventArgs e)
         {
-            Game.onClick(0, 3, this);
+            Game.OnClick(0, 3, this);
         }
 
         private void button0_4_Click(object sender, EventArgs e)
         {
-            Game.onClick(0, 4, this);
+            Game.OnClick(0, 4, this);
         }
 
         private void button0_5_Click(object sender, EventArgs e)
         {
-            Game.onClick(0, 5, this);
+            Game.OnClick(0, 5, this);
         }
 
         private void button0_6_Click(object sender, EventArgs e)
         {
-            Game.onClick(0, 6, this);
+            Game.OnClick(0, 6, this);
         }
 
         private void button0_7_Click(object sender, EventArgs e)
         {
-            Game.onClick(0, 7, this);
+            Game.OnClick(0, 7, this);
         }
 
         private void button1_0_Click(object sender, EventArgs e)
         {
-            Game.onClick(1, 0, this);
+            Game.OnClick(1, 0, this);
         }
 
         private void button1_1_Click(object sender, EventArgs e)
         {
-            Game.onClick(1, 1, this);
+            Game.OnClick(1, 1, this);
         }
 
         private void button1_2_Click(object sender, EventArgs e)
         {
-            Game.onClick(1, 2, this);
+            Game.OnClick(1, 2, this);
         }
 
         private void button1_3_Click(object sender, EventArgs e)
         {
-            Game.onClick(1, 3, this);
+            Game.OnClick(1, 3, this);
         }
 
         private void button1_4_Click(object sender, EventArgs e)
         {
-            Game.onClick(1, 4, this);
+            Game.OnClick(1, 4, this);
         }
 
         private void button1_5_Click(object sender, EventArgs e)
         {
-            Game.onClick(1, 5, this);
+            Game.OnClick(1, 5, this);
         }
 
         private void button1_6_Click(object sender, EventArgs e)
         {
-            Game.onClick(1, 6, this);
+            Game.OnClick(1, 6, this);
         }
 
         private void button1_7_Click(object sender, EventArgs e)
         {
-            Game.onClick(1, 7, this);
+            Game.OnClick(1, 7, this);
         }
 
         private void button2_0_Click(object sender, EventArgs e)
         {
-            Game.onClick(2, 0, this);
+            Game.OnClick(2, 0, this);
         }
 
         private void button2_1_Click(object sender, EventArgs e)
         {
-            Game.onClick(2, 1, this);
+            Game.OnClick(2, 1, this);
         }
 
         private void button2_2_Click(object sender, EventArgs e)
         {
-            Game.onClick(2, 2, this);
+            Game.OnClick(2, 2, this);
         }
 
         private void button2_3_Click(object sender, EventArgs e)
         {
-            Game.onClick(2, 3, this);
+            Game.OnClick(2, 3, this);
         }
 
         private void button2_4_Click(object sender, EventArgs e)
         {
-            Game.onClick(2, 4, this);
+            Game.OnClick(2, 4, this);
         }
 
         private void button2_5_Click(object sender, EventArgs e)
         {
-            Game.onClick(2, 5, this);
+            Game.OnClick(2, 5, this);
         }
 
         private void button2_6_Click(object sender, EventArgs e)
         {
-            Game.onClick(2, 6, this);
+            Game.OnClick(2, 6, this);
         }
 
         private void button2_7_Click(object sender, EventArgs e)
         {
-            Game.onClick(2, 7, this);
+            Game.OnClick(2, 7, this);
         }
 
         private void button3_0_Click(object sender, EventArgs e)
         {
-            Game.onClick(3, 0, this);
+            Game.OnClick(3, 0, this);
         }
 
         private void button3_1_Click(object sender, EventArgs e)
         {
-            Game.onClick(3, 1, this);
+            Game.OnClick(3, 1, this);
         }
 
         private void button3_2_Click(object sender, EventArgs e)
         {
-            Game.onClick(3, 2, this);
+            Game.OnClick(3, 2, this);
         }
 
         private void button3_3_Click(object sender, EventArgs e)
         {
-            Game.onClick(3, 3, this);
+            Game.OnClick(3, 3, this);
         }
 
         private void button3_4_Click(object sender, EventArgs e)
         {
-            Game.onClick(3, 4, this);
+            Game.OnClick(3, 4, this);
         }
 
         private void button3_5_Click(object sender, EventArgs e)
         {
-            Game.onClick(3, 5, this);
+            Game.OnClick(3, 5, this);
         }
 
         private void button3_6_Click(object sender, EventArgs e)
         {
-            Game.onClick(3, 6, this);
+            Game.OnClick(3, 6, this);
         }
 
         private void button3_7_Click(object sender, EventArgs e)
         {
-            Game.onClick(3, 7, this);
+            Game.OnClick(3, 7, this);
         }
 
         private void button4_0_Click(object sender, EventArgs e)
         {
-            Game.onClick(4, 0, this);
+            Game.OnClick(4, 0, this);
         }
 
         private void button4_1_Click(object sender, EventArgs e)
         {
-            Game.onClick(4, 1, this);
+            Game.OnClick(4, 1, this);
         }
 
         private void button4_2_Click(object sender, EventArgs e)
         {
-            Game.onClick(4, 2, this);
+            Game.OnClick(4, 2, this);
         }
 
         private void button4_3_Click(object sender, EventArgs e)
         {
-            Game.onClick(4, 3, this);
+            Game.OnClick(4, 3, this);
         }
 
         private void button4_4_Click(object sender, EventArgs e)
         {
-            Game.onClick(4, 4, this);
+            Game.OnClick(4, 4, this);
         }
 
         private void button4_5_Click(object sender, EventArgs e)
         {
-            Game.onClick(4, 5, this);
+            Game.OnClick(4, 5, this);
         }
 
         private void button4_6_Click(object sender, EventArgs e)
         {
-            Game.onClick(4, 6, this);
+            Game.OnClick(4, 6, this);
         }
 
         private void button4_7_Click(object sender, EventArgs e)
         {
-            Game.onClick(4, 7, this);
+            Game.OnClick(4, 7, this);
         }
 
         private void button5_0_Click(object sender, EventArgs e)
         {
-            Game.onClick(5, 0, this);
+            Game.OnClick(5, 0, this);
         }
 
         private void button5_1_Click(object sender, EventArgs e)
         {
-            Game.onClick(5, 1, this);
+            Game.OnClick(5, 1, this);
         }
 
         private void button5_2_Click(object sender, EventArgs e)
         {
-            Game.onClick(5, 2, this);
+            Game.OnClick(5, 2, this);
         }
 
         private void button5_3_Click(object sender, EventArgs e)
         {
-            Game.onClick(5, 3, this);
+            Game.OnClick(5, 3, this);
         }
 
         private void button5_4_Click(object sender, EventArgs e)
         {
-            Game.onClick(5, 4, this);
+            Game.OnClick(5, 4, this);
         }
 
         private void button5_5_Click(object sender, EventArgs e)
         {
-            Game.onClick(5, 5, this);
+            Game.OnClick(5, 5, this);
         }
 
         private void button5_6_Click(object sender, EventArgs e)
         {
-            Game.onClick(5, 6, this);
+            Game.OnClick(5, 6, this);
         }
 
         private void button5_7_Click(object sender, EventArgs e)
         {
-            Game.onClick(5, 7, this);
+            Game.OnClick(5, 7, this);
         }
 
         private void button6_0_Click(object sender, EventArgs e)
         {
-            Game.onClick(6, 0, this);
+            Game.OnClick(6, 0, this);
         }
 
         private void button6_1_Click(object sender, EventArgs e)
         {
-            Game.onClick(6, 1, this);
+            Game.OnClick(6, 1, this);
         }
 
         private void button6_2_Click(object sender, EventArgs e)
         {
-            Game.onClick(6, 2, this);
+            Game.OnClick(6, 2, this);
         }
 
         private void button6_3_Click(object sender, EventArgs e)
         {
-            Game.onClick(6, 3, this);
+            Game.OnClick(6, 3, this);
         }
 
         private void button6_4_Click(object sender, EventArgs e)
         {
-            Game.onClick(6, 4, this);
+            Game.OnClick(6, 4, this);
         }
 
         private void button6_5_Click(object sender, EventArgs e)
         {
-            Game.onClick(6, 5, this);
+            Game.OnClick(6, 5, this);
         }
 
         private void button6_6_Click(object sender, EventArgs e)
         {
-            Game.onClick(6, 6, this);
+            Game.OnClick(6, 6, this);
         }
 
         private void button6_7_Click(object sender, EventArgs e)
         {
-            Game.onClick(6, 7, this);
+            Game.OnClick(6, 7, this);
         }
 
         private void button7_0_Click(object sender, EventArgs e)
         {
-            Game.onClick(7, 0, this);
+            Game.OnClick(7, 0, this);
         }
 
         private void button7_1_Click(object sender, EventArgs e)
         {
-            Game.onClick(7, 1, this);
+            Game.OnClick(7, 1, this);
         }
 
         private void button7_2_Click(object sender, EventArgs e)
         {
-            Game.onClick(7, 2, this);
+            Game.OnClick(7, 2, this);
         }
 
         private void button7_3_Click(object sender, EventArgs e)
         {
-            Game.onClick(7, 3, this);
+            Game.OnClick(7, 3, this);
         }
 
         private void button7_4_Click(object sender, EventArgs e)
         {
-            Game.onClick(7, 4, this);
+            Game.OnClick(7, 4, this);
         }
 
         private void button7_5_Click(object sender, EventArgs e)
         {
-            Game.onClick(7, 5, this);
+            Game.OnClick(7, 5, this);
         }
 
         private void button7_6_Click(object sender, EventArgs e)
         {
-            Game.onClick(7, 6, this);
+            Game.OnClick(7, 6, this);
         }
 
         private void button7_7_Click(object sender, EventArgs e)
         {
-            Game.onClick(7, 7, this);
+            Game.OnClick(7, 7, this);
         }
 
         private void boardUpdateButton_Click(object sender, EventArgs e)
         {
-            Game.updateBoardView(this);
+            Game.UpdateBoardView(this);
         }
     }
 }
