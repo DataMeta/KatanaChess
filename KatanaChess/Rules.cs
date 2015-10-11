@@ -22,16 +22,25 @@ namespace KatanaChess
         }
 
         // Scans whether a pawn threatens target coordinates
-        public static bool pawnScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        public static bool pawnScan(int targY, int targX, int[,] theBoard, bool ally)
         {
-            int pawnID = 1;
-            if (kingY + 1 < 8 && kingY + 1 > -1 && kingX + 1 < 8 && kingX + 1 > -1
-                && theBoard[kingY + 1, kingX + 1] == pawnID) // Diagonal down right
+            int pawnID;
+            if (ally)
+            {
+                pawnID = -1;
+            }
+            else
+            {
+                pawnID = 1;
+            }
+            
+            if (targY + 1 < 8 && targY + 1 > -1 && targX + 1 < 8 && targX + 1 > -1
+                && theBoard[targY + 1, targX + 1] == pawnID) // Diagonal down right
             {
                 return true;
             }
-            if (kingY + 1 < 8 && kingY + 1 > -1 && kingX - 1 < 8 && kingX - 1 > -1
-                && theBoard[kingY + 1, kingX - 1] == pawnID) // Diagonal down left
+            if (targY + 1 < 8 && targY + 1 > -1 && targX - 1 < 8 && targX - 1 > -1
+                && theBoard[targY + 1, targX - 1] == pawnID) // Diagonal down left
             {
                 return true;
             }
@@ -39,9 +48,17 @@ namespace KatanaChess
         }
 
         // Scans whether a knight threatens target coordinates
-        public static bool knightScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        public static bool knightScan(int targY, int targX, int[,] theBoard, bool ally)
         {
-            int knightID = 2;
+            int knightID;
+            if (ally)
+            {
+                knightID = -2;
+            }
+            else
+            {
+                knightID = 2;
+            }
 
             if (targY + 1 < 8 && targY + 1 > -1 && targX + 2 < 8 && targX + 2 > -1
                 && theBoard[targY + 1, targX + 2] == knightID) // 1 Down 2 Right
@@ -87,9 +104,17 @@ namespace KatanaChess
         }
 
         // Scans whether a bishop threatens target coordinates
-        public static bool bishopScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        public static bool bishopScan(int targY, int targX, int[,] theBoard, bool ally)
         {
-            int bishopID = 3;
+            int bishopID;
+            if (ally)
+            {
+                bishopID = -3;
+            }
+            else
+            {
+                bishopID = 3;
+            }
             blockFlag = false;
             int j;
             if (targY + 1 < 8) // Out of bounds check
@@ -237,9 +262,17 @@ namespace KatanaChess
         }
 
         // Scans whether a rook threatens target coordinates
-        public static bool rookScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        public static bool rookScan(int targY, int targX, int[,] theBoard, bool ally)
         {
-            int rookID = 4;
+            int rookID;
+            if (ally)
+            {
+                rookID = -4;
+            }
+            else
+            {
+                rookID = 4;
+            }
             blockFlag = false;
 
             if (targY + 1 < 8) // Out of bounds check
@@ -345,10 +378,18 @@ namespace KatanaChess
         }
 
         // Scans whether a queen threatens target coordinates
-        public static bool queenScan(int initY, int initX, int targY, int targX, int[,] theBoard)
+        public static bool queenScan(int targY, int targX, int[,] theBoard, bool ally)
         {
             blockFlag = false;
-            int queenID = 5;
+            int queenID;
+            if (ally)
+            {
+                queenID = -5;
+            }
+            else
+            {
+                queenID = 5;
+            }
             int j;
             if (targY + 1 < 8) // Out of bounds check
             {
@@ -597,8 +638,74 @@ namespace KatanaChess
         }
 
         // Scans whether a king threatens target coordinates
-        public static bool kingScan()
+        public static bool kingScan(int targY, int targX, int[,] theBoard, bool ally)
         {
+            int kingID;
+            if (ally)
+            {
+                kingID = -6;
+            }
+            else
+            {
+                kingID = 6;
+            }
+
+            if (targY + 1 < 8 && targY + 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // SE
+            {
+                if (theBoard[targY + 1, targX + 1] == kingID)
+                {
+                    return true;
+                }
+            }
+            if (targY - 1 < 8 && targY - 1 > -1 && targX + 1 < 8 && targX + 1 > -1) // NE
+            {
+                if (theBoard[targY - 1, targX + 1] == kingID)
+                {
+                    return true;
+                }
+            }
+            if (targY - 1 < 8 && targY - 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // NW
+            {
+                if (theBoard[targY - 1, targX - 1] == kingID)
+                {
+                    return true;
+                }
+            }
+            if (targY + 1 < 8 && targY + 1 > -1 && targX - 1 < 8 && targX - 1 > -1) // SW
+            {
+                if (theBoard[targY + 1, targX - 1] == kingID)
+                {
+                    return true;
+                }
+            }
+            if (targY + 1 < 8 && targY + 1 > -1) // S
+            {
+                if (theBoard[targY + 1, targX] == kingID)
+                {
+                    return true;
+                }
+            }
+            if (targY - 1 < 8 && targY - 1 > -1) // N
+            {
+                if (theBoard[targY - 1, targX] == kingID)
+                {
+                    return true;
+                }
+            }
+            if (targX + 1 < 8 && targX + 1 > -1) // E
+            {
+                if (theBoard[targY, targX + 1] == kingID)
+                {
+                    return true;
+                }
+            }
+            if (targX - 1 < 8 && targX - 1 > -1) // W
+            {
+                if (theBoard[targY, targX - 1] == kingID)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 

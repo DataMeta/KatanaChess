@@ -1,0 +1,9 @@
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\bin\Release\KatanaChess.exe.config
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\bin\Release\KatanaChess.exe
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\bin\Release\KatanaChess.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\obj\Release\KatanaChess.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\obj\Release\KatanaChess.GameDisplay.resources
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\obj\Release\KatanaChess.Properties.Resources.resources
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\obj\Release\KatanaChess.csproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\obj\Release\KatanaChess.exe
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\KatanaChess\KatanaChess\obj\Release\KatanaChess.pdb

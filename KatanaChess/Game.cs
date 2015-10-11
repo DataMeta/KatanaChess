@@ -1,26 +1,4 @@
-﻿/**/
-/*
- 
-NAME
-        Board.cs
-
-SYNOPSIS
-        int[,] theBoard --> A 2-dimensional array that keeps track of which pieces are where
-
-DESCRIPTION
-        This class holds the data structures responsible for keeping track of the state of the board.
-        That is, the position of all pieces, whose turn it is, tracking of move duplication .
-
-AUTHOR
-        Daniel Melnikov
-
-DATE
-        9/12/2015 7:28pm
-
-*/
-/**/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,12 +6,26 @@ using System.Threading.Tasks;
 
 namespace KatanaChess
 {
+    /// <summary>
+    /// * NAME: 
+    ///     Game.cs
+    /// 
+    /// * DESCRIPTION
+    ///     This class holds the data structure responsible for keeping track of the state of the board.
+    ///     That is, the position of all pieces, whose turn it is, tracking of move duplication .
+    /// 
+    /// * AUTHOR:
+    ///     Daniel Melnikov
+    /// 
+    /// * DATE:
+    ///     9/12/15
+    /// </summary>
     public static class Game
     {
-        static int clickcount = 0, clickvalue;
-        static int alphaY, alphaX, betaY, betaX; 
-        static bool isValid;
-        static int pieceType;
+        private static int clickcount = 0, clickvalue;
+        private static int alphaY, alphaX, betaY, betaX; 
+        private static bool isValid;
+        private static int pieceType;
 
         public enum pieceID
         {
@@ -45,7 +37,7 @@ namespace KatanaChess
             King = 6 // -6/6
         };
 
-        static int[,] theBoard = new int[,] { {-4, -2, -3, -5, -6, -3, -2, -4},
+        private static int[,] theBoard = new int[,] { {-4, -2, -3, -5, -6, -3, -2, -4},
                                               {-1, -1, -1, -1, -1, -1, -1, -1},
                                               { 0,  0,  0,  0,  0,  0,  0,  0},
                                               { 0,  0,  0,  0,  0,  0,  0,  0},
@@ -53,26 +45,22 @@ namespace KatanaChess
                                               { 0,  0,  0,  0,  0,  0,  0,  0},
                                               { 1,  1,  1,  1,  1,  1,  1,  1},
                                               { 4,  2,  3,  5,  6,  3,  2,  4}};
-
-        //static int[,] theBoard = new int[,] { { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  1,  6,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0, -1, -6,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0}};
-
-        //static int[,] theBoard = new int[,] { { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0},
-        //                                      { 0,  0,  0,  0,  0,  0,  0,  0}};
         
-        // Checks the validity and legality of a move 
+        /// <summary>
+        /// * NAME: 
+        /// * SYNOPSIS:
+        /// * DESCRIPTION: 
+        ///     Determines and calls the appropriate function to check the legality and validity of a move
+        /// * AUTHOR:
+        /// * DATE:
+        ///  
+        /// </summary>
+        /// <param name="pieceType"></param>
+        /// <param name="initY"></param>
+        /// <param name="initX"></param>
+        /// <param name="targY"></param>
+        /// <param name="targX"></param>
+        /// <returns name="isValid"></returns>
         public static bool validateMove(int pieceType, int initY, int initX, int targY, int targX)
         {
             pieceID switchID = (pieceID)Math.Abs(pieceType);
