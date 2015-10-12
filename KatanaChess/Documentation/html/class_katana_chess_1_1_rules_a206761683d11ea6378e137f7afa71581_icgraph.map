@@ -1,0 +1,8 @@
+<map id="KatanaChess.Rules.RookScan" name="KatanaChess.Rules.RookScan">
+<area shape="rect" id="node2" href="$class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="255,46,461,73"/>
+<area shape="rect" id="node3" href="$class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="509,39,693,80"/>
+<area shape="rect" id="node4" href="$class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="741,46,931,73"/>
+<area shape="rect" id="node5" href="$class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="979,5,1208,47"/>
+<area shape="rect" id="node7" href="$class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="979,71,1208,112"/>
+<area shape="rect" id="node6" href="$class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1256,39,1443,80"/>
+</map>

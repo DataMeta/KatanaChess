@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['checkpawnconvert',['CheckPawnConvert',['../class_katana_chess_1_1_rules.html#ac692d3f181fedb91c8ac25911422b131',1,'KatanaChess::Rules']]]
+  ['checkpawnpromotion',['CheckPawnPromotion',['../class_katana_chess_1_1_rules.html#a6c521a6bae84c3d691124154f7985fde',1,'KatanaChess::Rules']]]
 ];

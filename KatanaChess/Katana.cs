@@ -9,15 +9,23 @@ using System.Linq;
 namespace KatanaChess
 {
     /// <summary>
-    /// * NAME: 
-    /// * DESCRIPTION:
-    /// * AUTHOR:
-    /// * DATE:
+    /// * NAME
+    ///     Katana.cs
+    ///     
+    /// * DESCRIPTION
+    ///     This is the AI of the chess engine
+    ///     It evaluates the state of the board and chooses a move to make
+    ///     
+    /// * AUTHOR
+    ///     Daniel Melnikov
+    ///     
+    /// * DATE
+    ///     9/27/15
     /// </summary>
     public static class Katana
     {
         /// <summary>
-        /// 
+        /// A Move struct that holds all necessary information to make a move with
         /// </summary>
         public struct Move
         {
@@ -30,72 +38,140 @@ namespace KatanaChess
             public int value;
         }
 
+        /// <summary>
+        /// The type of the move initiating piece
+        /// </summary>
         private static int initPiece;
+
+        /// <summary>
+        /// The Y coordinate of the initiating piece
+        /// </summary>
         private static int initY;
+
+        /// <summary>
+        /// The X coordinate of the initiating piece
+        /// </summary>
         private static int initX;
+
+        /// <summary>
+        /// The type of the target piece
+        /// </summary>
         private static int targPiece;
+
+        /// <summary>
+        /// The Y coordinate of the target piece
+        /// </summary>
         private static int targY;
+
+        /// <summary>
+        /// The X coordinate of the target piece
+        /// </summary>
         private static int targX;
+
+        /// <summary>
+        /// The heuristic value of the move
+        /// </summary>
         private static int value;
 
-        private static int stronkMove1 = 0;
-        private static int indexOfStronkMove1 = 0;
-        private static int stronkMove2 = 0;
-        private static int indexOfStronkMove2 = 0;
-        private static int stronkMove3 = 0;
-        private static int indexOfStronkMove3 = 0;
 
-        private static int pawnVal = 10;
-        private static int knightVal = 28;
-        private static int bishopVal = 33;
-        private static int rookVal = 50;
-        private static int queenVal = 90;
-        private static int kingVal = 10000;
-        private static int check = 500;
-        private static int checkmate = 10000;
-        private static int phalanx; // minimum 2 friendly units next to each other with overlapping arcs of attack
-        private static int chain; // minimum 2 friendly units directly defending each other 
-        private static int fork; // putting minimum 2 enemy units under simultaneous attack
-        private static int block; // a unit is blocked by a friendly unit or non-threatening enemy (?)
-        private static int vantage; // a unit is in an open position to attack without impediment
-        private static int ambush; // a unit is in a position to defend effectively
-
-        //private static int captureDiff;
-        //private static int stronkMove;
-
-        /* Uses variables to keep track of notable squares to improve and 
-         * speed up value determination for the rest of the moves.
-         * (Ex. Contended squares, open files, open ranks, )*/
-
-        /* Uses variables to keep track of notable piece states 
-         * (Ex. When blocked, has avenue of attack, is open to attack/check, is pinned [esp. to king]) */
-
-        // Commences AI thought process
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// The value of the strongest move in validMoveList
         /// </summary>
-        /// <param name="theBoard"></param>
+        private static int strongMove1 = 0;
+
+        /// <summary>
+        /// The index of the strongest move in validMoveList
+        /// </summary>
+        private static int indexOfStrongMove1 = 0;
+
+        /// <summary>
+        /// The value of the second strongest move in validMoveList
+        /// </summary>
+        private static int strongMove2 = 0;
+
+        /// <summary>
+        /// The index of the second strongest move in validMoveList
+        /// </summary>
+        private static int indexOfStrongMove2 = 0;
+
+        /// <summary>
+        /// The value of the third strongest move in validMoveList
+        /// </summary>
+        private static int strongMove3 = 0;
+
+        /// <summary>
+        /// The index of the third strongest move in validMoveList
+        /// </summary>
+        private static int indexOfStrongMove3 = 0;
+
+        /// <summary>
+        /// Heuristic value for a pawn
+        /// </summary>
+        private static int pawnVal = 10;
+
+        /// <summary>
+        /// Heuristic value for a knight
+        /// </summary>
+        private static int knightVal = 28;
+
+        /// <summary>
+        /// Heuristic value for a bishop
+        /// </summary>
+        private static int bishopVal = 33;
+
+        /// <summary>
+        /// Heuristic value for a rook
+        /// </summary>
+        private static int rookVal = 50;
+
+        /// <summary>
+        /// Heuristic value for a queen
+        /// </summary>
+        private static int queenVal = 82;
+
+ 
+        /// <summary>
+        /// * NAME
+        ///     public static void Katana::SwingKatana(int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Commences and handles AI thought process
+        ///     
+        /// * RETURNS
+        ///     This method returns nothing
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE:
+        ///     9/27/15
+        /// </summary>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         public static void SwingKatana(int[,] theBoard)
         {
-            GetMoves(theBoard);
+            SelectMove(theBoard, GetMoves(theBoard));
         }
 
-        /* Loops through all legal moves without going out of bounds, 
-         * calling validateMove for each one, storing them as Move structs in a list<Move> */
-        // Calls evalMoves() to give each move a value
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     private static List<Move> Katana::GetMoves(int[,] theBoard)  
+        ///     
+        /// * DESCRIPTION
+        ///     Loops through all legal moves without going out of bounds, calls Game::ValidateMove() for each one
+        ///     Applies heuristic scans on each pending move and the surrounding board states
+        ///     Stores moves as Move structs in List<Move>validMoveList
+        ///     
+        /// * RETURNS
+        ///     Returns a list of moves called validMoveList
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/27/15
         /// </summary>
-        /// <param name="theBoard"></param>
-        private static void GetMoves(int[,] theBoard)
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        private static List<Move> GetMoves(int[,] theBoard)
         {
             List<Move> validMoveList = new List<Move>();
             for (int initY = 0; initY < 8; initY++)
@@ -213,19 +289,28 @@ namespace KatanaChess
                     }
                 }
             }
-            SelectMove(theBoard, validMoveList);
+            return validMoveList;
         }
 
-        // Determines a move to make for a ply
+
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     private static void SelectMove(int[,] theBoard, List<Move> validMoveList)
+        ///     
+        /// * DESCRIPTION
+        ///     Selects from the three strongest moves and makes a move
+        ///     
+        /// * RETURNS
+        ///     This method returns nothing
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/27/15
         /// </summary>
-        /// <param name="theBoard"></param>
-        /// <param name="validMoveList"></param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        /// <param name="validMoveList">A list of move structs containing the move information</param>
         private static void SelectMove(int[,] theBoard, List<Move> validMoveList)
         {
             // Code for outputting validMoveList
@@ -246,27 +331,28 @@ namespace KatanaChess
                 return;
             }
 
+            // Find strongest three moves
             for (int i = 0; i < validMoveList.Count; i++)
             {
                 value = validMoveList.ElementAt(i).value; 
-                if (value > stronkMove3)
+                if (value > strongMove3)
                 {
-                    stronkMove3 = value;
-                    indexOfStronkMove3 = i;
+                    strongMove3 = value;
+                    indexOfStrongMove3 = i;
                 }
-                if (stronkMove3 > stronkMove2)
+                if (strongMove3 > strongMove2)
                 {
-                    stronkMove2 = stronkMove3;
-                    indexOfStronkMove2 = indexOfStronkMove3;
+                    strongMove2 = strongMove3;
+                    indexOfStrongMove2 = indexOfStrongMove3;
                 }
-                if (stronkMove2 > stronkMove1)
+                if (strongMove2 > strongMove1)
                 {
-                    stronkMove1 = stronkMove2;
-                    indexOfStronkMove1 = indexOfStronkMove2;
+                    strongMove1 = strongMove2;
+                    indexOfStrongMove1 = indexOfStrongMove2;
                 }
             }
             
-            if (stronkMove1 == 0 && stronkMove2 == 0 && stronkMove3 == 0)
+            if (strongMove1 == 0 && strongMove2 == 0 && strongMove3 == 0)
             {
                 int rand = r.Next(validMoveList.Count);
                 initPiece = validMoveList.ElementAt(rand).initPiece;
@@ -277,147 +363,85 @@ namespace KatanaChess
                 targX = validMoveList.ElementAt(rand).targX;
             }
 
-            else if (stronkMove1 != 0 && stronkMove2 != 0 && stronkMove3 != 0)
+            else if (strongMove1 != 0 && strongMove2 != 0 && strongMove3 != 0)
             {
                 int rand = r.Next(1, 3);
                 if (rand == 1)
                 {
-                    initPiece = validMoveList.ElementAt(indexOfStronkMove1).initPiece;
-                    initY = validMoveList.ElementAt(indexOfStronkMove1).initY;
-                    initX = validMoveList.ElementAt(indexOfStronkMove1).initX;
-                    targPiece = validMoveList.ElementAt(indexOfStronkMove1).targPiece;
-                    targY = validMoveList.ElementAt(indexOfStronkMove1).targY;
-                    targX = validMoveList.ElementAt(indexOfStronkMove1).targX;
+                    initPiece = validMoveList.ElementAt(indexOfStrongMove1).initPiece;
+                    initY = validMoveList.ElementAt(indexOfStrongMove1).initY;
+                    initX = validMoveList.ElementAt(indexOfStrongMove1).initX;
+                    targPiece = validMoveList.ElementAt(indexOfStrongMove1).targPiece;
+                    targY = validMoveList.ElementAt(indexOfStrongMove1).targY;
+                    targX = validMoveList.ElementAt(indexOfStrongMove1).targX;
                 }
 
                 else if (rand == 2)
                 {
-                    initPiece = validMoveList.ElementAt(indexOfStronkMove2).initPiece;
-                    initY = validMoveList.ElementAt(indexOfStronkMove2).initY;
-                    initX = validMoveList.ElementAt(indexOfStronkMove2).initX;
-                    targPiece = validMoveList.ElementAt(indexOfStronkMove2).targPiece;
-                    targY = validMoveList.ElementAt(indexOfStronkMove2).targY;
-                    targX = validMoveList.ElementAt(indexOfStronkMove2).targX;
+                    initPiece = validMoveList.ElementAt(indexOfStrongMove2).initPiece;
+                    initY = validMoveList.ElementAt(indexOfStrongMove2).initY;
+                    initX = validMoveList.ElementAt(indexOfStrongMove2).initX;
+                    targPiece = validMoveList.ElementAt(indexOfStrongMove2).targPiece;
+                    targY = validMoveList.ElementAt(indexOfStrongMove2).targY;
+                    targX = validMoveList.ElementAt(indexOfStrongMove2).targX;
                 }
 
                 else if (rand == 3)
                 {
-                    initPiece = validMoveList.ElementAt(indexOfStronkMove3).initPiece;
-                    initY = validMoveList.ElementAt(indexOfStronkMove3).initY;
-                    initX = validMoveList.ElementAt(indexOfStronkMove3).initX;
-                    targPiece = validMoveList.ElementAt(indexOfStronkMove3).targPiece;
-                    targY = validMoveList.ElementAt(indexOfStronkMove3).targY;
-                    targX = validMoveList.ElementAt(indexOfStronkMove3).targX;
+                    initPiece = validMoveList.ElementAt(indexOfStrongMove3).initPiece;
+                    initY = validMoveList.ElementAt(indexOfStrongMove3).initY;
+                    initX = validMoveList.ElementAt(indexOfStrongMove3).initX;
+                    targPiece = validMoveList.ElementAt(indexOfStrongMove3).targPiece;
+                    targY = validMoveList.ElementAt(indexOfStrongMove3).targY;
+                    targX = validMoveList.ElementAt(indexOfStrongMove3).targX;
                 }  
             }
 
-            else if (stronkMove1 != 0 && stronkMove2 != 0 && stronkMove3 == 0)
+            else if (strongMove1 != 0 && strongMove2 != 0 && strongMove3 == 0)
             {
                 int rand = r.Next(1, 2);
                 if (rand == 1)
                 {
-                    initPiece = validMoveList.ElementAt(indexOfStronkMove1).initPiece;
-                    initY = validMoveList.ElementAt(indexOfStronkMove1).initY;
-                    initX = validMoveList.ElementAt(indexOfStronkMove1).initX;
-                    targPiece = validMoveList.ElementAt(indexOfStronkMove1).targPiece;
-                    targY = validMoveList.ElementAt(indexOfStronkMove1).targY;
-                    targX = validMoveList.ElementAt(indexOfStronkMove1).targX;
+                    initPiece = validMoveList.ElementAt(indexOfStrongMove1).initPiece;
+                    initY = validMoveList.ElementAt(indexOfStrongMove1).initY;
+                    initX = validMoveList.ElementAt(indexOfStrongMove1).initX;
+                    targPiece = validMoveList.ElementAt(indexOfStrongMove1).targPiece;
+                    targY = validMoveList.ElementAt(indexOfStrongMove1).targY;
+                    targX = validMoveList.ElementAt(indexOfStrongMove1).targX;
                 }
 
                 else if (rand == 2)
                 {
-                    initPiece = validMoveList.ElementAt(indexOfStronkMove2).initPiece;
-                    initY = validMoveList.ElementAt(indexOfStronkMove2).initY;
-                    initX = validMoveList.ElementAt(indexOfStronkMove2).initX;
-                    targPiece = validMoveList.ElementAt(indexOfStronkMove2).targPiece;
-                    targY = validMoveList.ElementAt(indexOfStronkMove2).targY;
-                    targX = validMoveList.ElementAt(indexOfStronkMove2).targX;
+                    initPiece = validMoveList.ElementAt(indexOfStrongMove2).initPiece;
+                    initY = validMoveList.ElementAt(indexOfStrongMove2).initY;
+                    initX = validMoveList.ElementAt(indexOfStrongMove2).initX;
+                    targPiece = validMoveList.ElementAt(indexOfStrongMove2).targPiece;
+                    targY = validMoveList.ElementAt(indexOfStrongMove2).targY;
+                    targX = validMoveList.ElementAt(indexOfStrongMove2).targX;
                 }
             }
 
             else 
             {
-                initPiece = validMoveList.ElementAt(indexOfStronkMove1).initPiece;
-                initY = validMoveList.ElementAt(indexOfStronkMove1).initY;
-                initX = validMoveList.ElementAt(indexOfStronkMove1).initX;
-                targPiece = validMoveList.ElementAt(indexOfStronkMove1).targPiece;
-                targY = validMoveList.ElementAt(indexOfStronkMove1).targY;
-                targX = validMoveList.ElementAt(indexOfStronkMove1).targX;
+                initPiece = validMoveList.ElementAt(indexOfStrongMove1).initPiece;
+                initY = validMoveList.ElementAt(indexOfStrongMove1).initY;
+                initX = validMoveList.ElementAt(indexOfStrongMove1).initX;
+                targPiece = validMoveList.ElementAt(indexOfStrongMove1).targPiece;
+                targY = validMoveList.ElementAt(indexOfStrongMove1).targY;
+                targX = validMoveList.ElementAt(indexOfStrongMove1).targX;
             }
 
-            stronkMove1 = 0;
-            indexOfStronkMove1 = 0;
-            stronkMove2 = 0;
-            indexOfStronkMove2 = 0;
-            stronkMove3 = 0;
-            indexOfStronkMove3 = 0;
+            // Reset variables
+            strongMove1 = 0;
+            indexOfStrongMove1 = 0;
+            strongMove2 = 0;
+            indexOfStrongMove2 = 0;
+            strongMove3 = 0;
+            indexOfStrongMove3 = 0;
 
+            // Make the move
             Rules.MakeMove(initPiece, initY, initX, targY, targX, theBoard);
         }
     }
 }
 
-//if (Rules.pawnScan(initY, initX, theBoard, true)
-//    || Rules.knightScan(initY, initX, theBoard, true)
-//    || Rules.bishopScan(initY, initX, theBoard, true)
-//    || Rules.rookScan(initY, initX, theBoard, true)
-//    || Rules.queenScan(initY, initX, theBoard, true)
-//    || Rules.kingScan(initY, initX, theBoard, true))
-//{
-//    switch (Math.Abs(move.initPiece))
-//    {
-//        case 0:
-//            move.value = 0;
-//            break;
-//        case 1:
-//            move.value += pawnVal;
-//            break;
-//        case 2:
-//            move.value += knightVal;
-//            break;
-//        case 3:
-//            move.value += bishopVal;
-//            break;
-//        case 4:
-//            move.value += rookVal;
-//            break;
-//        case 5:
-//            move.value += queenVal;
-//            break;
-//        case 6:
-//            move.value += kingVal;
-//            break;
-//        default:
-//            break;
-//    }
-//}
-
-// Ally support scan section
-//if (Rules.pawnScan(targY, targX, theBoard, true))
-//{
-//    move.value += pawnVal;
-//}
-//if (Rules.knightScan(targY, targX, theBoard, true))
-//{
-//    move.value += knightVal;
-//}
-//if (Rules.bishopScan(targY, targX, theBoard, true))
-//{
-//    move.value += bishopVal;
-//}
-//if (Rules.rookScan(targY, targX, theBoard, true))
-//{
-//    move.value += rookVal;
-//}
-//if (Rules.queenScan(targY, targX, theBoard, true))
-//{
-//    move.value += queenVal;
-//}
-//if (Rules.kingScan(targY, targX, theBoard, true))
-//{
-//    move.value += kingVal;
-//}
-
-// Strategic heuristics to break up the attack move monopoly
-// Katana must move like wind of bricks
-// [...]

@@ -6,47 +6,95 @@ using System.Threading.Tasks;
 
 namespace KatanaChess
 {
+    /// <summary>
+    /// * NAME
+    ///     Rules.cs
+    ///     
+    /// * DESCRIPTION
+    ///     This class handles all movement validation, check evaluation, and applies moves
+    ///     It also has methods to help the AI see what is going on with the board strategically
+    ///     
+    /// * AUTHOR
+    ///     Daniel Melnikov
+    ///     
+    /// * DATE
+    ///     9/14/15
+    /// </summary>
     public static class Rules
     {
-
+        /// <summary>
+        /// The absolute value diffence between a target square's and initial square's Y coordinates
+        /// </summary>
         private static int deltaY;
+
+        /// <summary>
+        /// The absolute value diffence between a target square's and initial square's X coordinates
+        /// </summary>
         private static int deltaX;
+
+        /// <summary>
+        /// The Y coordinate of the King's location
+        /// </summary>
         private static int kingY;
+
+        /// <summary>
+        /// The X coordinate of the King's location
+        /// </summary>
         private static int kingX;
+
+        /// <summary>
+        /// A flag used to keep track of whether the space between a checking piece and the king is blocked by another piece
+        /// </summary>
         private static bool blockFlag = false;
 
-        // Makes a move
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME 
+        ///     public static void Rules::MakeMove(int pieceType, int initY, int initX, int targY, int targX, int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Applies the chess piece movement to theBoard
+        ///     
+        /// * RETURNS
+        ///     This method returns nothing
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/14/15
         /// </summary>
-        /// <param name="pieceType"></param>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="pieceType">An integer value corresponding to a type of chess piece</param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation (initiating square)</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the initiating piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         public static void MakeMove(int pieceType, int initY, int initX, int targY, int targX, int[,] theBoard)
         {
             theBoard[initY, initX] = 0;
             theBoard[targY, targX] = pieceType;
         }
 
-        // Scans whether a pawn threatens target coordinates
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     public static bool Rules::PawnScan(int targY, int targX, int[,] theBoard, bool ally)
+        ///     
+        /// * DESCRIPTION
+        ///     Scans either whether an enemy pawn threatens the target square, or whether an allied pawn defends it
+        ///     
+        /// * RETURNS
+        ///     Returns true if a pawn is detected
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     10/07/15
         /// </summary>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
-        /// <param name="ally"></param>
+        /// <param name="targY">The Y coordinate of the target square for which the method checks if it is threatened by an enemy pawn</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        /// <param name="ally">A boolean flag. When true, scan for an allied pawn. When false, scan for an enemy pawn</param>
         /// <returns></returns>
         public static bool PawnScan(int targY, int targX, int[,] theBoard, bool ally)
         {
@@ -73,18 +121,26 @@ namespace KatanaChess
             return false; 
         }
 
-        // Scans whether a knight threatens target coordinates
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     public static bool Rules::KnightScan(int targY, int targX, int[,] theBoard, bool ally)
+        ///     
+        /// * DESCRIPTION
+        ///     Scans either whether an enemy knight threatens the target square, or whether an allied knight defends it
+        ///     
+        /// * RETURNS
+        ///     Returns true if a knight is detected
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     10/07/15
         /// </summary>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
-        /// <param name="ally"></param>
+        /// <param name="targY">The Y coordinate of the target square for which the method checks if it is threatened by an enemy knight</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        /// <param name="ally">A boolean flag. When true, scan for an allied knight. When false, scan for an enemy knight</param>
         /// <returns></returns>
         public static bool KnightScan(int targY, int targX, int[,] theBoard, bool ally)
         {
@@ -141,18 +197,26 @@ namespace KatanaChess
             return false;
         }
 
-        // Scans whether a bishop threatens target coordinates
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     public static bool Rules::BishopScan(int targY, int targX, int[,] theBoard, bool ally)
+        ///     
+        /// * DESCRIPTION
+        ///     Scans either whether an enemy bishop threatens the target square, or whether an allied bishop defends it
+        ///     
+        /// * RETURNS
+        ///     Returns true if a bishop is detected
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     10/07/15
         /// </summary>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
-        /// <param name="ally"></param>
+        /// <param name="targY">The Y coordinate of the target square for which the method checks if it is threatened by an enemy bishop</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        /// <param name="ally">A boolean flag. When true, scan for an allied bishop. When false, scan for an enemy bishop</param>
         /// <returns></returns>
         public static bool BishopScan(int targY, int targX, int[,] theBoard, bool ally)
         {
@@ -311,18 +375,26 @@ namespace KatanaChess
             return false;
         }
 
-        // Scans whether a rook threatens target coordinates
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     public static bool Rules::RookScan(int targY, int targX, int[,] theBoard, bool ally)
+        ///     
+        /// * DESCRIPTION
+        ///     Scans either whether an enemy rook threatens the target square, or whether an allied rook defends it
+        ///     
+        /// * RETURNS
+        ///     Returns true if a rook is detected
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     10/07/15
         /// </summary>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
-        /// <param name="ally"></param>
+        /// <param name="targY">The Y coordinate of the target square for which the method checks if it is threatened by an enemy rook</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        /// <param name="ally">A boolean flag. When true, scan for an allied rook. When false, scan for an enemy rook</param>
         /// <returns></returns>
         public static bool RookScan(int targY, int targX, int[,] theBoard, bool ally)
         {
@@ -439,18 +511,26 @@ namespace KatanaChess
             return false;
         }
 
-        // Scans whether a queen threatens target coordinates
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     public static bool Rules::QueenScan(int targY, int targX, int[,] theBoard, bool ally)
+        ///     
+        /// * DESCRIPTION
+        ///     Scans either whether an enemy queen threatens the target square, or whether an allied queen defends it
+        ///     
+        /// * RETURNS
+        ///     Returns true if a queen is detected
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     10/07/15
         /// </summary>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
-        /// <param name="ally"></param>
+        /// <param name="targY">The Y coordinate of the target square for which the method checks if it is threatened by an enemy queen</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        /// <param name="ally">A boolean flag. When true, scan for an allied queen. When false, scan for an enemy queen</param>
         /// <returns></returns>
         public static bool QueenScan(int targY, int targX, int[,] theBoard, bool ally)
         {
@@ -711,18 +791,26 @@ namespace KatanaChess
             return false;
         }
 
-        // Scans whether a king threatens target coordinates
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     public static bool Rules::KingScan(int targY, int targX, int[,] theBoard, bool ally)
+        ///     
+        /// * DESCRIPTION
+        ///     Scans either whether an enemy king threatens the target square, or whether an allied king defends it
+        ///     
+        /// * RETURNS
+        ///     Returns true if a king is detected
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     10/07/15
         /// </summary>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
-        /// <param name="ally"></param>
+        /// <param name="targY">The Y coordinate of the target square for which the method checkS if it is threatened by an enemy king</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        /// <param name="ally">A boolean flag. When true, scan for an allied king. When false, scan for an enemy king</param>
         /// <returns></returns>
         public static bool KingScan(int targY, int targX, int[,] theBoard, bool ally)
         {
@@ -795,137 +883,27 @@ namespace KatanaChess
             return false;
         }
 
-
-        // Determines whether the pending capture move will remove the friendly king from check
-        /* private static bool doesCapRelieveCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
-        {
-            int kingID;
-            if (theBoard[initY, initX] > 0)
-            {
-                kingID = 6;
-
-                // Add pawn clause
-
-                if (theBoard[targY, targX] == -2)
-                {
-                    if (knightScan(kingID, initY, initX, targY, targX, theBoard))
-                    {
-                        return true;
-                    }
-                    else 
-                    {
-                        return false;
-                    }
-                }
-
-                else if (theBoard[targY, targX] == -3)
-                {
-                    if (bishopScan(kingID, initY, initX, targY, targX, theBoard))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-
-                else if (theBoard[targY, targX] == -4)
-                {
-                    if (rookScan(kingID, initY, initX, targY, targX, theBoard))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-
-                else if (theBoard[targY, targX] == -5)
-                {
-                    if (queenScan(kingID, initY, initX, targY, targX, theBoard))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            else if(theBoard[initY, initX] < 0)
-            {
-                kingID = -6;
-
-                // Add pawn clause
-
-                if (theBoard[targY, targX] == 2)
-                {
-                    if (knightScan(kingID, initY, initX, targY, targX, theBoard))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-
-                else if (theBoard[targY, targX] == 3)
-                {
-                    if (bishopScan(kingID, initY, initX, targY, targX, theBoard))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-
-                else if (theBoard[targY, targX] == 4)
-                {
-                    if (rookScan(kingID, initY, initX, targY, targX, theBoard))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-
-                else if (theBoard[targY, targX] == 5)
-                {
-                    if (queenScan(kingID, initY, initX, targY, targX, theBoard))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return false;
-        } */
-
-        // Determines whether the pending King move will directly put it into check
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     private static bool Rules::WillMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Determines whether the pending king move will directly put it into check
+        ///     
+        /// * RETURNS
+        ///     Returns true if execution of the move will out the king in check
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     10/03/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the king is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <returns></returns>
         private static bool WillMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -1662,19 +1640,27 @@ namespace KatanaChess
             return false;
         }
 
-        // Determines whether friendly king is in check
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     private static bool Rules::IsKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        /// 
+        /// * DESCRIPTION
+        ///     Determines whether the friendly king is in check
+        ///     
+        /// * RETURNS
+        ///     Returns true if the king is currently in check
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/28/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <returns></returns>
         private static bool IsKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -2309,19 +2295,27 @@ namespace KatanaChess
             return false;
         }
 
-        // Simulates a move and determines whether it will result in a check for friendly King
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     private static bool Rules::SimulateMoveForCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Simulates a move and determines whether it will result in a check for friendly King
+        ///     
+        /// * RETURNS
+        ///     Returns true if the move will result in the king being in check
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/28/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <returns></returns>
         private static bool SimulateMoveForCheck(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -2346,19 +2340,27 @@ namespace KatanaChess
         }
 
 
-        // Validates pawn movement
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME 
+        ///     public static bool Rules::IsPawnMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard, int pieceType)
+        ///     
+        /// * DESCRIPTION
+        ///     Validates pawn movement
+        ///     
+        /// * RETURNS
+        ///     Returns true if the pending move is valid
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/15/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <param name="pieceType"></param>
         /// <returns></returns>
         public static bool IsPawnMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard, int pieceType)
@@ -2447,19 +2449,28 @@ namespace KatanaChess
             }
         }
 
-        // Validates knight movement
+
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME 
+        ///     public static bool Rules::IsKnightMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Validates knight movement
+        ///     
+        /// * RETURNS
+        ///     Returns true if the pending move is valid
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/15/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <returns></returns>
         public static bool IsKnightMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -2498,19 +2509,28 @@ namespace KatanaChess
             }
         }
 
-        // Validates bishop movement
+
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME 
+        ///     public static bool Rules::IsBishopMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Validates bishop movement
+        ///     
+        /// * RETURNS
+        ///     Returns true if the pending move is valid
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/16/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <returns></returns>
         public static bool IsBishopMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -2606,19 +2626,28 @@ namespace KatanaChess
             }
         }
 
-        // Validates rook movement
+
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME 
+        ///     public static bool Rules::IsRookMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Validates rook movement
+        ///     
+        /// * RETURNS
+        ///     Returns true if the pending move is valid
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/16/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <returns></returns>
         public static bool IsRookMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -2705,19 +2734,28 @@ namespace KatanaChess
             }
         }
 
-        // Validates queen movement
+
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME 
+        ///     public static bool Rules::IsQueenMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard, int pieceType)
+        ///     
+        /// * DESCRIPTION
+        ///     Validates the queen's move
+        ///     
+        /// * RETURNS
+        ///     Returns true if the pending move is valid
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/16/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <returns></returns>
         public static bool IsQueenMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -2865,19 +2903,28 @@ namespace KatanaChess
             }
         }
 
-        // Validates king movement
+
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME 
+        ///     public static bool Rules::IsKingMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Validates king movement
+        ///     
+        /// * RETURNS
+        ///     Returns true if the pending move is valid
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     9/15/15
         /// </summary>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
-        /// <param name="theBoard"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
         /// <returns></returns>
         public static bool IsKingMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)
         {
@@ -2945,17 +2992,25 @@ namespace KatanaChess
             }
         }
 
-        // Determines if a pawn has reached the enemy's back rank
-        // Converts the AI's pawn
+
         /// <summary>
-        /// * NAME: 
-        /// * SYNOPSIS:
-        /// * DESCRIPTION:
-        /// * AUTHOR:
-        /// * DATE:
+        /// * NAME
+        ///     public static void Rules::CheckPawnConvert(int[,] theBoard)
+        ///     
+        /// * DESCRIPTION
+        ///     Determines whether a pawn has reached the enemy's back file and converts it if so
+        ///     
+        /// * RETURNS
+        ///     This method returns nothing
+        ///     
+        /// * AUTHOR
+        ///     Daniel Melnikov
+        ///     
+        /// * DATE
+        ///     10/6/15
         /// </summary>
-        /// <param name="theBoard"></param>
-        public static void CheckPawnConvert(int[,] theBoard)
+        /// <param name="theBoard">The 2-dimensional array representation of the pieces and their positions on a chessboard</param>
+        public static void CheckPawnPromotion(int[,] theBoard)
         {
             Random r = new Random();
             int blackPawnX = -1;

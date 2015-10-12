@@ -53,7 +53,6 @@
     </Compile>
     <Compile Include="Katana.cs" />
     <Compile Include="Rules.cs" />
-    <Compile Include="Piece.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GameDisplay.resx">

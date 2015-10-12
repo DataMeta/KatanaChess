@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace KatanaChess
 {
@@ -26,7 +27,7 @@ namespace KatanaChess
     public static class Game
     { 
         /// <summary>
-        /// The integer value corresponding to a type of piece
+        /// The integer value corresponding to a type of chess piece
         /// </summary>
         private static int pieceType;
 
@@ -61,7 +62,7 @@ namespace KatanaChess
         private static int betaX;
 
         /// <summary>
-        /// Defines each type of piece as an positive integer value
+        /// Defines each type of chess piece as an positive integer value
         /// </summary>
         public enum pieceID
         {
@@ -92,16 +93,7 @@ namespace KatanaChess
         
         /// <summary>
         /// * NAME
-        ///     Game::ValidateMove()
-        ///     
-        /// * SYNOPSIS
         ///     public static bool Game::ValidateMove(int pieceType, int initY, int initX, int targY, int targX)
-        ///     
-        ///     pieceType   --> An integer value corresponding to a type of chess piece
-        ///     initY       --> The Y coordinate of the square of the piece whose move is under validation (initiating square)
-        ///     initX       --> The X coordinate of the initiating square
-        ///     targY       --> The Y coordinate of the target square to which the initiating piece is to move to
-        ///     targX       --> The X coordinate of the target square
         ///     
         /// * DESCRIPTION 
         ///     Determines the appropriate Rule class method needed to check the legality and validity of a move, and calls it
@@ -117,10 +109,10 @@ namespace KatanaChess
         ///  
         /// </summary>
         /// <param name="pieceType"></param>
-        /// <param name="initY"></param>
-        /// <param name="initX"></param>
-        /// <param name="targY"></param>
-        /// <param name="targX"></param>
+        /// <param name="initY">The Y coordinate of the square of the piece whose move is under validation (initiating square)</param>
+        /// <param name="initX">The X coordinate of the initiating square</param>
+        /// <param name="targY">The Y coordinate of the target square to which the initiating piece is to move to</param>
+        /// <param name="targX">The X coordinate of the target square</param>
         /// <returns name="isValid"></returns>
         public static bool ValidateMove(int pieceType, int initY, int initX, int targY, int targX)
         {
@@ -156,14 +148,8 @@ namespace KatanaChess
 
         /// <summary>
         /// * NAME
-        ///     Game::UpdateBoardView()
-        ///     
-        /// * SYNOPSIS
         ///     public static void Game::UpdateBoardView(GameDisplay boardView)
         ///     
-        ///     boardView   --> An object of type GameDisplay that is passed from GameDisplay in the event of a button press
-        ///                     that allows Game::UpdateBoardView to call GameDisplay::SetButtonImage corresponding to each square index
-        /// 
         /// * DESCRIPTION
         ///     Updates the board display based on board state while retaining Model-View separation.
         ///     That is - the board state lives in Game.cs, while the GUI and its controls live in GameDisplay.cs
@@ -178,7 +164,8 @@ namespace KatanaChess
         ///     9/25/15
         ///     
         /// </summary>
-        /// <param name="boardView"></param>
+        /// <param name="boardView">An object of type GameDisplay that is passed from GameDisplay in the event of a button press
+        ///                     that allows Game::UpdateBoardView to call GameDisplay::SetButtonImage corresponding to each square index</param>
         public static void UpdateBoardView(GameDisplay boardView)
         {
             pieceID switchID;
@@ -260,13 +247,7 @@ namespace KatanaChess
 
         /// <summary>
         /// * NAME
-        ///     Game::OnClick()
-        ///     
-        /// * SYNOPSIS
         ///     public static void Game::OnClick(int yVal, int xVal, GameDisplay boardView)
-        ///     
-        ///     yVal        --> The Y coordinate of the square whose button was clicked
-        ///     xVal        --> The X coordinate of the square whose button was clicked
         /// 
         /// * DESCRIPTION
         ///     Handles user input from the chessboard GUI by grabbing the appropriate data to pass
@@ -285,9 +266,10 @@ namespace KatanaChess
         ///     9/23/15
         ///     
         /// </summary>
-        /// <param name="yVal"></param>
-        /// <param name="xVal"></param>
-        /// <param name="boardView"></param>
+        /// <param name="yVal">The Y coordinate of the square whose button was clicked</param>
+        /// <param name="xVal">The X coordinate of the square whose button was clicked</param>
+        /// <param name="boardView">An object of type GameDisplay that is passed from GameDisplay in the event of a button press
+        ///                     that allows Game::UpdateBoardView to call GameDisplay::SetButtonImage corresponding to each square index</param>
         public static void OnClick(int yVal, int xVal, GameDisplay boardView)
         {
 		    clickvalue = clickcount % 2;
@@ -302,6 +284,16 @@ namespace KatanaChess
                     alphaY = yVal;
                     alphaX = xVal;
                     pieceType = theBoard[alphaY, alphaX];
+
+                    if (pieceType == 0)
+                    {
+                        clickcount--;
+                    }
+                    if (pieceType < 0)
+                    {
+                        clickcount--;
+                        MessageBox.Show("Please select a piece of your color");
+                    }
                     
                     break;
                 case 1:
@@ -311,11 +303,15 @@ namespace KatanaChess
                     if(ValidateMove(pieceType, alphaY, alphaX, betaY, betaX))
                     {
                         Rules.MakeMove(pieceType, alphaY, alphaX, betaY, betaX, theBoard);
-                        Rules.CheckPawnConvert(theBoard);
+                        Rules.CheckPawnPromotion(theBoard);
                         UpdateBoardView(boardView);
                         Katana.SwingKatana(theBoard);
-                        Rules.CheckPawnConvert(theBoard);
+                        Rules.CheckPawnPromotion(theBoard);
                         UpdateBoardView(boardView);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid move \r\n\r\nPlease try again");
                     }
                     break;
             }

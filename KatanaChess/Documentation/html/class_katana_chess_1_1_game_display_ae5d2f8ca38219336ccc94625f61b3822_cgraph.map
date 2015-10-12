@@ -1,0 +1,26 @@
+<map id="KatanaChess.GameDisplay.button0_0_Click" name="KatanaChess.GameDisplay.button0_0_Click">
+<area shape="rect" id="node2" href="$class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="283,275,472,301"/>
+<area shape="rect" id="node3" href="$class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="1079,397,1299,424"/>
+<area shape="rect" id="node13" href="$class_katana_chess_1_1_rules.html#a2fba8a2dfde97ad842ef5ee3430aca50" title="KatanaChess.Rules.MakeMove" alt="" coords="1585,43,1788,69"/>
+<area shape="rect" id="node14" href="$class_katana_chess_1_1_rules.html#a6c521a6bae84c3d691124154f7985fde" title="KatanaChess.Rules.CheckPawn\lPromotion" alt="" coords="538,326,749,367"/>
+<area shape="rect" id="node15" href="$class_katana_chess_1_1_game.html#a1c6560cced84cbebdf83de6fe85e6914" title="KatanaChess.Game.UpdateBoardView" alt="" coords="520,392,767,419"/>
+<area shape="rect" id="node17" href="$class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="551,209,735,250"/>
+<area shape="rect" id="node4" href="$class_katana_chess_1_1_rules.html#aaaaf3b80388d9215c70851859402d7f8" title="KatanaChess.Rules.IsPawn\lMoveValid" alt="" coords="1351,259,1533,301"/>
+<area shape="rect" id="node7" href="$class_katana_chess_1_1_rules.html#ad10c45d66335b0e78dd7f3d818cb0416" title="KatanaChess.Rules.IsKnight\lMoveValid" alt="" coords="1348,325,1536,366"/>
+<area shape="rect" id="node8" href="$class_katana_chess_1_1_rules.html#a7d955eb6c21100fc020f6f3375dc8285" title="KatanaChess.Rules.IsBishop\lMoveValid" alt="" coords="1347,390,1537,431"/>
+<area shape="rect" id="node9" href="$class_katana_chess_1_1_rules.html#a569d1a0ef53473f013a49f745abfe2b6" title="KatanaChess.Rules.IsRook\lMoveValid" alt="" coords="1351,455,1533,497"/>
+<area shape="rect" id="node10" href="$class_katana_chess_1_1_rules.html#a10d4db56c6074f6e5f19eab80b4c6d13" title="KatanaChess.Rules.IsQueen\lMoveValid" alt="" coords="1347,521,1537,562"/>
+<area shape="rect" id="node11" href="$class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9" title="KatanaChess.Rules.IsKing\lMoveValid" alt="" coords="1353,171,1531,213"/>
+<area shape="rect" id="node5" href="$class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="1836,357,2013,398"/>
+<area shape="rect" id="node6" href="$class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="1591,415,1783,457"/>
+<area shape="rect" id="node12" href="$class_katana_chess_1_1_rules.html#a326b3fc1e39593a1262decd5d240e075" title="KatanaChess.Rules.WillMove\lPutKingInCheck" alt="" coords="1590,146,1783,187"/>
+<area shape="rect" id="node16" href="$class_katana_chess_1_1_game_display.html#ae34f56c192481593197a0570e18497ca" title="KatanaChess.GameDisplay.\lSetButtonImage" alt="" coords="829,385,1016,426"/>
+<area shape="rect" id="node18" href="$class_katana_chess_1_1_katana.html#ad75b11cbfb04e06199b8622c3fd6daf3" title="KatanaChess.Katana.SelectMove" alt="" coords="815,93,1031,120"/>
+<area shape="rect" id="node19" href="$class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="819,220,1026,247"/>
+<area shape="rect" id="node20" href="$class_katana_chess_1_1_rules.html#a5046ac03d025ae53cde9805665787ea7" title="KatanaChess.Rules.PawnScan" alt="" coords="1087,195,1290,221"/>
+<area shape="rect" id="node21" href="$class_katana_chess_1_1_rules.html#a83be7d68e657161629815d7e45a932ef" title="KatanaChess.Rules.KnightScan" alt="" coords="1085,245,1293,272"/>
+<area shape="rect" id="node22" href="$class_katana_chess_1_1_rules.html#ae32d1ffd9fd23fa975a03f44d4c360aa" title="KatanaChess.Rules.BishopScan" alt="" coords="1083,296,1294,323"/>
+<area shape="rect" id="node23" href="$class_katana_chess_1_1_rules.html#a206761683d11ea6378e137f7afa71581" title="KatanaChess.Rules.RookScan" alt="" coords="1088,347,1289,373"/>
+<area shape="rect" id="node24" href="$class_katana_chess_1_1_rules.html#ac383709be554c718f29860fe6cf80ac3" title="KatanaChess.Rules.QueenScan" alt="" coords="1084,93,1293,120"/>
+<area shape="rect" id="node25" href="$class_katana_chess_1_1_rules.html#ab0b74c838f02d15480d29b776bf1a0f3" title="KatanaChess.Rules.KingScan" alt="" coords="1090,144,1287,171"/>
+</map>

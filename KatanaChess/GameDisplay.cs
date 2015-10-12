@@ -24,14 +24,24 @@ namespace KatanaChess
 
         /// <summary>
         /// * NAME: 
-        /// * SYNOPSIS:
+        ///    
+        ///     public void GameDisplay::SetButtonImage(int yVal, int xVal, int pieceType)
+        ///     
         /// * DESCRIPTION:
+        ///     Sets the image of a button
+        ///     
+        /// * RETURNS
+        ///     This method returns nothing
+        ///     
         /// * AUTHOR:
+        ///     Daniel Melnikov
+        ///     
         /// * DATE:
+        ///     9/27/15
         /// </summary>
-        /// <param name="yVal"></param>
-        /// <param name="xVal"></param>
-        /// <param name="pieceType"></param>
+        /// <param name="yVal">The Y coordinate of the square whose button was clicked</param>
+        /// <param name="xVal">The X coordinate of the square whose button was clicked</param>
+        /// <param name="pieceType">An integer value corresponding to a type of chess piece</param>
         public void SetButtonImage(int yVal, int xVal, int pieceType)
         {
             System.Windows.Forms.Button[,] buttonRefContainer = new System.Windows.Forms.Button[,]
@@ -90,6 +100,11 @@ namespace KatanaChess
             }
         }
 
+        /// <summary>
+        /// Handles the user input by calling Game::OnClick()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button0_0_Click(object sender, EventArgs e)
         {
             Game.OnClick(0, 0, this);
@@ -405,12 +420,22 @@ namespace KatanaChess
             Game.OnClick(7, 6, this);
         }
 
+        /// <summary>
+        /// Handles the user input by calling Game::OnClick()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button7_7_Click(object sender, EventArgs e)
         {
             Game.OnClick(7, 7, this);
         }
 
-        private void boardUpdateButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Starts the game by displaying the contents of the chessboard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gameStartButton_Click(object sender, EventArgs e)
         {
             Game.UpdateBoardView(this);
         }

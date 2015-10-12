@@ -1,0 +1,12 @@
+<map id="KatanaChess.Game.ValidateMove" name="KatanaChess.Game.ValidateMove">
+<area shape="rect" id="node2" href="$class_katana_chess_1_1_rules.html#aaaaf3b80388d9215c70851859402d7f8" title="KatanaChess.Rules.IsPawn\lMoveValid" alt="" coords="277,201,460,243"/>
+<area shape="rect" id="node5" href="$class_katana_chess_1_1_rules.html#ad10c45d66335b0e78dd7f3d818cb0416" title="KatanaChess.Rules.IsKnight\lMoveValid" alt="" coords="275,267,463,308"/>
+<area shape="rect" id="node6" href="$class_katana_chess_1_1_rules.html#a7d955eb6c21100fc020f6f3375dc8285" title="KatanaChess.Rules.IsBishop\lMoveValid" alt="" coords="273,5,464,47"/>
+<area shape="rect" id="node7" href="$class_katana_chess_1_1_rules.html#a569d1a0ef53473f013a49f745abfe2b6" title="KatanaChess.Rules.IsRook\lMoveValid" alt="" coords="278,71,459,112"/>
+<area shape="rect" id="node8" href="$class_katana_chess_1_1_rules.html#a10d4db56c6074f6e5f19eab80b4c6d13" title="KatanaChess.Rules.IsQueen\lMoveValid" alt="" coords="274,136,463,177"/>
+<area shape="rect" id="node9" href="$class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9" title="KatanaChess.Rules.IsKing\lMoveValid" alt="" coords="280,353,457,395"/>
+<area shape="rect" id="node3" href="$class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="763,157,940,199"/>
+<area shape="rect" id="node4" href="$class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="517,157,709,199"/>
+<area shape="rect" id="node10" href="$class_katana_chess_1_1_rules.html#a326b3fc1e39593a1262decd5d240e075" title="KatanaChess.Rules.WillMove\lPutKingInCheck" alt="" coords="517,376,710,417"/>
+<area shape="rect" id="node11" href="$class_katana_chess_1_1_rules.html#a2fba8a2dfde97ad842ef5ee3430aca50" title="KatanaChess.Rules.MakeMove" alt="" coords="512,442,715,469"/>
+</map>

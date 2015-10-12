@@ -1,0 +1,4 @@
+<map id="KatanaChess.GameDisplay.gameStartButton_Click" name="KatanaChess.GameDisplay.gameStartButton_Click">
+<area shape="rect" id="node2" href="$class_katana_chess_1_1_game.html#a1c6560cced84cbebdf83de6fe85e6914" title="KatanaChess.Game.UpdateBoardView" alt="" coords="272,13,519,39"/>
+<area shape="rect" id="node3" href="$class_katana_chess_1_1_game_display.html#ae34f56c192481593197a0570e18497ca" title="KatanaChess.GameDisplay.\lSetButtonImage" alt="" coords="567,5,753,47"/>
+</map>

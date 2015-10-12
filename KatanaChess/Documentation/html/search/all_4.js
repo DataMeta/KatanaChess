@@ -2,5 +2,6 @@ var searchData=
 [
   ['game',['Game',['../class_katana_chess_1_1_game.html',1,'KatanaChess']]],
   ['gamedisplay',['GameDisplay',['../class_katana_chess_1_1_game_display.html',1,'KatanaChess']]],
-  ['getmoves',['GetMoves',['../class_katana_chess_1_1_katana.html#afe90b27349c5692d0ede318412b86e53',1,'KatanaChess::Katana']]]
+  ['gamestartbutton_5fclick',['gameStartButton_Click',['../class_katana_chess_1_1_game_display.html#afd33516a35c3e5091b0e987e09d0d417',1,'KatanaChess::GameDisplay']]],
+  ['getmoves',['GetMoves',['../class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f',1,'KatanaChess::Katana']]]
 ];

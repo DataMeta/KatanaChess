@@ -42,7 +42,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -98,6 +97,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">KatanaChess.Rules Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p> 
+ <a href="class_katana_chess_1_1_rules.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -127,8 +129,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a10d4db56c6074f6e5f19eab80b4c6d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9805bc25b39e556a277bf937b9673b9"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9">IsKingMoveValid</a> (int initY, int initX, int targY, int targX, int[,] theBoard)</td></tr>
 <tr class="separator:aa9805bc25b39e556a277bf937b9673b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac692d3f181fedb91c8ac25911422b131"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_katana_chess_1_1_rules.html#ac692d3f181fedb91c8ac25911422b131">CheckPawnConvert</a> (int[,] theBoard)</td></tr>
-<tr class="separator:ac692d3f181fedb91c8ac25911422b131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c521a6bae84c3d691124154f7985fde"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_katana_chess_1_1_rules.html#a6c521a6bae84c3d691124154f7985fde">CheckPawnPromotion</a> (int[,] theBoard)</td></tr>
+<tr class="separator:a6c521a6bae84c3d691124154f7985fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -141,25 +143,29 @@ Static Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:a326c6b327fe5963fffc0321420f4bf95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a326c6b327fe5963fffc0321420f4bf95"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>deltaY</b></td></tr>
+<tr class="memitem:a326c6b327fe5963fffc0321420f4bf95"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_katana_chess_1_1_rules.html#a326c6b327fe5963fffc0321420f4bf95">deltaY</a></td></tr>
+<tr class="memdesc:a326c6b327fe5963fffc0321420f4bf95"><td class="mdescLeft">&#160;</td><td class="mdescRight">The absolute value diffence between a target square's and initial square's Y coordinates  <a href="#a326c6b327fe5963fffc0321420f4bf95">More...</a><br /></td></tr>
 <tr class="separator:a326c6b327fe5963fffc0321420f4bf95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c5f9ec861864cb97baad2408366b08d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c5f9ec861864cb97baad2408366b08d"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>deltaX</b></td></tr>
+<tr class="memitem:a9c5f9ec861864cb97baad2408366b08d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_katana_chess_1_1_rules.html#a9c5f9ec861864cb97baad2408366b08d">deltaX</a></td></tr>
+<tr class="memdesc:a9c5f9ec861864cb97baad2408366b08d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The absolute value diffence between a target square's and initial square's X coordinates  <a href="#a9c5f9ec861864cb97baad2408366b08d">More...</a><br /></td></tr>
 <tr class="separator:a9c5f9ec861864cb97baad2408366b08d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7123f68a828d83ea702a9db4958561de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7123f68a828d83ea702a9db4958561de"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>kingY</b></td></tr>
+<tr class="memitem:a7123f68a828d83ea702a9db4958561de"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_katana_chess_1_1_rules.html#a7123f68a828d83ea702a9db4958561de">kingY</a></td></tr>
+<tr class="memdesc:a7123f68a828d83ea702a9db4958561de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Y coordinate of the King's location  <a href="#a7123f68a828d83ea702a9db4958561de">More...</a><br /></td></tr>
 <tr class="separator:a7123f68a828d83ea702a9db4958561de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c230dfcd20f80f527340842f9ca231d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c230dfcd20f80f527340842f9ca231d"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>kingX</b></td></tr>
+<tr class="memitem:a5c230dfcd20f80f527340842f9ca231d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_katana_chess_1_1_rules.html#a5c230dfcd20f80f527340842f9ca231d">kingX</a></td></tr>
+<tr class="memdesc:a5c230dfcd20f80f527340842f9ca231d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The X coordinate of the King's location  <a href="#a5c230dfcd20f80f527340842f9ca231d">More...</a><br /></td></tr>
 <tr class="separator:a5c230dfcd20f80f527340842f9ca231d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f526fb783b60c824708174d52d8612f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f526fb783b60c824708174d52d8612f"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>blockFlag</b> = false</td></tr>
+<tr class="memitem:a6f526fb783b60c824708174d52d8612f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_katana_chess_1_1_rules.html#a6f526fb783b60c824708174d52d8612f">blockFlag</a> = false</td></tr>
+<tr class="memdesc:a6f526fb783b60c824708174d52d8612f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A flag used to keep track of whether the space between a checking piece and the king is blocked by another piece  <a href="#a6f526fb783b60c824708174d52d8612f">More...</a><br /></td></tr>
 <tr class="separator:a6f526fb783b60c824708174d52d8612f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00009">9</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
+<div class="textblock"><ul>
+<li>NAME Rules.cs</li>
+<li>DESCRIPTION This class handles all movement validation, check evaluation, and applies moves It also has methods to help the AI see what is going on with the board strategically</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/14/15 </li>
+</ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ae32d1ffd9fd23fa975a03f44d4c360aa"></a>
 <div class="memitem">
@@ -207,37 +213,41 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>blockFlag</b> 
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#ae32d1ffd9fd23fa975a03f44d4c360aa">Rules::BishopScan(int targY, int targX, int[,] theBoard, bool ally)</a></li>
+<li>DESCRIPTION Scans either whether an enemy bishop threatens the target square, or whether an allied bishop defends it</li>
+<li>RETURNS Returns true if a bishop is detected</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 10/07/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
-    <tr><td class="paramname">ally</td><td></td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square for which the method checks if it is threatened by an enemy bishop</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
+    <tr><td class="paramname">ally</td><td>A boolean flag. When true, scan for an allied bishop. When false, scan for an enemy bishop</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00157">157</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_ae32d1ffd9fd23fa975a03f44d4c360aa_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_ae32d1ffd9fd23fa975a03f44d4c360aa_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_ae32d1ffd9fd23fa975a03f44d4c360aa_icgraph" id="class_katana_chess_1_1_rules_ae32d1ffd9fd23fa975a03f44d4c360aa_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="264,46,471,73"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="519,39,703,80"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="751,46,940,73"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="988,5,1217,47"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="988,71,1217,112"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1265,39,1452,80"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac692d3f181fedb91c8ac25911422b131"></a>
+<a class="anchor" id="a6c521a6bae84c3d691124154f7985fde"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -245,7 +255,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void KatanaChess.Rules.CheckPawnConvert </td>
+          <td class="memname">static void KatanaChess.Rules.CheckPawnPromotion </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>theBoard</em>[,]</td><td>)</td>
@@ -261,26 +271,28 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static void Rules::CheckPawnConvert(int[,] theBoard)</li>
+<li>DESCRIPTION Determines whether a pawn has reached the enemy's back file and converts it if so</li>
+<li>RETURNS This method returns nothing</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 10/6/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l02958">2958</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
-
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_katana_chess_1_1_rules_ac692d3f181fedb91c8ac25911422b131_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_ac692d3f181fedb91c8ac25911422b131_icgraph" alt=""/></div>
-<map name="class_katana_chess_1_1_rules_ac692d3f181fedb91c8ac25911422b131_icgraph" id="class_katana_chess_1_1_rules_ac692d3f181fedb91c8ac25911422b131_icgraph">
+<div class="center"><img src="class_katana_chess_1_1_rules_a6c521a6bae84c3d691124154f7985fde_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a6c521a6bae84c3d691124154f7985fde_icgraph" alt=""/></div>
+<map name="class_katana_chess_1_1_rules_a6c521a6bae84c3d691124154f7985fde_icgraph" id="class_katana_chess_1_1_rules_a6c521a6bae84c3d691124154f7985fde_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="264,46,453,73"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="501,5,731,47"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="501,71,731,112"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="779,39,965,80"/>
 </map>
 </div>
 </p>
@@ -339,31 +351,31 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#a7d955eb6c21100fc020f6f3375dc8285">Rules::IsBishopMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)</a></li>
+<li>DESCRIPTION Validates bishop movement</li>
+<li>RETURNS Returns true if the pending move is valid</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/16/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l02515">2515</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a7d955eb6c21100fc020f6f3375dc8285_cgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a7d955eb6c21100fc020f6f3375dc8285_cgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a7d955eb6c21100fc020f6f3375dc8285_cgraph" id="class_katana_chess_1_1_rules_a7d955eb6c21100fc020f6f3375dc8285_cgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="484,5,661,47"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="244,35,436,76"/>
 </map>
 </div>
 </p>
@@ -373,6 +385,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a7d955eb6c21100fc020f6f3375dc8285_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a7d955eb6c21100fc020f6f3375dc8285_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a7d955eb6c21100fc020f6f3375dc8285_icgraph" id="class_katana_chess_1_1_rules_a7d955eb6c21100fc020f6f3375dc8285_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="244,45,464,71"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="999,46,1188,73"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="512,71,719,98"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1236,5,1465,47"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1236,71,1465,112"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1513,39,1700,80"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="767,68,951,109"/>
 </map>
 </div>
 </p>
@@ -431,31 +450,43 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME private static bool <a class="el" href="class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01">Rules::IsKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)</a></li>
+<li>DESCRIPTION Determines whether the friendly king is in check</li>
+<li>RETURNS Returns true if the king is currently in check</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/28/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l01679">1679</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a33d5fb5e51ce6a9523e0cf00ba09fc01_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a33d5fb5e51ce6a9523e0cf00ba09fc01_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a33d5fb5e51ce6a9523e0cf00ba09fc01_icgraph" id="class_katana_chess_1_1_rules_a33d5fb5e51ce6a9523e0cf00ba09fc01_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="231,157,423,199"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_rules.html#aaaaf3b80388d9215c70851859402d7f8" title="KatanaChess.Rules.IsPawn\lMoveValid" alt="" coords="475,5,657,47"/>
+<area shape="rect" id="node11" href="class_katana_chess_1_1_rules.html#ad10c45d66335b0e78dd7f3d818cb0416" title="KatanaChess.Rules.IsKnight\lMoveValid" alt="" coords="472,71,660,112"/>
+<area shape="rect" id="node12" href="class_katana_chess_1_1_rules.html#a7d955eb6c21100fc020f6f3375dc8285" title="KatanaChess.Rules.IsBishop\lMoveValid" alt="" coords="471,136,661,177"/>
+<area shape="rect" id="node13" href="class_katana_chess_1_1_rules.html#a569d1a0ef53473f013a49f745abfe2b6" title="KatanaChess.Rules.IsRook\lMoveValid" alt="" coords="475,201,657,243"/>
+<area shape="rect" id="node14" href="class_katana_chess_1_1_rules.html#a10d4db56c6074f6e5f19eab80b4c6d13" title="KatanaChess.Rules.IsQueen\lMoveValid" alt="" coords="471,267,661,308"/>
+<area shape="rect" id="node15" href="class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9" title="KatanaChess.Rules.IsKing\lMoveValid" alt="" coords="238,325,415,367"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="709,177,929,203"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="1464,181,1653,207"/>
+<area shape="rect" id="node9" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="977,206,1184,233"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1701,140,1931,181"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1701,205,1931,247"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1979,173,2165,215"/>
+<area shape="rect" id="node10" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="1232,203,1416,244"/>
 </map>
 </div>
 </p>
@@ -514,31 +545,32 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9">Rules::IsKingMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)</a></li>
+<li>DESCRIPTION Validates king movement</li>
+<li>RETURNS Returns true if the pending move is valid</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/15/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l02882">2882</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_aa9805bc25b39e556a277bf937b9673b9_cgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_aa9805bc25b39e556a277bf937b9673b9_cgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_aa9805bc25b39e556a277bf937b9673b9_cgraph" id="class_katana_chess_1_1_rules_aa9805bc25b39e556a277bf937b9673b9_cgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#a326b3fc1e39593a1262decd5d240e075" title="KatanaChess.Rules.WillMove\lPutKingInCheck" alt="" coords="235,5,429,47"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="243,71,421,112"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_rules.html#a2fba8a2dfde97ad842ef5ee3430aca50" title="KatanaChess.Rules.MakeMove" alt="" coords="231,137,433,163"/>
 </map>
 </div>
 </p>
@@ -548,6 +580,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_aa9805bc25b39e556a277bf937b9673b9_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_aa9805bc25b39e556a277bf937b9673b9_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_aa9805bc25b39e556a277bf937b9673b9_icgraph" id="class_katana_chess_1_1_rules_aa9805bc25b39e556a277bf937b9673b9_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="231,45,451,71"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="985,46,1175,73"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="499,71,705,98"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1223,5,1452,47"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1223,71,1452,112"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1500,39,1687,80"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="753,68,937,109"/>
 </map>
 </div>
 </p>
@@ -606,31 +645,31 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#ad10c45d66335b0e78dd7f3d818cb0416">Rules::IsKnightMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)</a></li>
+<li>DESCRIPTION Validates knight movement</li>
+<li>RETURNS Returns true if the pending move is valid</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/15/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l02464">2464</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_ad10c45d66335b0e78dd7f3d818cb0416_cgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_ad10c45d66335b0e78dd7f3d818cb0416_cgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_ad10c45d66335b0e78dd7f3d818cb0416_cgraph" id="class_katana_chess_1_1_rules_ad10c45d66335b0e78dd7f3d818cb0416_cgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="481,5,659,47"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="241,35,433,76"/>
 </map>
 </div>
 </p>
@@ -640,6 +679,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_ad10c45d66335b0e78dd7f3d818cb0416_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_ad10c45d66335b0e78dd7f3d818cb0416_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_ad10c45d66335b0e78dd7f3d818cb0416_icgraph" id="class_katana_chess_1_1_rules_ad10c45d66335b0e78dd7f3d818cb0416_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="241,45,461,71"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="996,46,1185,73"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="509,71,716,98"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1233,5,1463,47"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1233,71,1463,112"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1511,39,1697,80"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="764,68,948,109"/>
 </map>
 </div>
 </p>
@@ -704,32 +750,32 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#aaaaf3b80388d9215c70851859402d7f8">Rules::IsPawnMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard, int pieceType)</a></li>
+<li>DESCRIPTION Validates pawn movement</li>
+<li>RETURNS Returns true if the pending move is valid</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/15/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
     <tr><td class="paramname">pieceType</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l02364">2364</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_aaaaf3b80388d9215c70851859402d7f8_cgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_aaaaf3b80388d9215c70851859402d7f8_cgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_aaaaf3b80388d9215c70851859402d7f8_cgraph" id="class_katana_chess_1_1_rules_aaaaf3b80388d9215c70851859402d7f8_cgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="476,5,653,47"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="236,35,428,76"/>
 </map>
 </div>
 </p>
@@ -739,6 +785,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_aaaaf3b80388d9215c70851859402d7f8_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_aaaaf3b80388d9215c70851859402d7f8_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_aaaaf3b80388d9215c70851859402d7f8_icgraph" id="class_katana_chess_1_1_rules_aaaaf3b80388d9215c70851859402d7f8_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="236,45,456,71"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="991,46,1180,73"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="504,71,711,98"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1228,5,1457,47"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1228,71,1457,112"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1505,39,1692,80"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="759,68,943,109"/>
 </map>
 </div>
 </p>
@@ -797,31 +850,31 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool Rules::IsQueenMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard, int pieceType)</li>
+<li>DESCRIPTION Validates the queen's move</li>
+<li>RETURNS Returns true if the pending move is valid</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/16/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l02722">2722</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a10d4db56c6074f6e5f19eab80b4c6d13_cgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a10d4db56c6074f6e5f19eab80b4c6d13_cgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a10d4db56c6074f6e5f19eab80b4c6d13_cgraph" id="class_katana_chess_1_1_rules_a10d4db56c6074f6e5f19eab80b4c6d13_cgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="483,5,660,47"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="243,35,435,76"/>
 </map>
 </div>
 </p>
@@ -831,6 +884,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a10d4db56c6074f6e5f19eab80b4c6d13_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a10d4db56c6074f6e5f19eab80b4c6d13_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a10d4db56c6074f6e5f19eab80b4c6d13_icgraph" id="class_katana_chess_1_1_rules_a10d4db56c6074f6e5f19eab80b4c6d13_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="243,45,463,71"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="997,46,1187,73"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="511,71,717,98"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1235,5,1464,47"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1235,71,1464,112"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1512,39,1699,80"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="765,68,949,109"/>
 </map>
 </div>
 </p>
@@ -889,31 +949,31 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#a569d1a0ef53473f013a49f745abfe2b6">Rules::IsRookMoveValid(int initY, int initX, int targY, int targX, int[,] theBoard)</a></li>
+<li>DESCRIPTION Validates rook movement</li>
+<li>RETURNS Returns true if the pending move is valid</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/16/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l02623">2623</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a569d1a0ef53473f013a49f745abfe2b6_cgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a569d1a0ef53473f013a49f745abfe2b6_cgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a569d1a0ef53473f013a49f745abfe2b6_cgraph" id="class_katana_chess_1_1_rules_a569d1a0ef53473f013a49f745abfe2b6_cgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="475,5,652,47"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="235,35,427,76"/>
 </map>
 </div>
 </p>
@@ -923,6 +983,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a569d1a0ef53473f013a49f745abfe2b6_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a569d1a0ef53473f013a49f745abfe2b6_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a569d1a0ef53473f013a49f745abfe2b6_icgraph" id="class_katana_chess_1_1_rules_a569d1a0ef53473f013a49f745abfe2b6_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="235,45,455,71"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="989,46,1179,73"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="503,71,709,98"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1227,5,1456,47"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1227,71,1456,112"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1504,39,1691,80"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="757,68,941,109"/>
 </map>
 </div>
 </p>
@@ -975,30 +1042,34 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#ab0b74c838f02d15480d29b776bf1a0f3">Rules::KingScan(int targY, int targX, int[,] theBoard, bool ally)</a></li>
+<li>DESCRIPTION Scans either whether an enemy king threatens the target square, or whether an allied king defends it</li>
+<li>RETURNS Returns true if a king is detected</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 10/07/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
-    <tr><td class="paramname">ally</td><td></td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square for which the method checkS if it is threatened by an enemy king</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
+    <tr><td class="paramname">ally</td><td>A boolean flag. When true, scan for an allied king. When false, scan for an enemy king</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00727">727</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_ab0b74c838f02d15480d29b776bf1a0f3_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_ab0b74c838f02d15480d29b776bf1a0f3_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_ab0b74c838f02d15480d29b776bf1a0f3_icgraph" id="class_katana_chess_1_1_rules_ab0b74c838f02d15480d29b776bf1a0f3_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="251,46,457,73"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="505,39,689,80"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="737,46,927,73"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="975,5,1204,47"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="975,71,1204,112"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1252,39,1439,80"/>
 </map>
 </div>
 </p>
@@ -1051,30 +1122,34 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#a83be7d68e657161629815d7e45a932ef">Rules::KnightScan(int targY, int targX, int[,] theBoard, bool ally)</a></li>
+<li>DESCRIPTION Scans either whether an enemy knight threatens the target square, or whether an allied knight defends it</li>
+<li>RETURNS Returns true if a knight is detected</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 10/07/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
-    <tr><td class="paramname">ally</td><td></td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square for which the method checks if it is threatened by an enemy knight</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
+    <tr><td class="paramname">ally</td><td>A boolean flag. When true, scan for an allied knight. When false, scan for an enemy knight</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00089">89</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a83be7d68e657161629815d7e45a932ef_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a83be7d68e657161629815d7e45a932ef_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a83be7d68e657161629815d7e45a932ef_icgraph" id="class_katana_chess_1_1_rules_a83be7d68e657161629815d7e45a932ef_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="261,46,468,73"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="516,39,700,80"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="748,46,937,73"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="985,5,1215,47"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="985,71,1215,112"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1263,39,1449,80"/>
 </map>
 </div>
 </p>
@@ -1139,31 +1214,38 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static void <a class="el" href="class_katana_chess_1_1_rules.html#a2fba8a2dfde97ad842ef5ee3430aca50">Rules::MakeMove(int pieceType, int initY, int initX, int targY, int targX, int[,] theBoard)</a></li>
+<li>DESCRIPTION Applies the chess piece movement to theBoard</li>
+<li>RETURNS This method returns nothing</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/14/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pieceType</td><td></td></tr>
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">pieceType</td><td>An integer value corresponding to a type of chess piece</td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation (initiating square)</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the initiating piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00032">32</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a2fba8a2dfde97ad842ef5ee3430aca50_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a2fba8a2dfde97ad842ef5ee3430aca50_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a2fba8a2dfde97ad842ef5ee3430aca50_icgraph" id="class_katana_chess_1_1_rules_a2fba8a2dfde97ad842ef5ee3430aca50_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="1236,68,1425,95"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_katana.html#ad75b11cbfb04e06199b8622c3fd6daf3" title="KatanaChess.Katana.SelectMove" alt="" coords="483,43,699,69"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9" title="KatanaChess.Rules.IsKing\lMoveValid" alt="" coords="256,94,433,135"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1473,27,1703,69"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1473,93,1703,134"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1751,61,1937,102"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="1004,61,1188,102"/>
+<area shape="rect" id="node9" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="481,101,701,128"/>
+<area shape="rect" id="node10" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="749,93,956,120"/>
 </map>
 </div>
 </p>
@@ -1216,30 +1298,34 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#a5046ac03d025ae53cde9805665787ea7">Rules::PawnScan(int targY, int targX, int[,] theBoard, bool ally)</a></li>
+<li>DESCRIPTION Scans either whether an enemy pawn threatens the target square, or whether an allied pawn defends it</li>
+<li>RETURNS Returns true if a pawn is detected</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 10/07/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
-    <tr><td class="paramname">ally</td><td></td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square for which the method checks if it is threatened by an enemy pawn</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
+    <tr><td class="paramname">ally</td><td>A boolean flag. When true, scan for an allied pawn. When false, scan for an enemy pawn</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00051">51</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a5046ac03d025ae53cde9805665787ea7_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a5046ac03d025ae53cde9805665787ea7_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a5046ac03d025ae53cde9805665787ea7_icgraph" id="class_katana_chess_1_1_rules_a5046ac03d025ae53cde9805665787ea7_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="256,46,463,73"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="511,39,695,80"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="743,46,932,73"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="980,5,1209,47"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="980,71,1209,112"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1257,39,1444,80"/>
 </map>
 </div>
 </p>
@@ -1292,30 +1378,34 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#ac383709be554c718f29860fe6cf80ac3">Rules::QueenScan(int targY, int targX, int[,] theBoard, bool ally)</a></li>
+<li>DESCRIPTION Scans either whether an enemy queen threatens the target square, or whether an allied queen defends it</li>
+<li>RETURNS Returns true if a queen is detected</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 10/07/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
-    <tr><td class="paramname">ally</td><td></td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square for which the method checks if it is threatened by an enemy queen</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
+    <tr><td class="paramname">ally</td><td>A boolean flag. When true, scan for an allied queen. When false, scan for an enemy queen</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00455">455</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_ac383709be554c718f29860fe6cf80ac3_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_ac383709be554c718f29860fe6cf80ac3_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_ac383709be554c718f29860fe6cf80ac3_icgraph" id="class_katana_chess_1_1_rules_ac383709be554c718f29860fe6cf80ac3_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="263,46,469,73"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="517,39,701,80"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="749,46,939,73"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="987,5,1216,47"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="987,71,1216,112"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1264,39,1451,80"/>
 </map>
 </div>
 </p>
@@ -1368,30 +1458,34 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME public static bool <a class="el" href="class_katana_chess_1_1_rules.html#a206761683d11ea6378e137f7afa71581">Rules::RookScan(int targY, int targX, int[,] theBoard, bool ally)</a></li>
+<li>DESCRIPTION Scans either whether an enemy rook threatens the target square, or whether an allied rook defends it</li>
+<li>RETURNS Returns true if a rook is detected</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 10/07/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
-    <tr><td class="paramname">ally</td><td></td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square for which the method checks if it is threatened by an enemy rook</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
+    <tr><td class="paramname">ally</td><td>A boolean flag. When true, scan for an allied rook. When false, scan for an enemy rook</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00327">327</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a206761683d11ea6378e137f7afa71581_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a206761683d11ea6378e137f7afa71581_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a206761683d11ea6378e137f7afa71581_icgraph" id="class_katana_chess_1_1_rules_a206761683d11ea6378e137f7afa71581_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="255,46,461,73"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="509,39,693,80"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="741,46,931,73"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="979,5,1208,47"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="979,71,1208,112"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1256,39,1443,80"/>
 </map>
 </div>
 </p>
@@ -1450,31 +1544,30 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME private static bool <a class="el" href="class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80">Rules::SimulateMoveForCheck(int initY, int initX, int targY, int targX, int[,] theBoard)</a></li>
+<li>DESCRIPTION Simulates a move and determines whether it will result in a check for friendly King</li>
+<li>RETURNS Returns true if the move will result in the king being in check</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 9/28/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the piece is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l02326">2326</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_af7d04f68eb52a201e7471a2f5ab65e80_cgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_af7d04f68eb52a201e7471a2f5ab65e80_cgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_af7d04f68eb52a201e7471a2f5ab65e80_cgraph" id="class_katana_chess_1_1_rules_af7d04f68eb52a201e7471a2f5ab65e80_cgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="245,5,423,47"/>
 </map>
 </div>
 </p>
@@ -1484,6 +1577,18 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_af7d04f68eb52a201e7471a2f5ab65e80_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_af7d04f68eb52a201e7471a2f5ab65e80_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_af7d04f68eb52a201e7471a2f5ab65e80_icgraph" id="class_katana_chess_1_1_rules_af7d04f68eb52a201e7471a2f5ab65e80_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#aaaaf3b80388d9215c70851859402d7f8" title="KatanaChess.Rules.IsPawn\lMoveValid" alt="" coords="249,5,432,47"/>
+<area shape="rect" id="node10" href="class_katana_chess_1_1_rules.html#ad10c45d66335b0e78dd7f3d818cb0416" title="KatanaChess.Rules.IsKnight\lMoveValid" alt="" coords="247,71,435,112"/>
+<area shape="rect" id="node11" href="class_katana_chess_1_1_rules.html#a7d955eb6c21100fc020f6f3375dc8285" title="KatanaChess.Rules.IsBishop\lMoveValid" alt="" coords="245,136,436,177"/>
+<area shape="rect" id="node12" href="class_katana_chess_1_1_rules.html#a569d1a0ef53473f013a49f745abfe2b6" title="KatanaChess.Rules.IsRook\lMoveValid" alt="" coords="250,201,431,243"/>
+<area shape="rect" id="node13" href="class_katana_chess_1_1_rules.html#a10d4db56c6074f6e5f19eab80b4c6d13" title="KatanaChess.Rules.IsQueen\lMoveValid" alt="" coords="246,267,435,308"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="484,143,704,170"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="1239,147,1428,174"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="752,173,959,199"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1476,107,1705,148"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1476,172,1705,213"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1753,140,1940,181"/>
+<area shape="rect" id="node9" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="1007,169,1191,211"/>
 </map>
 </div>
 </p>
@@ -1542,39 +1647,156 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 <ul>
-<li>NAME:</li>
-<li>SYNOPSIS:</li>
-<li>DESCRIPTION:</li>
-<li>AUTHOR:</li>
-<li>DATE: </li>
+<li>NAME private static bool <a class="el" href="class_katana_chess_1_1_rules.html#a326b3fc1e39593a1262decd5d240e075">Rules::WillMovePutKingInCheck(int initY, int initX, int targY, int targX, int[,] theBoard)</a></li>
+<li>DESCRIPTION Determines whether the pending king move will directly put it into check</li>
+<li>RETURNS Returns true if execution of the move will out the king in check</li>
+<li>AUTHOR Daniel Melnikov</li>
+<li>DATE 10/03/15 </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initY</td><td></td></tr>
-    <tr><td class="paramname">initX</td><td></td></tr>
-    <tr><td class="paramname">targY</td><td></td></tr>
-    <tr><td class="paramname">targX</td><td></td></tr>
-    <tr><td class="paramname">theBoard</td><td></td></tr>
+    <tr><td class="paramname">initY</td><td>The Y coordinate of the square of the piece whose move is under validation</td></tr>
+    <tr><td class="paramname">initX</td><td>The X coordinate of the initiating square</td></tr>
+    <tr><td class="paramname">targY</td><td>The Y coordinate of the target square to which the king is to move to</td></tr>
+    <tr><td class="paramname">targX</td><td>The X coordinate of the target square</td></tr>
+    <tr><td class="paramname">theBoard</td><td>The 2-dimensional array representation of the pieces and their positions on a chessboard</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Definition at line <a class="el" href="_rules_8cs_source.html#l00930">930</a> of file <a class="el" href="_rules_8cs_source.html">Rules.cs</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_katana_chess_1_1_rules_a326b3fc1e39593a1262decd5d240e075_icgraph.png" border="0" usemap="#class_katana_chess_1_1_rules_a326b3fc1e39593a1262decd5d240e075_icgraph" alt=""/></div>
 <map name="class_katana_chess_1_1_rules_a326b3fc1e39593a1262decd5d240e075_icgraph" id="class_katana_chess_1_1_rules_a326b3fc1e39593a1262decd5d240e075_icgraph">
+<area shape="rect" id="node2" href="class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9" title="KatanaChess.Rules.IsKing\lMoveValid" alt="" coords="247,37,424,79"/>
+<area shape="rect" id="node3" href="class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="472,45,692,71"/>
+<area shape="rect" id="node4" href="class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="1227,46,1416,73"/>
+<area shape="rect" id="node8" href="class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="740,71,947,98"/>
+<area shape="rect" id="node5" href="class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1464,5,1693,47"/>
+<area shape="rect" id="node7" href="class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1464,71,1693,112"/>
+<area shape="rect" id="node6" href="class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1741,39,1928,80"/>
+<area shape="rect" id="node9" href="class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="995,68,1179,109"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a6f526fb783b60c824708174d52d8612f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool KatanaChess.Rules.blockFlag = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A flag used to keep track of whether the space between a checking piece and the king is blocked by another piece </p>
+
+</div>
+</div>
+<a class="anchor" id="a9c5f9ec861864cb97baad2408366b08d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int KatanaChess.Rules.deltaX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The absolute value diffence between a target square's and initial square's X coordinates </p>
+
+</div>
+</div>
+<a class="anchor" id="a326c6b327fe5963fffc0321420f4bf95"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int KatanaChess.Rules.deltaY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The absolute value diffence between a target square's and initial square's Y coordinates </p>
+
+</div>
+</div>
+<a class="anchor" id="a5c230dfcd20f80f527340842f9ca231d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int KatanaChess.Rules.kingX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The X coordinate of the King's location </p>
+
+</div>
+</div>
+<a class="anchor" id="a7123f68a828d83ea702a9db4958561de"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int KatanaChess.Rules.kingY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The Y coordinate of the King's location </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Daniel/Documents/Visual Studio 2013/Projects/KatanaChess/KatanaChess/<a class="el" href="_rules_8cs_source.html">Rules.cs</a></li>
+<li>C:/Users/Daniel/Documents/Visual Studio 2013/Projects/KatanaChess/KatanaChess/Rules.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

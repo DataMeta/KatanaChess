@@ -1,0 +1,4 @@
+<map id="KatanaChess.Rules.IsQueenMoveValid" name="KatanaChess.Rules.IsQueenMoveValid">
+<area shape="rect" id="node2" href="$class_katana_chess_1_1_rules.html#a33d5fb5e51ce6a9523e0cf00ba09fc01" title="KatanaChess.Rules.IsKing\lInCheck" alt="" coords="483,5,660,47"/>
+<area shape="rect" id="node3" href="$class_katana_chess_1_1_rules.html#af7d04f68eb52a201e7471a2f5ab65e80" title="KatanaChess.Rules.Simulate\lMoveForCheck" alt="" coords="243,35,435,76"/>
+</map>

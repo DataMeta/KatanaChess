@@ -1,0 +1,11 @@
+<map id="KatanaChess.Rules.MakeMove" name="KatanaChess.Rules.MakeMove">
+<area shape="rect" id="node2" href="$class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="1236,68,1425,95"/>
+<area shape="rect" id="node6" href="$class_katana_chess_1_1_katana.html#ad75b11cbfb04e06199b8622c3fd6daf3" title="KatanaChess.Katana.SelectMove" alt="" coords="483,43,699,69"/>
+<area shape="rect" id="node8" href="$class_katana_chess_1_1_rules.html#aa9805bc25b39e556a277bf937b9673b9" title="KatanaChess.Rules.IsKing\lMoveValid" alt="" coords="256,94,433,135"/>
+<area shape="rect" id="node3" href="$class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="1473,27,1703,69"/>
+<area shape="rect" id="node5" href="$class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="1473,93,1703,134"/>
+<area shape="rect" id="node4" href="$class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1751,61,1937,102"/>
+<area shape="rect" id="node7" href="$class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="1004,61,1188,102"/>
+<area shape="rect" id="node9" href="$class_katana_chess_1_1_game.html#a76ef6416a84152c22552f276888d6b0f" title="KatanaChess.Game.ValidateMove" alt="" coords="481,101,701,128"/>
+<area shape="rect" id="node10" href="$class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="749,93,956,120"/>
+</map>

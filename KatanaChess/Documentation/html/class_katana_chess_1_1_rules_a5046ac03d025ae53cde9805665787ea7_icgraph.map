@@ -1,0 +1,8 @@
+<map id="KatanaChess.Rules.PawnScan" name="KatanaChess.Rules.PawnScan">
+<area shape="rect" id="node2" href="$class_katana_chess_1_1_katana.html#ad5357c9c777e98a9330ab705be672d0f" title="KatanaChess.Katana.GetMoves" alt="" coords="256,46,463,73"/>
+<area shape="rect" id="node3" href="$class_katana_chess_1_1_katana.html#a644eb213fa8655b5bd65a309030bcc40" title="KatanaChess.Katana.Swing\lKatana" alt="" coords="511,39,695,80"/>
+<area shape="rect" id="node4" href="$class_katana_chess_1_1_game.html#abb1645b3297eae51c6ad9dabcea74830" title="KatanaChess.Game.OnClick" alt="" coords="743,46,932,73"/>
+<area shape="rect" id="node5" href="$class_katana_chess_1_1_game_display.html#ae5d2f8ca38219336ccc94625f61b3822" title="Handles the user input by calling Game::OnClick() " alt="" coords="980,5,1209,47"/>
+<area shape="rect" id="node7" href="$class_katana_chess_1_1_game_display.html#a91a261fe16f0b7283370d90acbbb2a31" title="Handles the user input by calling Game::OnClick() " alt="" coords="980,71,1209,112"/>
+<area shape="rect" id="node6" href="$class_katana_chess_1_1_game_display.html#a615c315e07b43d78480494ed8b2a42e1" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1257,39,1444,80"/>
+</map>

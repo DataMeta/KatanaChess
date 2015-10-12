@@ -92,7 +92,7 @@
             this.button6_2 = new System.Windows.Forms.Button();
             this.button6_1 = new System.Windows.Forms.Button();
             this.button6_0 = new System.Windows.Forms.Button();
-            this.boardUpdateButton = new System.Windows.Forms.Button();
+            this.gameStartButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button0_0
@@ -1055,22 +1055,22 @@
             this.button6_0.UseVisualStyleBackColor = false;
             this.button6_0.Click += new System.EventHandler(this.button6_0_Click);
             // 
-            // boardUpdateButton
+            // gameStartButton
             // 
-            this.boardUpdateButton.Location = new System.Drawing.Point(468, 425);
-            this.boardUpdateButton.Name = "boardUpdateButton";
-            this.boardUpdateButton.Size = new System.Drawing.Size(132, 40);
-            this.boardUpdateButton.TabIndex = 65;
-            this.boardUpdateButton.Text = "Start Chess Match";
-            this.boardUpdateButton.UseVisualStyleBackColor = true;
-            this.boardUpdateButton.Click += new System.EventHandler(this.boardUpdateButton_Click);
+            this.gameStartButton.Location = new System.Drawing.Point(468, 425);
+            this.gameStartButton.Name = "gameStartButton";
+            this.gameStartButton.Size = new System.Drawing.Size(132, 40);
+            this.gameStartButton.TabIndex = 65;
+            this.gameStartButton.Text = "Start Chess Match";
+            this.gameStartButton.UseVisualStyleBackColor = true;
+            this.gameStartButton.Click += new System.EventHandler(this.gameStartButton_Click);
             // 
             // GameDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 473);
-            this.Controls.Add(this.boardUpdateButton);
+            this.Controls.Add(this.gameStartButton);
             this.Controls.Add(this.button7_7);
             this.Controls.Add(this.button7_6);
             this.Controls.Add(this.button7_5);
@@ -1208,7 +1208,7 @@
         private System.Windows.Forms.Button button6_2;
         private System.Windows.Forms.Button button6_1;
         private System.Windows.Forms.Button button6_0;
-        private System.Windows.Forms.Button boardUpdateButton;
+        private System.Windows.Forms.Button gameStartButton;
     }
 }
 
